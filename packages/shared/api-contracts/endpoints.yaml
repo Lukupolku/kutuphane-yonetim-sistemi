@@ -1,0 +1,38 @@
+openapi: 3.0.3
+info:
+  title: Kütüphane Yönetim Sistemi API
+  version: 0.1.0-mock
+  description: MVP mock API contract
+
+paths:
+  /api/books:
+    get:
+      summary: Kitap listesi
+      parameters:
+        - name: search
+          in: query
+          schema: { type: string }
+        - name: isbn
+          in: query
+          schema: { type: string }
+  /api/books/{id}:
+    get:
+      summary: Kitap detayı (holding bilgileriyle)
+  /api/schools:
+    get:
+      summary: Okul listesi (filtreli)
+      parameters:
+        - name: province
+          in: query
+          schema: { type: string }
+        - name: district
+          in: query
+          schema: { type: string }
+  /api/schools/{id}/holdings:
+    get:
+      summary: Bir okulun kitap envanteri
+    post:
+      summary: Okul envanterine kitap ekle
+  /api/lookup/isbn/{isbn}:
+    get:
+      summary: ISBN ile kitap ara (Google Books → Open Library fallback)

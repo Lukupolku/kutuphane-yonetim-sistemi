@@ -1,0 +1,14 @@
+[
+  {"id":"s1-ankara-cankaya-ataturk-ilk","name":"Atatürk İlkokulu","province":"Ankara","district":"Çankaya","schoolType":"ILKOKUL","ministryCode":"06001001"},
+  {"id":"s2-ankara-cankaya-inonu-orta","name":"İnönü Ortaokulu","province":"Ankara","district":"Çankaya","schoolType":"ORTAOKUL","ministryCode":"06001002"},
+  {"id":"s3-ankara-kecioren-fatih-lise","name":"Fatih Anadolu Lisesi","province":"Ankara","district":"Keçiören","schoolType":"LISE","ministryCode":"06002001"},
+  {"id":"s4-ankara-kecioren-mehmetakif-ilk","name":"Mehmet Akif İlkokulu","province":"Ankara","district":"Keçiören","schoolType":"ILKOKUL","ministryCode":"06002002"},
+  {"id":"s5-istanbul-kadikoy-moda-orta","name":"Moda Ortaokulu","province":"İstanbul","district":"Kadıköy","schoolType":"ORTAOKUL","ministryCode":"34001001"},
+  {"id":"s6-istanbul-kadikoy-fenerbahce-lise","name":"Fenerbahçe Anadolu Lisesi","province":"İstanbul","district":"Kadıköy","schoolType":"LISE","ministryCode":"34001002"},
+  {"id":"s7-istanbul-besiktas-barbaros-ilk","name":"Barbaros İlkokulu","province":"İstanbul","district":"Beşiktaş","schoolType":"ILKOKUL","ministryCode":"34002001"},
+  {"id":"s8-istanbul-besiktas-sinanpasa-orta","name":"Sinanpaşa Ortaokulu","province":"İstanbul","district":"Beşiktaş","schoolType":"ORTAOKUL","ministryCode":"34002002"},
+  {"id":"s9-izmir-konak-alsancak-lise","name":"Alsancak Fen Lisesi","province":"İzmir","district":"Konak","schoolType":"LISE","ministryCode":"35001001"},
+  {"id":"s10-izmir-konak-kemeralt-ilk","name":"Kemeraltı İlkokulu","province":"İzmir","district":"Konak","schoolType":"ILKOKUL","ministryCode":"35001002"},
+  {"id":"s11-izmir-bornova-ege-orta","name":"Ege Ortaokulu","province":"İzmir","district":"Bornova","schoolType":"ORTAOKUL","ministryCode":"35002001"},
+  {"id":"s12-izmir-bornova-dokuz-eylul-lise","name":"Dokuz Eylül Anadolu Lisesi","province":"İzmir","district":"Bornova","schoolType":"LISE","ministryCode":"35002002"}
+]

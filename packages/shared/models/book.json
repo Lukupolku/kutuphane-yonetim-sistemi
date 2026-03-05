@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Book",
+  "type": "object",
+  "required": ["id", "title", "authors", "language", "source", "createdAt"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "isbn": { "type": ["string", "null"], "pattern": "^[0-9]{13}$" },
+    "title": { "type": "string" },
+    "authors": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "publisher": { "type": ["string", "null"] },
+    "publishedDate": { "type": ["string", "null"] },
+    "pageCount": { "type": ["integer", "null"], "minimum": 1 },
+    "coverImageUrl": { "type": ["string", "null"], "format": "uri" },
+    "language": { "type": "string", "minLength": 2, "maxLength": 5 },
+    "source": { "type": "string", "enum": ["GOOGLE_BOOKS", "OPEN_LIBRARY", "MANUAL", "OCR"] },
+    "createdAt": { "type": "string", "format": "date-time" }
+  }
+}

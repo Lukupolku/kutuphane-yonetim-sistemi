@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Holding",
+  "type": "object",
+  "required": ["id", "bookId", "schoolId", "quantity", "addedBy", "addedAt", "source"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "bookId": { "type": "string", "format": "uuid" },
+    "schoolId": { "type": "string", "format": "uuid" },
+    "quantity": { "type": "integer", "minimum": 1, "default": 1 },
+    "addedBy": { "type": "string" },
+    "addedAt": { "type": "string", "format": "date-time" },
+    "source": { "type": "string", "enum": ["BARCODE_SCAN", "COVER_OCR", "SHELF_OCR", "MANUAL"] }
+  }
+}
