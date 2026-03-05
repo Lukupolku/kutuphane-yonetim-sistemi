@@ -7,11 +7,11 @@
 ## Faz 0: MVP (Mevcut)
 
 - [x] Tasarım dokümanı onaylandı
-- [ ] Monorepo yapısı kurulumu
-- [ ] Shared paket: modeller, mock data, API kontratları
-- [ ] Flutter mobil uygulama (ISBN tarama, kapak OCR, raf OCR, kaydetme, envanter listesi)
-- [ ] React web dashboard (hiyerarşik sorgulama, kitap arama)
-- [ ] Mock data layer (backend soyutlanmış)
+- [x] Monorepo yapısı kurulumu
+- [x] Shared paket: modeller, mock data, API kontratları
+- [x] Flutter mobil uygulama (ISBN tarama, kapak OCR, raf OCR, kaydetme, envanter listesi)
+- [x] React web dashboard (hiyerarşik sorgulama, kitap arama)
+- [x] Mock data layer (backend soyutlanmış)
 
 ---
 
