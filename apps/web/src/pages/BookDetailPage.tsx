@@ -20,16 +20,26 @@ export function BookDetailPage() {
   }, [id]);
 
   if (loading) {
-    return <div style={{ padding: '2rem', textAlign: 'center' }}>Yükleniyor...</div>;
+    return (
+      <div className="page-container">
+        <div className="loading-state">
+          <div className="loading-spinner" />
+          <p>Yükleniyor...</p>
+        </div>
+      </div>
+    );
   }
 
   if (!data) {
     return (
-      <div style={{ padding: '2rem', textAlign: 'center' }}>
-        <p>Kitap bulunamadı.</p>
-        <button onClick={() => navigate('/')} style={{ marginTop: '1rem', padding: '8px 16px', cursor: 'pointer' }}>
-          Dashboard'a Dön
-        </button>
+      <div className="page-container">
+        <div className="empty-state">
+          <div className="empty-state-icon">📖</div>
+          <p className="empty-state-text">Kitap bulunamadı.</p>
+          <button className="btn btn--primary" onClick={() => navigate('/')} style={{ marginTop: '1rem' }}>
+            Dashboard'a Dön
+          </button>
+        </div>
       </div>
     );
   }
@@ -38,51 +48,58 @@ export function BookDetailPage() {
   const totalQuantity = holdings.reduce((sum, h) => sum + h.holding.quantity, 0);
 
   return (
-    <div style={{ padding: '1.5rem', maxWidth: '900px', margin: '0 auto' }}>
-      <button
-        onClick={() => navigate(-1)}
-        style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#0066cc', fontSize: '0.95rem', marginBottom: '1rem', padding: 0 }}
-      >
-        ← Geri
+    <div className="page-container">
+      <button className="back-link" onClick={() => navigate(-1)}>
+        ← Geri Dön
       </button>
 
-      <div style={{ background: '#f9f9f9', borderRadius: '8px', padding: '1.5rem', marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{book.title}</h1>
-        <p style={{ color: '#555', fontSize: '1.1rem', marginBottom: '1rem' }}>{book.authors.join(', ')}</p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.75rem' }}>
+      <div className="book-detail-card">
+        <div className="book-detail-header">
+          <h1 className="book-detail-title">{book.title}</h1>
+          <p className="book-detail-author">{book.authors.join(', ')}</p>
+        </div>
+        <div className="book-detail-meta">
           {book.isbn && (
-            <div>
-              <span style={{ fontSize: '0.85rem', color: '#888' }}>ISBN</span>
-              <p style={{ fontFamily: 'monospace', margin: '2px 0' }}>{book.isbn}</p>
+            <div className="meta-item">
+              <span className="meta-item-label">ISBN</span>
+              <span className="meta-item-value meta-item-value--mono">{book.isbn}</span>
             </div>
           )}
           {book.publisher && (
-            <div>
-              <span style={{ fontSize: '0.85rem', color: '#888' }}>Yayınevi</span>
-              <p style={{ margin: '2px 0' }}>{book.publisher}</p>
+            <div className="meta-item">
+              <span className="meta-item-label">Yayınevi</span>
+              <span className="meta-item-value">{book.publisher}</span>
             </div>
           )}
           {book.publishedDate && (
-            <div>
-              <span style={{ fontSize: '0.85rem', color: '#888' }}>Basım Yılı</span>
-              <p style={{ margin: '2px 0' }}>{book.publishedDate}</p>
+            <div className="meta-item">
+              <span className="meta-item-label">Basım Yılı</span>
+              <span className="meta-item-value">{book.publishedDate}</span>
             </div>
           )}
           {book.pageCount && (
-            <div>
-              <span style={{ fontSize: '0.85rem', color: '#888' }}>Sayfa Sayısı</span>
-              <p style={{ margin: '2px 0' }}>{book.pageCount}</p>
+            <div className="meta-item">
+              <span className="meta-item-label">Sayfa Sayısı</span>
+              <span className="meta-item-value">{book.pageCount}</span>
             </div>
           )}
+          <div className="meta-item">
+            <span className="meta-item-label">Dil</span>
+            <span className="meta-item-value">{book.language === 'tr' ? 'Türkçe' : book.language}</span>
+          </div>
         </div>
       </div>
 
-      <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h2 style={{ fontSize: '1.2rem' }}>Bu Kitaba Sahip Okullar</h2>
-        <span style={{ color: '#666' }}>
-          {holdings.length} okul, toplam {totalQuantity} adet
-        </span>
+      <div className="holdings-header">
+        <h2 className="holdings-title">Bu Kitaba Sahip Okullar</h2>
+        <div className="holdings-summary">
+          <span className="holdings-summary-badge cell-badge cell-badge--school">
+            🏫 {holdings.length} okul
+          </span>
+          <span className="holdings-summary-badge cell-badge cell-badge--quantity">
+            📚 {totalQuantity} adet
+          </span>
+        </div>
       </div>
 
       <SchoolHoldingsList holdings={holdings} />

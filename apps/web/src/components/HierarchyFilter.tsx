@@ -15,12 +15,10 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
   const [selectedDistrict, setSelectedDistrict] = useState<string>('');
   const [selectedSchool, setSelectedSchool] = useState<string>('');
 
-  // Load provinces on mount
   useEffect(() => {
     api.getProvinces().then(setProvinces);
   }, []);
 
-  // Load districts when province changes
   useEffect(() => {
     if (selectedProvince) {
       api.getDistricts(selectedProvince).then(setDistricts);
@@ -31,7 +29,6 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
     setSelectedSchool('');
   }, [selectedProvince]);
 
-  // Load schools when district changes
   useEffect(() => {
     if (selectedProvince) {
       const params: FilterParams = { province: selectedProvince };
@@ -43,7 +40,6 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
     setSelectedSchool('');
   }, [selectedProvince, selectedDistrict]);
 
-  // Notify parent of filter changes
   useEffect(() => {
     const params: FilterParams = {};
     if (selectedProvince) params.province = selectedProvince;
@@ -53,46 +49,51 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
   }, [selectedProvince, selectedDistrict, selectedSchool]);
 
   return (
-    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', padding: '1rem', background: '#f5f5f5', borderRadius: '8px' }}>
-      <div>
-        <label htmlFor="province-select" style={{ display: 'block', fontSize: '0.85rem', marginBottom: '4px', fontWeight: 600 }}>İl</label>
-        <select
-          id="province-select"
-          value={selectedProvince}
-          onChange={e => setSelectedProvince(e.target.value)}
-          style={{ padding: '8px 12px', borderRadius: '4px', border: '1px solid #ccc', minWidth: '160px' }}
-        >
-          <option value="">Tüm İller</option>
-          {provinces.map(p => <option key={p} value={p}>{p}</option>)}
-        </select>
+    <div className="filter-bar">
+      <div className="filter-bar-title">
+        <span>📍</span> Coğrafi Filtre
       </div>
+      <div className="filter-bar-fields">
+        <div className="filter-group">
+          <label htmlFor="province-select" className="filter-label">İl</label>
+          <select
+            id="province-select"
+            className="filter-select"
+            value={selectedProvince}
+            onChange={e => setSelectedProvince(e.target.value)}
+          >
+            <option value="">Tüm İller</option>
+            {provinces.map(p => <option key={p} value={p}>{p}</option>)}
+          </select>
+        </div>
 
-      <div>
-        <label htmlFor="district-select" style={{ display: 'block', fontSize: '0.85rem', marginBottom: '4px', fontWeight: 600 }}>İlçe</label>
-        <select
-          id="district-select"
-          value={selectedDistrict}
-          onChange={e => setSelectedDistrict(e.target.value)}
-          disabled={!selectedProvince}
-          style={{ padding: '8px 12px', borderRadius: '4px', border: '1px solid #ccc', minWidth: '160px' }}
-        >
-          <option value="">Tüm İlçeler</option>
-          {districts.map(d => <option key={d} value={d}>{d}</option>)}
-        </select>
-      </div>
+        <div className="filter-group">
+          <label htmlFor="district-select" className="filter-label">İlçe</label>
+          <select
+            id="district-select"
+            className="filter-select"
+            value={selectedDistrict}
+            onChange={e => setSelectedDistrict(e.target.value)}
+            disabled={!selectedProvince}
+          >
+            <option value="">Tüm İlçeler</option>
+            {districts.map(d => <option key={d} value={d}>{d}</option>)}
+          </select>
+        </div>
 
-      <div>
-        <label htmlFor="school-select" style={{ display: 'block', fontSize: '0.85rem', marginBottom: '4px', fontWeight: 600 }}>Okul</label>
-        <select
-          id="school-select"
-          value={selectedSchool}
-          onChange={e => setSelectedSchool(e.target.value)}
-          disabled={!selectedProvince}
-          style={{ padding: '8px 12px', borderRadius: '4px', border: '1px solid #ccc', minWidth: '200px' }}
-        >
-          <option value="">Tüm Okullar</option>
-          {schools.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
-        </select>
+        <div className="filter-group">
+          <label htmlFor="school-select" className="filter-label">Okul</label>
+          <select
+            id="school-select"
+            className="filter-select"
+            value={selectedSchool}
+            onChange={e => setSelectedSchool(e.target.value)}
+            disabled={!selectedProvince}
+          >
+            <option value="">Tüm Okullar</option>
+            {schools.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+          </select>
+        </div>
       </div>
     </div>
   );

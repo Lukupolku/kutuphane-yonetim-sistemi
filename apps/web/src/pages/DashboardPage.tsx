@@ -29,16 +29,40 @@ export function DashboardPage() {
     ? filter.province
     : 'Tüm Türkiye';
 
+  const totalBooks = books.length;
+  const totalQuantity = books.reduce((sum, b) => sum + b.totalQuantity, 0);
+  const totalHoldings = books.reduce((sum, b) => sum + b.schoolCount, 0);
+
   return (
-    <div style={{ padding: '1.5rem' }}>
-      <h1 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Kütüphane Envanter Dashboard</h1>
+    <div className="page-container">
+      <div className="page-header">
+        <h1 className="page-title">Kütüphane Envanter Dashboard</h1>
+        <p className="page-subtitle">Okulların kütüphane envanterlerini görüntüleyin ve filtreleyin</p>
+      </div>
+
+      <div className="stats-grid">
+        <div className="stat-card stat-card--primary">
+          <div className="stat-card-label">Farklı Kitap</div>
+          <div className="stat-card-value">{totalBooks}</div>
+          <div className="stat-card-detail">benzersiz eser</div>
+        </div>
+        <div className="stat-card stat-card--accent">
+          <div className="stat-card-label">Toplam Adet</div>
+          <div className="stat-card-value">{totalQuantity}</div>
+          <div className="stat-card-detail">fiziksel kopya</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-card-label">Okul Eşleşmesi</div>
+          <div className="stat-card-value">{totalHoldings}</div>
+          <div className="stat-card-detail">kayıtlı holding</div>
+        </div>
+      </div>
 
       <HierarchyFilter onFilterChange={setFilter} />
 
-      <div style={{ margin: '1rem 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h2 style={{ fontSize: '1.1rem', color: '#444' }}>
-          {scopeLabel} — {books.length} farklı kitap
-        </h2>
+      <div className="scope-bar">
+        <span className="scope-label">{scopeLabel}</span>
+        <span className="scope-count">{books.length} farklı kitap</span>
       </div>
 
       <BookTable
