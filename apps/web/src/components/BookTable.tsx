@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Search, BookX } from 'lucide-react';
 import type { Book } from '../types';
 
 interface BookTableRow extends Book {
@@ -28,11 +29,13 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
   return (
     <div>
       <div className="search-container">
-        <span className="search-icon">⌕</span>
+        <span className="search-icon">
+          <Search size={18} />
+        </span>
         <input
           type="text"
           className="search-input"
-          placeholder="Kitap ara (başlık, yazar, ISBN)..."
+          placeholder="Tabloda ara (başlık, yazar, ISBN)..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           aria-label="Kitap ara"
@@ -46,7 +49,9 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
         </div>
       ) : filtered.length === 0 ? (
         <div className="empty-state">
-          <div className="empty-state-icon">📖</div>
+          <div className="empty-state-icon">
+            <BookX size={40} strokeWidth={1.5} />
+          </div>
           <p className="empty-state-text">Kitap bulunamadı.</p>
         </div>
       ) : (

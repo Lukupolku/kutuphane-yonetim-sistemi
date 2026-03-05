@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BookOpenText, Layers, School } from 'lucide-react';
 import { HierarchyFilter } from '../components/HierarchyFilter';
 import { BookTable } from '../components/BookTable';
 import { api } from '../services/api';
@@ -36,25 +37,34 @@ export function DashboardPage() {
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1 className="page-title">Kütüphane Envanter Dashboard</h1>
+        <h1 className="page-title">Genel Bakış</h1>
         <p className="page-subtitle">Okulların kütüphane envanterlerini görüntüleyin ve filtreleyin</p>
       </div>
 
       <div className="stats-grid">
         <div className="stat-card stat-card--primary">
-          <div className="stat-card-label">Farklı Kitap</div>
+          <div className="stat-card-icon">
+            <BookOpenText size={20} />
+          </div>
+          <div className="stat-card-label">Farklı Eser</div>
           <div className="stat-card-value">{totalBooks}</div>
-          <div className="stat-card-detail">benzersiz eser</div>
+          <div className="stat-card-detail">benzersiz kitap</div>
         </div>
         <div className="stat-card stat-card--accent">
-          <div className="stat-card-label">Toplam Adet</div>
+          <div className="stat-card-icon">
+            <Layers size={20} />
+          </div>
+          <div className="stat-card-label">Toplam Kopya</div>
           <div className="stat-card-value">{totalQuantity}</div>
-          <div className="stat-card-detail">fiziksel kopya</div>
+          <div className="stat-card-detail">fiziksel adet</div>
         </div>
         <div className="stat-card">
-          <div className="stat-card-label">Okul Eşleşmesi</div>
+          <div className="stat-card-icon">
+            <School size={20} />
+          </div>
+          <div className="stat-card-label">Okul Kaydı</div>
           <div className="stat-card-value">{totalHoldings}</div>
-          <div className="stat-card-detail">kayıtlı holding</div>
+          <div className="stat-card-detail">envanter girişi</div>
         </div>
       </div>
 

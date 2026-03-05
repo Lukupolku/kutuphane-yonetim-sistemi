@@ -240,9 +240,10 @@ a:hover {
 }
 
 .sidebar-link-icon {
-  font-size: 1.15rem;
-  width: 24px;
-  text-align: center;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -336,6 +337,28 @@ a:hover {
 .stat-card:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
+}
+
+.stat-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-sm);
+}
+
+.stat-card--primary .stat-card-icon {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.stat-card--accent .stat-card-icon {
+  background: var(--color-accent-light);
+  color: var(--color-accent-dark);
 }
 
 .stat-card-label {
@@ -769,12 +792,13 @@ a:hover {
 .source-badge {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 3px 10px;
+  gap: 5px;
+  padding: 4px 10px;
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .source-badge--barcode {

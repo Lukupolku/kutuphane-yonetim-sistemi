@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Search, SearchX } from 'lucide-react';
 import { api } from '../services/api';
 import { BookTable } from '../components/BookTable';
 import type { Book } from '../types';
@@ -33,7 +34,9 @@ export function SearchPage() {
 
       <div className="search-bar-row">
         <div className="search-container">
-          <span className="search-icon">⌕</span>
+          <span className="search-icon">
+            <Search size={18} />
+          </span>
           <input
             type="text"
             className="search-input"
@@ -62,7 +65,9 @@ export function SearchPage() {
 
       {searched && !loading && results.length === 0 && (
         <div className="empty-state">
-          <div className="empty-state-icon">🔍</div>
+          <div className="empty-state-icon">
+            <SearchX size={40} strokeWidth={1.5} />
+          </div>
           <p className="empty-state-text">"{query}" için sonuç bulunamadı.</p>
         </div>
       )}

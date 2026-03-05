@@ -12,7 +12,7 @@ describe('DashboardPage', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText('Kütüphane Envanter Dashboard')).toBeInTheDocument();
+      expect(screen.getByText('Genel Bakış')).toBeInTheDocument();
       expect(screen.getByLabelText('İl')).toBeInTheDocument();
       // Should show books after loading
       expect(screen.getByText('Küçük Prens')).toBeInTheDocument();

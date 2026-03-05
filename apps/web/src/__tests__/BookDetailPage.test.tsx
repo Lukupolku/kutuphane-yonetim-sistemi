@@ -33,8 +33,8 @@ describe('BookDetailPage', () => {
     );
 
     await waitFor(() => {
-      // b1: 5+3+2 = 10 total, 3 schools
-      expect(screen.getByText(/3 okul/)).toBeInTheDocument();
+      // b1: 5+3+2 = 10 total, 3 schools — use getAllByText since filter dropdown also shows count
+      expect(screen.getAllByText(/3 okul/).length).toBeGreaterThanOrEqual(1);
       expect(screen.getByText(/10 adet/)).toBeInTheDocument();
     });
   });

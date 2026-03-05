@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { MapPin } from 'lucide-react';
 import { api } from '../services/api';
 import type { School, FilterParams } from '../types';
 
@@ -51,7 +52,8 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
   return (
     <div className="filter-bar">
       <div className="filter-bar-title">
-        <span>📍</span> Coğrafi Filtre
+        <MapPin size={14} />
+        Coğrafi Filtre
       </div>
       <div className="filter-bar-fields">
         <div className="filter-group">

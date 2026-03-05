@@ -1,14 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { ArrowLeft, School, BookCopy, BookX, MapPin } from 'lucide-react';
 import { api } from '../services/api';
 import { SchoolHoldingsList } from '../components/SchoolHoldingsList';
-import type { BookWithHoldings } from '../types';
+import type { BookWithHoldings, HoldingWithSchool } from '../types';
 
 export function BookDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [data, setData] = useState<BookWithHoldings | null>(null);
   const [loading, setLoading] = useState(true);
+  const [filterProvince, setFilterProvince] = useState('');
+  const [filterDistrict, setFilterDistrict] = useState('');
 
   useEffect(() => {
     if (!id) return;
@@ -18,6 +21,41 @@ export function BookDetailPage() {
       setLoading(false);
     });
   }, [id]);
+
+  // Derive provinces and districts from holdings
+  const provinces = useMemo(() => {
+    if (!data) return [];
+    const set = new Set(data.holdings.map(h => h.school.province));
+    return [...set].sort();
+  }, [data]);
+
+  const districts = useMemo(() => {
+    if (!data || !filterProvince) return [];
+    const set = new Set(
+      data.holdings
+        .filter(h => h.school.province === filterProvince)
+        .map(h => h.school.district)
+    );
+    return [...set].sort();
+  }, [data, filterProvince]);
+
+  // Reset district when province changes
+  useEffect(() => {
+    setFilterDistrict('');
+  }, [filterProvince]);
+
+  // Filter holdings
+  const filteredHoldings: HoldingWithSchool[] = useMemo(() => {
+    if (!data) return [];
+    let result = data.holdings;
+    if (filterProvince) {
+      result = result.filter(h => h.school.province === filterProvince);
+    }
+    if (filterDistrict) {
+      result = result.filter(h => h.school.district === filterDistrict);
+    }
+    return result;
+  }, [data, filterProvince, filterDistrict]);
 
   if (loading) {
     return (
@@ -34,10 +72,12 @@ export function BookDetailPage() {
     return (
       <div className="page-container">
         <div className="empty-state">
-          <div className="empty-state-icon">📖</div>
+          <div className="empty-state-icon">
+            <BookX size={40} strokeWidth={1.5} />
+          </div>
           <p className="empty-state-text">Kitap bulunamadı.</p>
           <button className="btn btn--primary" onClick={() => navigate('/')} style={{ marginTop: '1rem' }}>
-            Dashboard'a Dön
+            Genel Bakışa Dön
           </button>
         </div>
       </div>
@@ -46,11 +86,13 @@ export function BookDetailPage() {
 
   const { book, holdings } = data;
   const totalQuantity = holdings.reduce((sum, h) => sum + h.holding.quantity, 0);
+  const filteredQuantity = filteredHoldings.reduce((sum, h) => sum + h.holding.quantity, 0);
 
   return (
     <div className="page-container">
       <button className="back-link" onClick={() => navigate(-1)}>
-        ← Geri Dön
+        <ArrowLeft size={16} />
+        Geri Dön
       </button>
 
       <div className="book-detail-card">
@@ -94,15 +136,71 @@ export function BookDetailPage() {
         <h2 className="holdings-title">Bu Kitaba Sahip Okullar</h2>
         <div className="holdings-summary">
           <span className="holdings-summary-badge cell-badge cell-badge--school">
-            🏫 {holdings.length} okul
+            <School size={14} style={{ marginRight: 4 }} />
+            {holdings.length} okul
           </span>
           <span className="holdings-summary-badge cell-badge cell-badge--quantity">
-            📚 {totalQuantity} adet
+            <BookCopy size={14} style={{ marginRight: 4 }} />
+            {totalQuantity} adet
           </span>
         </div>
       </div>
 
-      <SchoolHoldingsList holdings={holdings} />
+      {/* Holdings filter */}
+      {provinces.length > 1 && (
+        <div className="filter-bar" style={{ marginBottom: 'var(--space-lg)' }}>
+          <div className="filter-bar-title">
+            <MapPin size={14} />
+            Okulları Filtrele
+          </div>
+          <div className="filter-bar-fields">
+            <div className="filter-group">
+              <label htmlFor="holding-province" className="filter-label">İl</label>
+              <select
+                id="holding-province"
+                className="filter-select"
+                value={filterProvince}
+                onChange={e => setFilterProvince(e.target.value)}
+              >
+                <option value="">Tüm İller ({holdings.length} okul)</option>
+                {provinces.map(p => (
+                  <option key={p} value={p}>{p}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="filter-group">
+              <label htmlFor="holding-district" className="filter-label">İlçe</label>
+              <select
+                id="holding-district"
+                className="filter-select"
+                value={filterDistrict}
+                onChange={e => setFilterDistrict(e.target.value)}
+                disabled={!filterProvince}
+              >
+                <option value="">Tüm İlçeler</option>
+                {districts.map(d => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Show filtered count if filter active */}
+      {(filterProvince || filterDistrict) && (
+        <div className="scope-bar">
+          <span className="scope-label">
+            {filterDistrict ? `${filterProvince} / ${filterDistrict}` : filterProvince}
+          </span>
+          <span className="scope-count">
+            {filteredHoldings.length} okul, {filteredQuantity} adet
+          </span>
+        </div>
+      )}
+
+      <SchoolHoldingsList holdings={filteredHoldings} />
     </div>
   );
 }
