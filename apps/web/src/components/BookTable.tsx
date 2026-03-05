@@ -20,7 +20,8 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
     ? books.filter(b =>
         b.title.toLowerCase().includes(search.toLowerCase()) ||
         b.authors.some(a => a.toLowerCase().includes(search.toLowerCase())) ||
-        (b.isbn && b.isbn.includes(search))
+        (b.isbn && b.isbn.includes(search)) ||
+        (b.publisher && b.publisher.toLowerCase().includes(search.toLowerCase()))
       )
     : books;
 
@@ -35,7 +36,7 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
         <input
           type="text"
           className="search-input"
-          placeholder="Tabloda ara (başlık, yazar, ISBN)..."
+          placeholder="Tabloda ara (başlık, yazar, yayınevi, ISBN)..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           aria-label="Kitap ara"
@@ -61,6 +62,7 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
               <tr>
                 <th>Başlık</th>
                 <th>Yazar</th>
+                <th>Yayınevi</th>
                 <th>ISBN</th>
                 {hasStats && <th className="center">Okul Sayısı</th>}
                 {hasStats && <th className="center">Toplam Adet</th>}
@@ -75,6 +77,7 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
                 >
                   <td className="cell-title">{book.title}</td>
                   <td className="cell-secondary">{book.authors.join(', ')}</td>
+                  <td className="cell-secondary">{book.publisher ?? '—'}</td>
                   <td className="cell-mono">{book.isbn ?? '—'}</td>
                   {hasStats && (
                     <td className="cell-center">
