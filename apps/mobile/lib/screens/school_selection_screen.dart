@@ -32,10 +32,10 @@ class _SchoolSelectionScreenState extends State<SchoolSelectionScreen> {
             child: Column(
               children: [
                 const SizedBox(height: 24),
-                const Icon(
+                Icon(
                   Icons.school,
                   size: 64,
-                  color: Colors.deepPurple,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 const SizedBox(height: 16),
                 Text(

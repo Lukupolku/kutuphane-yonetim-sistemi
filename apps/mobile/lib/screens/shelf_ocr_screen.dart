@@ -99,10 +99,10 @@ class _ShelfOcrScreenState extends State<ShelfOcrScreen> {
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.error_outline,
                         size: 64,
-                        color: Colors.red[400],
+                        color: Color(0xFFC42B2B),
                       ),
                       const SizedBox(height: 16),
                       Padding(

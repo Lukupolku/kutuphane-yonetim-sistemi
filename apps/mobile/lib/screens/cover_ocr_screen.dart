@@ -125,7 +125,7 @@ class _CoverOcrScreenState extends State<CoverOcrScreen> {
       children: [
         const Icon(
           Icons.error_outline,
-          color: Colors.red,
+          color: Color(0xFFC42B2B),
           size: 48,
         ),
         const SizedBox(height: 16),

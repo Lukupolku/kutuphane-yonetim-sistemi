@@ -174,18 +174,18 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
                 child: Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Colors.green.shade50,
+                    color: const Color(0xFFDCFCE7),
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.green.shade200),
+                    border: Border.all(color: const Color(0xFF86EFAC)),
                   ),
-                  child: Row(
+                  child: const Row(
                     children: [
-                      Icon(Icons.check_circle, color: Colors.green.shade600),
-                      const SizedBox(width: 8),
+                      Icon(Icons.check_circle, color: Color(0xFF16A34A)),
+                      SizedBox(width: 8),
                       Expanded(
                         child: Text(
                           'Kitap bilgileri bulundu. Gerekirse düzenleyebilirsiniz.',
-                          style: TextStyle(color: Colors.green.shade800),
+                          style: TextStyle(color: Color(0xFF166534)),
                         ),
                       ),
                     ],

@@ -184,22 +184,22 @@ class _ExcelImportScreenState extends State<ExcelImportScreen> {
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.blue.shade50,
+              color: const Color(0xFFF5E6E9),
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.blue.shade200),
+              border: Border.all(color: const Color(0xFFE8A0AB)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    Icon(Icons.info_outline, color: Colors.blue.shade700),
+                    Icon(Icons.info_outline, color: Theme.of(context).colorScheme.primary),
                     const SizedBox(width: 8),
                     Text(
                       'Excel Şablonu',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade800,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                   ],
@@ -207,7 +207,7 @@ class _ExcelImportScreenState extends State<ExcelImportScreen> {
                 const SizedBox(height: 8),
                 Text(
                   'İlk satır başlık olmalıdır:',
-                  style: TextStyle(color: Colors.blue.shade800, fontSize: 13),
+                  style: TextStyle(color: const Color(0xFF6E1422), fontSize: 13),
                 ),
                 const SizedBox(height: 4),
                 Container(
@@ -227,11 +227,11 @@ class _ExcelImportScreenState extends State<ExcelImportScreen> {
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(
+                const Text(
                   '* Zorunlu alan. Adet boşsa 1 kabul edilir.',
                   style: TextStyle(
                     fontSize: 11,
-                    color: Colors.blue.shade600,
+                    color: Color(0xFF8E8E9A),
                     fontStyle: FontStyle.italic,
                   ),
                 ),
@@ -260,7 +260,7 @@ class _ExcelImportScreenState extends State<ExcelImportScreen> {
               padding: const EdgeInsets.all(16),
               child: Text(
                 _error!,
-                style: const TextStyle(color: Colors.red),
+                style: const TextStyle(color: Color(0xFFC42B2B)),
               ),
             ),
 
@@ -412,7 +412,7 @@ class _ColumnChip extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 2),
         padding: const EdgeInsets.symmetric(vertical: 4),
         decoration: BoxDecoration(
-          color: Colors.grey.shade100,
+          color: const Color(0xFFF5F4F3),
           borderRadius: BorderRadius.circular(4),
         ),
         child: Text(

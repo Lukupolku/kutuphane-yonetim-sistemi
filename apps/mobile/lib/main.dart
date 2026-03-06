@@ -18,6 +18,7 @@ import 'screens/excel_import_screen.dart';
 import 'screens/shelf_ocr_screen.dart';
 import 'services/isbn_lookup_service.dart';
 import 'services/mock_data_service.dart';
+import 'theme.dart';
 
 void main() {
   runApp(const KutuphaneApp());
@@ -57,10 +58,7 @@ class KutuphaneApp extends StatelessWidget {
         if (!snapshot.hasData) {
           return MaterialApp(
             title: 'Kütüphane Yönetim Sistemi',
-            theme: ThemeData(
-              colorSchemeSeed: Colors.deepPurple,
-              useMaterial3: true,
-            ),
+            theme: buildMebTheme(),
             home: const Scaffold(
               body: Center(
                 child: CircularProgressIndicator(),
@@ -101,10 +99,7 @@ class KutuphaneApp extends StatelessWidget {
             builder: (context, school, _) {
               return MaterialApp(
                 title: 'Kütüphane Yönetim Sistemi',
-                theme: ThemeData(
-                  colorSchemeSeed: Colors.deepPurple,
-                  useMaterial3: true,
-                ),
+                theme: buildMebTheme(),
                 home: school.hasSelectedSchool
                     ? const InventoryScreen()
                     : const SchoolSelectionScreen(),

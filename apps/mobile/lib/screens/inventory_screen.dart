@@ -196,7 +196,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
             ),
             FilledButton(
               style: FilledButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: const Color(0xFFC42B2B),
               ),
               onPressed: () {
                 context
@@ -240,14 +240,14 @@ class _InventoryScreenState extends State<InventoryScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.library_books, size: 64, color: Colors.grey[400]),
+                  Icon(Icons.library_books, size: 64, color: const Color(0xFF8E8E9A)),
                   const SizedBox(height: 16),
                   Text(
                     'Henüz kitap eklenmemiş',
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium
-                        ?.copyWith(color: Colors.grey[600]),
+                        ?.copyWith(color: const Color(0xFF5A5A64)),
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -255,7 +255,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium
-                        ?.copyWith(color: Colors.grey[500]),
+                        ?.copyWith(color: const Color(0xFF8E8E9A)),
                   ),
                 ],
               ),
@@ -295,7 +295,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                         return false;
                       },
                       background: Container(
-                        color: Colors.red,
+                        color: const Color(0xFFC42B2B),
                         alignment: Alignment.centerRight,
                         padding: const EdgeInsets.only(right: 20),
                         child:
@@ -365,9 +365,9 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                       const SizedBox(height: 2),
                                       Text(
                                         item.book.authors.join(', '),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 12,
-                                          color: Colors.grey[600],
+                                          color: Color(0xFF5A5A64),
                                         ),
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
@@ -375,9 +375,9 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                       if (item.book.publisher != null)
                                         Text(
                                           item.book.publisher!,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 11,
-                                            color: Colors.grey[500],
+                                            color: Color(0xFF8E8E9A),
                                           ),
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
