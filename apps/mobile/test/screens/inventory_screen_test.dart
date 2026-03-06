@@ -96,6 +96,9 @@ void main() {
           '/book/confirm': (context) => const Scaffold(
                 body: Center(child: Text('Book Confirm')),
               ),
+          '/import/excel': (context) => const Scaffold(
+                body: Center(child: Text('Excel Import')),
+              ),
         },
       ),
     );
@@ -132,7 +135,7 @@ void main() {
 
       expect(find.text('Kitap Ekle'), findsWidgets);
       expect(find.text('Barkod Tara'), findsOneWidget);
-      expect(find.text('Manuel Giris'), findsOneWidget);
+      expect(find.text('Manuel Giriş'), findsOneWidget);
     });
   });
 }

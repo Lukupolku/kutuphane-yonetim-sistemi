@@ -57,7 +57,7 @@ class _CoverOcrScreenState extends State<CoverOcrScreen> {
       if (text.isEmpty) {
         setState(() {
           _processing = false;
-          _error = 'Metin taninamadi. Lutfen tekrar deneyin.';
+          _error = 'Metin tanınamadı. Lütfen tekrar deneyin.';
         });
         return;
       }
@@ -108,7 +108,7 @@ class _CoverOcrScreenState extends State<CoverOcrScreen> {
         CircularProgressIndicator(),
         SizedBox(height: 16),
         Text(
-          'Kapak metni taniniyor...',
+          'Kapak metni tanınıyor...',
           style: TextStyle(fontSize: 16),
         ),
       ],
@@ -155,7 +155,7 @@ class _CoverOcrScreenState extends State<CoverOcrScreen> {
               },
             );
           },
-          child: const Text('Manuel Giris'),
+          child: const Text('Manuel Giriş'),
         ),
       ],
     );

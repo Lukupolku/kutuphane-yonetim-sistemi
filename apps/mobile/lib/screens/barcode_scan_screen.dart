@@ -79,7 +79,7 @@ class _BarcodeScanScreenState extends State<BarcodeScanScreen> {
                         CircularProgressIndicator(),
                         SizedBox(height: 16),
                         Text(
-                          'ISBN araniyor...',
+                          'ISBN aranıyor...',
                           style: TextStyle(fontSize: 16),
                         ),
                       ],
@@ -100,7 +100,7 @@ class _BarcodeScanScreenState extends State<BarcodeScanScreen> {
                   horizontal: 24,
                 ),
                 child: const Text(
-                  'Kitabin arka kapagindaki barkodu kameraya gosterin',
+                  'Kitabın arka kapağındaki barkodu kameraya gösterin',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,

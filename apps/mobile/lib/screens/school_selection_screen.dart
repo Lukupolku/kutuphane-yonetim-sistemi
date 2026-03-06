@@ -23,7 +23,7 @@ class _SchoolSelectionScreenState extends State<SchoolSelectionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Okul Secimi'),
+        title: const Text('Okul Seçimi'),
       ),
       body: Consumer<SchoolProvider>(
         builder: (context, provider, _) {
@@ -39,7 +39,7 @@ class _SchoolSelectionScreenState extends State<SchoolSelectionScreen> {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Okulunuzu Secin',
+                  'Okulunuzu Seçin',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -49,7 +49,7 @@ class _SchoolSelectionScreenState extends State<SchoolSelectionScreen> {
                 DropdownButtonFormField<String>(
                   value: provider.selectedProvince,
                   decoration: const InputDecoration(
-                    labelText: 'Il Secin',
+                    labelText: 'İl Seçin',
                     border: OutlineInputBorder(),
                   ),
                   items: provider.provinces
@@ -70,7 +70,7 @@ class _SchoolSelectionScreenState extends State<SchoolSelectionScreen> {
                   DropdownButtonFormField<String>(
                     value: provider.selectedDistrict,
                     decoration: const InputDecoration(
-                      labelText: 'Ilce Secin',
+                      labelText: 'İlçe Seçin',
                       border: OutlineInputBorder(),
                     ),
                     items: provider.districts
@@ -92,7 +92,7 @@ class _SchoolSelectionScreenState extends State<SchoolSelectionScreen> {
                   DropdownButtonFormField<School>(
                     value: provider.selectedSchool,
                     decoration: const InputDecoration(
-                      labelText: 'Okul Secin',
+                      labelText: 'Okul Seçin',
                       border: OutlineInputBorder(),
                     ),
                     items: provider.schools

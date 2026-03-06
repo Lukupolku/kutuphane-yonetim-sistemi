@@ -54,4 +54,26 @@ class MockHoldingRepository implements HoldingRepository {
       ));
     }
   }
+
+  @override
+  Future<void> updateQuantity(String holdingId, int newQuantity) async {
+    final index = _holdings.indexWhere((h) => h.id == holdingId);
+    if (index != -1) {
+      final existing = _holdings[index];
+      _holdings[index] = Holding(
+        id: existing.id,
+        bookId: existing.bookId,
+        schoolId: existing.schoolId,
+        quantity: newQuantity,
+        addedBy: existing.addedBy,
+        addedAt: existing.addedAt,
+        source: existing.source,
+      );
+    }
+  }
+
+  @override
+  Future<void> delete(String holdingId) async {
+    _holdings.removeWhere((h) => h.id == holdingId);
+  }
 }

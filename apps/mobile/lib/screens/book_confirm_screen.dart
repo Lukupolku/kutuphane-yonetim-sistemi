@@ -10,12 +10,16 @@ class BookConfirmScreen extends StatefulWidget {
   final Book? book;
   final String? isbn;
   final String sourceType;
+  final String? parsedTitle;
+  final String? parsedAuthor;
 
   const BookConfirmScreen({
     super.key,
     this.book,
     this.isbn,
     required this.sourceType,
+    this.parsedTitle,
+    this.parsedAuthor,
   });
 
   @override
@@ -33,8 +37,15 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
   @override
   void initState() {
     super.initState();
-    if (widget.isbn != null) {
-      _isbnController.text = widget.isbn!;
+    if (widget.book != null) {
+      _titleController.text = widget.book!.title;
+      _authorsController.text = widget.book!.authors.join(', ');
+      _publisherController.text = widget.book!.publisher ?? '';
+      _isbnController.text = widget.book!.isbn ?? widget.isbn ?? '';
+    } else {
+      _titleController.text = widget.parsedTitle ?? '';
+      _authorsController.text = widget.parsedAuthor ?? '';
+      _isbnController.text = widget.isbn ?? '';
     }
   }
 
@@ -48,13 +59,13 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
   }
 
   Future<void> _save() async {
-    Book bookToSave;
+    if (!_formKey.currentState!.validate()) return;
 
-    if (widget.book != null) {
-      bookToSave = widget.book!;
-    } else {
-      if (!_formKey.currentState!.validate()) return;
+    setState(() {
+      _saving = true;
+    });
 
+    try {
       final uuid = const Uuid();
       final authors = _authorsController.text
           .split(',')
@@ -64,25 +75,22 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
 
       final isbnText = _isbnController.text.trim();
 
-      bookToSave = Book(
-        id: uuid.v4(),
+      final bookToSave = Book(
+        id: widget.book?.id ?? uuid.v4(),
         isbn: isbnText.isNotEmpty ? isbnText : null,
         title: _titleController.text.trim(),
-        authors: authors,
+        authors: authors.isEmpty ? ['Bilinmiyor'] : authors,
         publisher: _publisherController.text.trim().isNotEmpty
             ? _publisherController.text.trim()
             : null,
-        language: 'tr',
-        source: BookSource.fromString(widget.sourceType),
-        createdAt: DateTime.now(),
+        publishedDate: widget.book?.publishedDate,
+        pageCount: widget.book?.pageCount,
+        coverImageUrl: widget.book?.coverImageUrl,
+        language: widget.book?.language ?? 'tr',
+        source: widget.book?.source ?? _resolveBookSource(),
+        createdAt: widget.book?.createdAt ?? DateTime.now(),
       );
-    }
 
-    setState(() {
-      _saving = true;
-    });
-
-    try {
       final schoolProvider = context.read<SchoolProvider>();
       final schoolId = schoolProvider.selectedSchool!.id;
 
@@ -90,11 +98,10 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
             book: bookToSave,
             schoolId: schoolId,
             addedBy: 'current_user',
-            source: HoldingSource.fromString(widget.sourceType),
+            source: _resolveHoldingSource(),
           );
 
       if (!mounted) return;
-
       Navigator.of(context).popUntil((route) => route.isFirst);
     } finally {
       if (mounted) {
@@ -105,18 +112,87 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
     }
   }
 
+  BookSource _resolveBookSource() {
+    switch (widget.sourceType) {
+      case 'GOOGLE_BOOKS':
+        return BookSource.googleBooks;
+      case 'OPEN_LIBRARY':
+        return BookSource.openLibrary;
+      case 'OCR':
+      case 'COVER_OCR':
+      case 'SHELF_OCR':
+        return BookSource.ocr;
+      default:
+        return BookSource.manual;
+    }
+  }
+
+  HoldingSource _resolveHoldingSource() {
+    switch (widget.sourceType) {
+      case 'BARCODE_SCAN':
+        return HoldingSource.barcodeScan;
+      case 'COVER_OCR':
+        return HoldingSource.coverOcr;
+      case 'SHELF_OCR':
+        return HoldingSource.shelfOcr;
+      default:
+        return HoldingSource.manual;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final isFromLookup = widget.book != null;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.book != null ? 'Kitap Onayla' : 'Manuel Giris'),
+        title: Text(isFromLookup ? 'Kitap Onayla' : 'Manuel Giriş'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (widget.book != null) _buildBookInfoCard() else _buildManualForm(),
+            if (isFromLookup && widget.book!.coverImageUrl != null)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      widget.book!.coverImageUrl!,
+                      height: 180,
+                      fit: BoxFit.contain,
+                      errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+                    ),
+                  ),
+                ),
+              ),
+            if (isFromLookup)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: Colors.green.shade50,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.green.shade200),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.check_circle, color: Colors.green.shade600),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          'Kitap bilgileri bulundu. Gerekirse düzenleyebilirsiniz.',
+                          style: TextStyle(color: Colors.green.shade800),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            _buildForm(),
             const SizedBox(height: 24),
             ElevatedButton.icon(
               onPressed: _saving ? null : _save,
@@ -138,53 +214,7 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
     );
   }
 
-  Widget _buildBookInfoCard() {
-    final book = widget.book!;
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              book.title,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              book.authors.join(', '),
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-            if (book.publisher != null) ...[
-              const SizedBox(height: 4),
-              Text(
-                book.publisher!,
-                style: const TextStyle(fontSize: 14),
-              ),
-            ],
-            if (book.isbn != null) ...[
-              const SizedBox(height: 8),
-              Text(
-                book.isbn!,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontFamily: 'monospace',
-                ),
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildManualForm() {
+  Widget _buildForm() {
     return Form(
       key: _formKey,
       child: Column(
@@ -192,12 +222,12 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
           TextFormField(
             controller: _titleController,
             decoration: const InputDecoration(
-              labelText: 'Baslik',
+              labelText: 'Başlık',
               border: OutlineInputBorder(),
             ),
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
-                return 'Baslik zorunludur';
+                return 'Başlık zorunludur';
               }
               return null;
             },
@@ -207,21 +237,15 @@ class _BookConfirmScreenState extends State<BookConfirmScreen> {
             controller: _authorsController,
             decoration: const InputDecoration(
               labelText: 'Yazar',
-              helperText: 'Birden fazla yazar icin virgul ile ayirin',
+              helperText: 'Birden fazla yazar için virgülle ayırın',
               border: OutlineInputBorder(),
             ),
-            validator: (value) {
-              if (value == null || value.trim().isEmpty) {
-                return 'Yazar zorunludur';
-              }
-              return null;
-            },
           ),
           const SizedBox(height: 16),
           TextFormField(
             controller: _publisherController,
             decoration: const InputDecoration(
-              labelText: 'Yayinevi',
+              labelText: 'Yayınevi',
               border: OutlineInputBorder(),
             ),
           ),

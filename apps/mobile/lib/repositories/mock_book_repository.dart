@@ -35,6 +35,19 @@ class MockBookRepository implements BookRepository {
   }
 
   @override
+  Future<void> update(Book book) async {
+    final index = _books.indexWhere((b) => b.id == book.id);
+    if (index != -1) {
+      _books[index] = book;
+    }
+  }
+
+  @override
+  Future<void> delete(String id) async {
+    _books.removeWhere((b) => b.id == id);
+  }
+
+  @override
   Future<List<Book>> searchByTitle(String query) async {
     final lowerQuery = query.toLowerCase();
     return _books.where((b) => b.title.toLowerCase().contains(lowerQuery)).toList();

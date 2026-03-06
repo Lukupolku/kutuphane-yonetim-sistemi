@@ -14,6 +14,7 @@ import 'screens/book_confirm_screen.dart';
 import 'screens/cover_ocr_screen.dart';
 import 'screens/inventory_screen.dart';
 import 'screens/school_selection_screen.dart';
+import 'screens/excel_import_screen.dart';
 import 'screens/shelf_ocr_screen.dart';
 import 'services/isbn_lookup_service.dart';
 import 'services/mock_data_service.dart';
@@ -113,6 +114,7 @@ class KutuphaneApp extends StatelessWidget {
                   '/scan/barcode': (_) => const BarcodeScanScreen(),
                   '/scan/cover': (_) => const CoverOcrScreen(),
                   '/scan/shelf': (_) => const ShelfOcrScreen(),
+                  '/import/excel': (_) => const ExcelImportScreen(),
                 },
                 onGenerateRoute: (settings) {
                   if (settings.name == '/book/confirm') {
@@ -124,6 +126,8 @@ class KutuphaneApp extends StatelessWidget {
                         isbn: args?['isbn'] as String?,
                         sourceType:
                             args?['source'] as String? ?? 'MANUAL',
+                        parsedTitle: args?['parsedTitle'] as String?,
+                        parsedAuthor: args?['parsedAuthor'] as String?,
                       ),
                     );
                   }

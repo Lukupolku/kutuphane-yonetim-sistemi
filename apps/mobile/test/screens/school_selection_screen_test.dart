@@ -52,14 +52,14 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
-      expect(find.text('Il Secin'), findsOneWidget);
+      expect(find.text('İl Seçin'), findsOneWidget);
     });
 
     testWidgets('shows AppBar with correct title', (tester) async {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
-      expect(find.text('Okul Secimi'), findsOneWidget);
+      expect(find.text('Okul Seçimi'), findsOneWidget);
     });
 
     testWidgets('shows school icon and title text', (tester) async {
@@ -67,7 +67,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byIcon(Icons.school), findsOneWidget);
-      expect(find.text('Okulunuzu Secin'), findsOneWidget);
+      expect(find.text('Okulunuzu Seçin'), findsOneWidget);
     });
 
     testWidgets('shows Devam Et button disabled initially', (tester) async {

@@ -9,4 +9,6 @@ abstract class HoldingRepository {
     required String addedBy,
     required HoldingSource source,
   });
+  Future<void> updateQuantity(String holdingId, int newQuantity);
+  Future<void> delete(String holdingId);
 }

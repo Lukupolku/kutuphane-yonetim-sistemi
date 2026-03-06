@@ -16,6 +16,7 @@ class InventoryProvider extends ChangeNotifier {
 
   List<InventoryItem> items = [];
   bool loading = false;
+  String? _currentSchoolId;
 
   InventoryProvider({
     required this.bookRepository,
@@ -23,6 +24,7 @@ class InventoryProvider extends ChangeNotifier {
   });
 
   Future<void> loadInventory(String schoolId) async {
+    _currentSchoolId = schoolId;
     loading = true;
     notifyListeners();
 
@@ -50,13 +52,26 @@ class InventoryProvider extends ChangeNotifier {
     required String addedBy,
     required HoldingSource source,
   }) async {
-    // Create book if it doesn't already exist
     final existingBook = await bookRepository.getById(book.id);
     if (existingBook == null) {
+      // Check if ISBN already exists in catalog
+      if (book.isbn != null) {
+        final byIsbn = await bookRepository.getByIsbn(book.isbn!);
+        if (byIsbn != null) {
+          // Use existing book from catalog
+          await holdingRepository.addOrIncrement(
+            bookId: byIsbn.id,
+            schoolId: schoolId,
+            addedBy: addedBy,
+            source: source,
+          );
+          await loadInventory(schoolId);
+          return;
+        }
+      }
       await bookRepository.create(book);
     }
 
-    // Add or increment holding
     await holdingRepository.addOrIncrement(
       bookId: book.id,
       schoolId: schoolId,
@@ -64,7 +79,31 @@ class InventoryProvider extends ChangeNotifier {
       source: source,
     );
 
-    // Reload inventory
     await loadInventory(schoolId);
+  }
+
+  Future<void> updateBook(Book updatedBook) async {
+    await bookRepository.update(updatedBook);
+    if (_currentSchoolId != null) {
+      await loadInventory(_currentSchoolId!);
+    }
+  }
+
+  Future<void> updateQuantity(String holdingId, int newQuantity) async {
+    if (newQuantity <= 0) {
+      await holdingRepository.delete(holdingId);
+    } else {
+      await holdingRepository.updateQuantity(holdingId, newQuantity);
+    }
+    if (_currentSchoolId != null) {
+      await loadInventory(_currentSchoolId!);
+    }
+  }
+
+  Future<void> removeItem(String holdingId) async {
+    await holdingRepository.delete(holdingId);
+    if (_currentSchoolId != null) {
+      await loadInventory(_currentSchoolId!);
+    }
   }
 }

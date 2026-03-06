@@ -97,7 +97,7 @@ void main() {
       ));
       await tester.pumpAndSettle();
 
-      expect(find.text('Baslik'), findsOneWidget);
+      expect(find.text('Başlık'), findsOneWidget);
       expect(find.text('Yazar'), findsOneWidget);
     });
   });
