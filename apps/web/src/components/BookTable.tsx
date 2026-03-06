@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Search, BookX } from 'lucide-react';
+import { useSort } from '../hooks/useSort';
+import { SortHeader } from './SortHeader';
 import type { Book } from '../types';
 
 interface BookTableRow extends Book {
@@ -25,6 +27,11 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
       )
     : books;
 
+  const withSortKeys = useMemo(() =>
+    filtered.map(b => ({ ...b, authorStr: b.authors.join(', ') })),
+    [filtered]
+  );
+  const { sorted, sort, toggle } = useSort(withSortKeys);
   const hasStats = books[0]?.schoolCount !== undefined;
 
   return (
@@ -60,16 +67,16 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
           <table className="data-table">
             <thead>
               <tr>
-                <th>Başlık</th>
-                <th>Yazar</th>
-                <th>Yayınevi</th>
+                <SortHeader label="Başlık" sortKey="title" sort={sort} onToggle={toggle} />
+                <SortHeader label="Yazar" sortKey="authorStr" sort={sort} onToggle={toggle} />
+                <SortHeader label="Yayınevi" sortKey="publisher" sort={sort} onToggle={toggle} />
                 <th>ISBN</th>
-                {hasStats && <th className="center">Okul Sayısı</th>}
-                {hasStats && <th className="center">Toplam Adet</th>}
+                {hasStats && <SortHeader label="Okul Sayısı" sortKey="schoolCount" sort={sort} onToggle={toggle} className="center" />}
+                {hasStats && <SortHeader label="Toplam Adet" sortKey="totalQuantity" sort={sort} onToggle={toggle} className="center" />}
               </tr>
             </thead>
             <tbody>
-              {filtered.map(book => (
+              {sorted.map(book => (
                 <tr
                   key={book.id}
                   className={onBookClick ? 'clickable' : ''}
