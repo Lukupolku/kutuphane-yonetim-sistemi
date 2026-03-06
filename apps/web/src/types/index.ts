@@ -20,5 +20,6 @@ export interface FilterParams {
   province?: string;
   district?: string;
   schoolId?: string;
+  schoolType?: import('./school').SchoolType;
   search?: string;
 }

@@ -3,7 +3,7 @@ import { GitCompareArrows, Download, Filter, ArrowUp, ArrowDown, ArrowUpDown } f
 import { useAuth } from '../contexts/AuthContext';
 import { api } from '../services/api';
 import type { ComparisonRow } from '../services/api';
-import type { School, FilterParams } from '../types';
+import type { School, SchoolType, FilterParams } from '../types';
 import { downloadCsv } from '../utils/csv-export';
 
 type ViewFilter = 'all' | 'missing' | 'shared';
@@ -28,6 +28,7 @@ export function ComparePage() {
   const [districts, setDistricts] = useState<string[]>([]);
   const [selectedProvince, setSelectedProvince] = useState(user?.province ?? '');
   const [selectedDistrict, setSelectedDistrict] = useState(user?.district ?? '');
+  const [selectedKademe, setSelectedKademe] = useState<SchoolType | ''>('');
 
   const [compSchools, setCompSchools] = useState<School[]>([]);
   const [rows, setRows] = useState<ComparisonRow[]>([]);
@@ -70,6 +71,7 @@ export function ComparePage() {
 
     const params: FilterParams = { province: selectedProvince };
     if (selectedDistrict) params.district = selectedDistrict;
+    if (selectedKademe) params.schoolType = selectedKademe;
 
     setLoading(true);
     api.getComparisonData(params).then(({ schools, rows }) => {
@@ -77,7 +79,7 @@ export function ComparePage() {
       setRows(rows);
       setLoading(false);
     });
-  }, [selectedProvince, selectedDistrict]);
+  }, [selectedProvince, selectedDistrict, selectedKademe]);
 
   const filteredRows = useMemo(() => rows.filter(row => {
     if (viewFilter === 'all') return true;
@@ -220,6 +222,20 @@ export function ComparePage() {
             >
               <option value="">Tüm İlçeler</option>
               {districts.map(d => <option key={d} value={d}>{d}</option>)}
+            </select>
+          </div>
+          <div className="filter-group">
+            <label htmlFor="comp-kademe" className="filter-label">Kademe</label>
+            <select
+              id="comp-kademe"
+              className="filter-select"
+              value={selectedKademe}
+              onChange={e => setSelectedKademe(e.target.value as SchoolType | '')}
+            >
+              <option value="">Tüm Kademeler</option>
+              <option value="ILKOKUL">İlkokul</option>
+              <option value="ORTAOKUL">Ortaokul</option>
+              <option value="LISE">Lise</option>
             </select>
           </div>
         </div>

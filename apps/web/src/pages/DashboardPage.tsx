@@ -7,10 +7,18 @@ import { useSort } from '../hooks/useSort';
 import { useAuth } from '../contexts/AuthContext';
 import { api } from '../services/api';
 import type { SchoolStats } from '../services/api';
-import type { FilterParams, Book } from '../types';
+import type { FilterParams, Book, SchoolType } from '../types';
 import { downloadCsv } from '../utils/csv-export';
 
 type BookWithStats = Book & { schoolCount: number; totalQuantity: number };
+
+const kademeLabels: Record<SchoolType, string> = {
+  ILKOKUL: 'İlkokul',
+  ORTAOKUL: 'Ortaokul',
+  LISE: 'Lise',
+};
+
+type KademeFilter = SchoolType | 'all';
 
 export function DashboardPage() {
   const { user } = useAuth();
@@ -26,6 +34,7 @@ export function DashboardPage() {
   const [schoolStats, setSchoolStats] = useState<SchoolStats[]>([]);
   const [loading, setLoading] = useState(true);
   const [showImport, setShowImport] = useState(false);
+  const [kademeFilter, setKademeFilter] = useState<KademeFilter>('all');
 
   useEffect(() => {
     setLoading(true);
@@ -56,15 +65,39 @@ export function DashboardPage() {
   const avgBooksPerStudent = totalStudents > 0 ? (totalQuantity / totalStudents) : 0;
   const avgBooksPerSchool = totalSchools > 0 ? (totalQuantity / totalSchools) : 0;
 
+  // Per-kademe summary
+  const kademeSummary = useMemo(() => {
+    const summary: Record<SchoolType, { schools: number; students: number; copies: number }> = {
+      ILKOKUL: { schools: 0, students: 0, copies: 0 },
+      ORTAOKUL: { schools: 0, students: 0, copies: 0 },
+      LISE: { schools: 0, students: 0, copies: 0 },
+    };
+    for (const s of schoolStats) {
+      const k = s.school.schoolType;
+      summary[k].schools++;
+      summary[k].students += s.school.studentCount;
+      summary[k].copies += s.totalCopies;
+    }
+    return summary;
+  }, [schoolStats]);
+
+  // Filter stats by kademe
+  const filteredStats = useMemo(() =>
+    kademeFilter === 'all'
+      ? schoolStats
+      : schoolStats.filter(s => s.school.schoolType === kademeFilter),
+    [schoolStats, kademeFilter]
+  );
+
   // Flatten school stats for sorting
   const flatStats = useMemo(() =>
-    schoolStats.map(s => ({
+    filteredStats.map(s => ({
       ...s,
       name: s.school.name,
       schoolType: s.school.schoolType,
       studentCount: s.school.studentCount,
     })),
-    [schoolStats]
+    [filteredStats]
   );
   const { sorted: sortedStats, sort: statsSort, toggle: statsToggle } = useSort(flatStats, 'booksPerStudent', 'desc');
 
@@ -76,18 +109,19 @@ export function DashboardPage() {
   const { sorted: sortedBooks, sort: booksSort, toggle: booksToggle } = useSort(booksWithAuthorStr);
 
   const handleExportSchoolStats = () => {
-    const headers = ['Okul', 'İl', 'İlçe', 'Tür', 'Öğrenci', 'Farklı Eser', 'Toplam Kopya', 'Öğrenci Başına'];
-    const rows = schoolStats.map(s => [
+    const headers = ['Okul', 'İl', 'İlçe', 'Kademe', 'Öğrenci', 'Farklı Eser', 'Toplam Kopya', 'Öğrenci Başına'];
+    const rows = filteredStats.map(s => [
       s.school.name,
       s.school.province,
       s.school.district,
-      s.school.schoolType,
+      kademeLabels[s.school.schoolType],
       String(s.school.studentCount),
       String(s.bookCount),
       String(s.totalCopies),
       s.booksPerStudent.toFixed(2),
     ]);
-    downloadCsv(`okul-istatistikleri-${scopeLabel}.csv`, headers, rows);
+    const suffix = kademeFilter !== 'all' ? `-${kademeLabels[kademeFilter]}` : '';
+    downloadCsv(`okul-istatistikleri-${scopeLabel}${suffix}.csv`, headers, rows);
   };
 
   return (
@@ -150,6 +184,26 @@ export function DashboardPage() {
         )}
       </div>
 
+      {/* Per-kademe mini cards */}
+      {!isSchool && !loading && schoolStats.length > 0 && (
+        <div className="kademe-summary">
+          {(Object.keys(kademeLabels) as SchoolType[]).map(k => {
+            const s = kademeSummary[k];
+            const bps = s.students > 0 ? (s.copies / s.students) : 0;
+            return (
+              <div key={k} className="kademe-card">
+                <div className="kademe-card-title">{kademeLabels[k]}</div>
+                <div className="kademe-card-stats">
+                  <span>{s.schools} okul</span>
+                  <span>{s.copies} kopya</span>
+                  <span>{bps.toFixed(1)} kitap/öğr.</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
       {!isSchool && <HierarchyFilter onFilterChange={setFilter} />}
 
       <div className="scope-bar">
@@ -160,7 +214,7 @@ export function DashboardPage() {
               <FileSpreadsheet size={16} /> Excel'den Yükle
             </button>
           )}
-          {!isSchool && schoolStats.length > 0 && (
+          {!isSchool && filteredStats.length > 0 && (
             <button className="btn btn-secondary" onClick={handleExportSchoolStats}>
               <Download size={16} /> Okul İstatistikleri CSV
             </button>
@@ -188,13 +242,36 @@ export function DashboardPage() {
       {/* School stats table — only for non-school roles */}
       {!isSchool && !loading && schoolStats.length > 0 && (
         <div className="school-stats-section">
-          <h2 className="section-title">Okul Bazlı İstatistikler</h2>
+          <div className="section-title-row">
+            <h2 className="section-title">Okul Bazlı İstatistikler</h2>
+            <div className="kademe-chips">
+              <button
+                className={`compare-chip ${kademeFilter === 'all' ? 'active' : ''}`}
+                onClick={() => setKademeFilter('all')}
+              >
+                Tümü ({schoolStats.length})
+              </button>
+              {(Object.keys(kademeLabels) as SchoolType[]).map(k => {
+                const count = schoolStats.filter(s => s.school.schoolType === k).length;
+                if (count === 0) return null;
+                return (
+                  <button
+                    key={k}
+                    className={`compare-chip ${kademeFilter === k ? 'active' : ''}`}
+                    onClick={() => setKademeFilter(k)}
+                  >
+                    {kademeLabels[k]} ({count})
+                  </button>
+                );
+              })}
+            </div>
+          </div>
           <div className="data-table-wrapper">
             <table className="data-table">
               <thead>
                 <tr>
                   <SortHeader label="Okul" sortKey="name" sort={statsSort} onToggle={statsToggle} />
-                  <SortHeader label="Tür" sortKey="schoolType" sort={statsSort} onToggle={statsToggle} />
+                  <SortHeader label="Kademe" sortKey="schoolType" sort={statsSort} onToggle={statsToggle} />
                   <SortHeader label="Öğrenci" sortKey="studentCount" sort={statsSort} onToggle={statsToggle} className="center" />
                   <SortHeader label="Farklı Eser" sortKey="bookCount" sort={statsSort} onToggle={statsToggle} className="center" />
                   <SortHeader label="Toplam Kopya" sortKey="totalCopies" sort={statsSort} onToggle={statsToggle} className="center" />
@@ -206,9 +283,8 @@ export function DashboardPage() {
                   <tr key={s.school.id}>
                     <td className="cell-title">{s.school.name}</td>
                     <td>
-                      <span className="cell-badge cell-badge--school">
-                        {s.school.schoolType === 'ILKOKUL' ? 'İlkokul' :
-                         s.school.schoolType === 'ORTAOKUL' ? 'Ortaokul' : 'Lise'}
+                      <span className={`cell-badge cell-badge--kademe-${s.school.schoolType.toLowerCase()}`}>
+                        {kademeLabels[s.school.schoolType]}
                       </span>
                     </td>
                     <td className="cell-center">{s.school.studentCount}</td>

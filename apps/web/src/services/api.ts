@@ -4,6 +4,15 @@ import { books, schools, holdings } from './mock-data';
 // Simulate async API delay
 const delay = (ms: number = 50) => new Promise(resolve => setTimeout(resolve, ms));
 
+function filterSchools(params: FilterParams): School[] {
+  let result = [...schools];
+  if (params.province) result = result.filter(s => s.province === params.province);
+  if (params.district) result = result.filter(s => s.district === params.district);
+  if (params.schoolId) result = result.filter(s => s.id === params.schoolId);
+  if (params.schoolType) result = result.filter(s => s.schoolType === params.schoolType);
+  return result;
+}
+
 export interface SchoolStats {
   school: School;
   bookCount: number;
@@ -53,14 +62,7 @@ export const api = {
 
   async getSchools(params?: FilterParams): Promise<School[]> {
     await delay();
-    let result = [...schools];
-    if (params?.province) {
-      result = result.filter(s => s.province === params.province);
-    }
-    if (params?.district) {
-      result = result.filter(s => s.district === params.district);
-    }
-    return result;
+    return params ? filterSchools(params) : [...schools];
   },
 
   async getProvinces(): Promise<string[]> {
@@ -94,10 +96,7 @@ export const api = {
     if (params.schoolId) {
       relevantSchoolIds = [params.schoolId];
     } else {
-      let filteredSchools = [...schools];
-      if (params.province) filteredSchools = filteredSchools.filter(s => s.province === params.province);
-      if (params.district) filteredSchools = filteredSchools.filter(s => s.district === params.district);
-      relevantSchoolIds = filteredSchools.map(s => s.id);
+      relevantSchoolIds = filterSchools(params).map(s => s.id);
     }
 
     const relevantHoldings = holdings.filter(h => relevantSchoolIds.includes(h.schoolId));
@@ -134,10 +133,7 @@ export const api = {
   async getSchoolStats(params: FilterParams): Promise<SchoolStats[]> {
     await delay();
 
-    let filteredSchools = [...schools];
-    if (params.province) filteredSchools = filteredSchools.filter(s => s.province === params.province);
-    if (params.district) filteredSchools = filteredSchools.filter(s => s.district === params.district);
-    if (params.schoolId) filteredSchools = filteredSchools.filter(s => s.id === params.schoolId);
+    const filteredSchools = filterSchools(params);
 
     return filteredSchools.map(school => {
       const schoolHoldings = holdings.filter(h => h.schoolId === school.id);
@@ -152,9 +148,7 @@ export const api = {
   async getComparisonData(params: FilterParams): Promise<{ schools: School[]; rows: ComparisonRow[] }> {
     await delay();
 
-    let filteredSchools = [...schools];
-    if (params.province) filteredSchools = filteredSchools.filter(s => s.province === params.province);
-    if (params.district) filteredSchools = filteredSchools.filter(s => s.district === params.district);
+    const filteredSchools = filterSchools(params);
 
     const schoolIds = new Set(filteredSchools.map(s => s.id));
     const relevantHoldings = holdings.filter(h => schoolIds.has(h.schoolId));

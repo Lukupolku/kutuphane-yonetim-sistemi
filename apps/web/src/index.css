@@ -1207,6 +1207,83 @@ a:hover {
   margin-bottom: var(--space-xl);
 }
 
+/* Section title row with chips */
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.section-title-row .section-title {
+  margin: 0;
+}
+
+.kademe-chips {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+/* Kademe summary cards */
+.kademe-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.kademe-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  border-left: 3px solid var(--color-primary);
+}
+
+.kademe-card:nth-child(2) {
+  border-left-color: var(--color-accent);
+}
+
+.kademe-card:nth-child(3) {
+  border-left-color: var(--color-text-secondary);
+}
+
+.kademe-card-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.kademe-card-stats {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+/* Kademe badges */
+.cell-badge--kademe-ilkokul {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.cell-badge--kademe-ortaokul {
+  background: var(--color-accent-light);
+  color: var(--color-accent-dark);
+}
+
+.cell-badge--kademe-lise {
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+}
+
 .books-per-student {
   font-weight: 700;
   font-size: 0.88rem;

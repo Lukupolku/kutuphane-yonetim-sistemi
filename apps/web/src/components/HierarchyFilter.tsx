@@ -2,11 +2,17 @@ import { useState, useEffect } from 'react';
 import { MapPin } from 'lucide-react';
 import { api } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
-import type { School, FilterParams } from '../types';
+import type { School, SchoolType, FilterParams } from '../types';
 
 interface HierarchyFilterProps {
   onFilterChange: (params: FilterParams) => void;
 }
+
+const kademeLabels: Record<SchoolType, string> = {
+  ILKOKUL: 'İlkokul',
+  ORTAOKUL: 'Ortaokul',
+  LISE: 'Lise',
+};
 
 export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
   const { user } = useAuth();
@@ -21,6 +27,7 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
   const [selectedProvince, setSelectedProvince] = useState<string>(lockedProvince ?? '');
   const [selectedDistrict, setSelectedDistrict] = useState<string>(lockedDistrict ?? '');
   const [selectedSchool, setSelectedSchool] = useState<string>('');
+  const [selectedKademe, setSelectedKademe] = useState<SchoolType | ''>('');
 
   useEffect(() => {
     if (lockedProvince) {
@@ -48,20 +55,22 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
     if (selectedProvince) {
       const params: FilterParams = { province: selectedProvince };
       if (selectedDistrict) params.district = selectedDistrict;
+      if (selectedKademe) params.schoolType = selectedKademe;
       api.getSchools(params).then(setSchools);
     } else {
       setSchools([]);
     }
     setSelectedSchool('');
-  }, [selectedProvince, selectedDistrict]);
+  }, [selectedProvince, selectedDistrict, selectedKademe]);
 
   useEffect(() => {
     const params: FilterParams = {};
     if (selectedProvince) params.province = selectedProvince;
     if (selectedDistrict) params.district = selectedDistrict;
     if (selectedSchool) params.schoolId = selectedSchool;
+    if (selectedKademe) params.schoolType = selectedKademe;
     onFilterChange(params);
-  }, [selectedProvince, selectedDistrict, selectedSchool]);
+  }, [selectedProvince, selectedDistrict, selectedSchool, selectedKademe]);
 
   return (
     <div className="filter-bar">
@@ -95,6 +104,21 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
           >
             <option value="">Tüm İlçeler</option>
             {districts.map(d => <option key={d} value={d}>{d}</option>)}
+          </select>
+        </div>
+
+        <div className="filter-group">
+          <label htmlFor="kademe-select" className="filter-label">Kademe</label>
+          <select
+            id="kademe-select"
+            className="filter-select"
+            value={selectedKademe}
+            onChange={e => setSelectedKademe(e.target.value as SchoolType | '')}
+          >
+            <option value="">Tüm Kademeler</option>
+            {(Object.keys(kademeLabels) as SchoolType[]).map(k => (
+              <option key={k} value={k}>{kademeLabels[k]}</option>
+            ))}
           </select>
         </div>
 
