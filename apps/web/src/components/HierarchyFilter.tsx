@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MapPin } from 'lucide-react';
 import { api } from '../services/api';
+import { useAuth } from '../contexts/AuthContext';
 import type { School, FilterParams } from '../types';
 
 interface HierarchyFilterProps {
@@ -8,27 +9,40 @@ interface HierarchyFilterProps {
 }
 
 export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
+  const { user } = useAuth();
+
   const [provinces, setProvinces] = useState<string[]>([]);
   const [districts, setDistricts] = useState<string[]>([]);
   const [schools, setSchools] = useState<School[]>([]);
 
-  const [selectedProvince, setSelectedProvince] = useState<string>('');
-  const [selectedDistrict, setSelectedDistrict] = useState<string>('');
+  const lockedProvince = user?.role === 'province' || user?.role === 'district' ? user.province : undefined;
+  const lockedDistrict = user?.role === 'district' ? user.district : undefined;
+
+  const [selectedProvince, setSelectedProvince] = useState<string>(lockedProvince ?? '');
+  const [selectedDistrict, setSelectedDistrict] = useState<string>(lockedDistrict ?? '');
   const [selectedSchool, setSelectedSchool] = useState<string>('');
 
   useEffect(() => {
-    api.getProvinces().then(setProvinces);
-  }, []);
+    if (lockedProvince) {
+      setProvinces([lockedProvince]);
+    } else {
+      api.getProvinces().then(setProvinces);
+    }
+  }, [lockedProvince]);
 
   useEffect(() => {
     if (selectedProvince) {
-      api.getDistricts(selectedProvince).then(setDistricts);
+      if (lockedDistrict) {
+        setDistricts([lockedDistrict]);
+      } else {
+        api.getDistricts(selectedProvince).then(setDistricts);
+      }
     } else {
       setDistricts([]);
     }
-    setSelectedDistrict('');
+    if (!lockedDistrict) setSelectedDistrict('');
     setSelectedSchool('');
-  }, [selectedProvince]);
+  }, [selectedProvince, lockedDistrict]);
 
   useEffect(() => {
     if (selectedProvince) {
@@ -63,6 +77,7 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
             className="filter-select"
             value={selectedProvince}
             onChange={e => setSelectedProvince(e.target.value)}
+            disabled={!!lockedProvince}
           >
             <option value="">Tüm İller</option>
             {provinces.map(p => <option key={p} value={p}>{p}</option>)}
@@ -76,7 +91,7 @@ export function HierarchyFilter({ onFilterChange }: HierarchyFilterProps) {
             className="filter-select"
             value={selectedDistrict}
             onChange={e => setSelectedDistrict(e.target.value)}
-            disabled={!selectedProvince}
+            disabled={!!lockedDistrict || !selectedProvince}
           >
             <option value="">Tüm İlçeler</option>
             {districts.map(d => <option key={d} value={d}>{d}</option>)}

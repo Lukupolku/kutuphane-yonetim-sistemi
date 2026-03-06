@@ -4,6 +4,18 @@ import { books, schools, holdings } from './mock-data';
 // Simulate async API delay
 const delay = (ms: number = 50) => new Promise(resolve => setTimeout(resolve, ms));
 
+export interface SchoolStats {
+  school: School;
+  bookCount: number;
+  totalCopies: number;
+  booksPerStudent: number;
+}
+
+export interface ComparisonRow {
+  book: Book;
+  quantities: Record<string, number>; // schoolId -> quantity (0 = not present)
+}
+
 export const api = {
   async getBooks(): Promise<Book[]> {
     await delay();
@@ -78,7 +90,6 @@ export const api = {
   async getBooksByFilter(params: FilterParams): Promise<(Book & { schoolCount: number; totalQuantity: number })[]> {
     await delay();
 
-    // Get relevant school IDs based on filter
     let relevantSchoolIds: string[];
     if (params.schoolId) {
       relevantSchoolIds = [params.schoolId];
@@ -89,10 +100,8 @@ export const api = {
       relevantSchoolIds = filteredSchools.map(s => s.id);
     }
 
-    // Get holdings for those schools
     const relevantHoldings = holdings.filter(h => relevantSchoolIds.includes(h.schoolId));
 
-    // Group by book
     const bookMap = new Map<string, { schoolIds: Set<string>; totalQty: number }>();
     for (const h of relevantHoldings) {
       const entry = bookMap.get(h.bookId) ?? { schoolIds: new Set(), totalQty: 0 };
@@ -101,7 +110,6 @@ export const api = {
       bookMap.set(h.bookId, entry);
     }
 
-    // Build result
     let result = Array.from(bookMap.entries()).map(([bookId, info]) => {
       const book = books.find(b => b.id === bookId)!;
       return {
@@ -111,7 +119,6 @@ export const api = {
       };
     });
 
-    // Apply text search if present
     if (params.search) {
       const q = params.search.toLowerCase();
       result = result.filter(b =>
@@ -122,5 +129,49 @@ export const api = {
     }
 
     return result;
+  },
+
+  async getSchoolStats(params: FilterParams): Promise<SchoolStats[]> {
+    await delay();
+
+    let filteredSchools = [...schools];
+    if (params.province) filteredSchools = filteredSchools.filter(s => s.province === params.province);
+    if (params.district) filteredSchools = filteredSchools.filter(s => s.district === params.district);
+    if (params.schoolId) filteredSchools = filteredSchools.filter(s => s.id === params.schoolId);
+
+    return filteredSchools.map(school => {
+      const schoolHoldings = holdings.filter(h => h.schoolId === school.id);
+      const bookCount = new Set(schoolHoldings.map(h => h.bookId)).size;
+      const totalCopies = schoolHoldings.reduce((sum, h) => sum + h.quantity, 0);
+      const booksPerStudent = school.studentCount > 0 ? totalCopies / school.studentCount : 0;
+
+      return { school, bookCount, totalCopies, booksPerStudent };
+    });
+  },
+
+  async getComparisonData(params: FilterParams): Promise<{ schools: School[]; rows: ComparisonRow[] }> {
+    await delay();
+
+    let filteredSchools = [...schools];
+    if (params.province) filteredSchools = filteredSchools.filter(s => s.province === params.province);
+    if (params.district) filteredSchools = filteredSchools.filter(s => s.district === params.district);
+
+    const schoolIds = new Set(filteredSchools.map(s => s.id));
+    const relevantHoldings = holdings.filter(h => schoolIds.has(h.schoolId));
+
+    // Find all books that appear in at least one of these schools
+    const bookIds = [...new Set(relevantHoldings.map(h => h.bookId))];
+    const relevantBooks = bookIds.map(id => books.find(b => b.id === id)!);
+
+    const rows: ComparisonRow[] = relevantBooks.map(book => {
+      const quantities: Record<string, number> = {};
+      for (const school of filteredSchools) {
+        const holding = relevantHoldings.find(h => h.bookId === book.id && h.schoolId === school.id);
+        quantities[school.id] = holding?.quantity ?? 0;
+      }
+      return { book, quantities };
+    });
+
+    return { schools: filteredSchools, rows };
   },
 };

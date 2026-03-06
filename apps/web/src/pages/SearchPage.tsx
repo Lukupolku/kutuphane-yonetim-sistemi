@@ -1,86 +1,82 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, SearchX } from 'lucide-react';
-import { api } from '../services/api';
+import { Download } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import { HierarchyFilter } from '../components/HierarchyFilter';
 import { BookTable } from '../components/BookTable';
-import type { Book } from '../types';
+import { api } from '../services/api';
+import type { FilterParams, Book } from '../types';
+import { downloadCsv } from '../utils/csv-export';
+
+type BookWithStats = Book & { schoolCount: number; totalQuantity: number };
 
 export function SearchPage() {
   const navigate = useNavigate();
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState<Book[]>([]);
-  const [searched, setSearched] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
+  const isSchool = user?.role === 'school';
 
-  const handleSearch = async () => {
-    if (!query.trim()) return;
+  const [filter, setFilter] = useState<FilterParams>(() => {
+    if (isSchool && user?.schoolId) return { schoolId: user.schoolId };
+    if (user?.role === 'district') return { province: user.province!, district: user.district! };
+    if (user?.role === 'province') return { province: user.province! };
+    return {};
+  });
+  const [books, setBooks] = useState<BookWithStats[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
     setLoading(true);
-    setSearched(true);
-    const books = await api.searchBooks(query.trim());
-    setResults(books);
-    setLoading(false);
-  };
+    api.getBooksByFilter(filter).then(result => {
+      setBooks(result);
+      setLoading(false);
+    });
+  }, [filter]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') handleSearch();
+  const scopeLabel = isSchool
+    ? user?.schoolName ?? 'Okul'
+    : filter.district
+    ? `${filter.province} / ${filter.district}`
+    : filter.province
+    ? filter.province
+    : 'Tüm Türkiye';
+
+  const handleExportCsv = () => {
+    const headers = ['Kitap', 'Yazar', 'Yayınevi', 'ISBN', 'Okul Sayısı', 'Toplam Kopya'];
+    const rows = books.map(b => [
+      b.title,
+      b.authors.join(', '),
+      b.publisher ?? '',
+      b.isbn ?? '',
+      String(b.schoolCount),
+      String(b.totalQuantity),
+    ]);
+    downloadCsv(`kitap-listesi-${scopeLabel}.csv`, headers, rows);
   };
 
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1 className="page-title">Kitap Ara</h1>
-        <p className="page-subtitle">Başlık, yazar veya ISBN numarası ile tüm katalogda arama yapın</p>
+        <h1 className="page-title">Kitap Kataloğu</h1>
+        <p className="page-subtitle">Başlık, yazar veya ISBN ile arama yapın — {scopeLabel}</p>
       </div>
 
-      <div className="search-bar-row">
-        <div className="search-container">
-          <span className="search-icon">
-            <Search size={18} />
-          </span>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Başlık, yazar veya ISBN ile ara..."
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-            aria-label="Kitap arama"
-          />
+      {!isSchool && <HierarchyFilter onFilterChange={setFilter} />}
+
+      <div className="scope-bar">
+        <span className="scope-label">{scopeLabel}</span>
+        <span className="scope-count">{books.length} farklı kitap</span>
+        <div className="scope-actions">
+          <button className="btn btn-secondary" onClick={handleExportCsv} disabled={books.length === 0}>
+            <Download size={16} /> Kitap Listesi CSV
+          </button>
         </div>
-        <button
-          className="btn-search"
-          onClick={handleSearch}
-          disabled={loading || !query.trim()}
-        >
-          Ara
-        </button>
       </div>
 
-      {loading && (
-        <div className="loading-state">
-          <div className="loading-spinner" />
-          <p>Aranıyor...</p>
-        </div>
-      )}
-
-      {searched && !loading && results.length === 0 && (
-        <div className="empty-state">
-          <div className="empty-state-icon">
-            <SearchX size={40} strokeWidth={1.5} />
-          </div>
-          <p className="empty-state-text">"{query}" için sonuç bulunamadı.</p>
-        </div>
-      )}
-
-      {results.length > 0 && (
-        <>
-          <p className="results-count">{results.length} sonuç bulundu</p>
-          <BookTable
-            books={results}
-            onBookClick={(id) => navigate(`/books/${id}`)}
-          />
-        </>
-      )}
+      <BookTable
+        books={books}
+        loading={loading}
+        onBookClick={(id) => navigate(`/books/${id}`)}
+      />
     </div>
   );
 }
