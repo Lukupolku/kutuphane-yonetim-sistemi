@@ -7,4 +7,5 @@ export interface School {
   district: string;
   schoolType: SchoolType;
   ministryCode: string;
+  studentCount: number;
 }

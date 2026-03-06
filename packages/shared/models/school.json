@@ -2,13 +2,14 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "School",
   "type": "object",
-  "required": ["id", "name", "province", "district", "schoolType", "ministryCode"],
+  "required": ["id", "name", "province", "district", "schoolType", "ministryCode", "studentCount"],
   "properties": {
     "id": { "type": "string", "format": "uuid" },
     "name": { "type": "string" },
     "province": { "type": "string" },
     "district": { "type": "string" },
     "schoolType": { "type": "string", "enum": ["ILKOKUL", "ORTAOKUL", "LISE"] },
-    "ministryCode": { "type": "string" }
+    "ministryCode": { "type": "string" },
+    "studentCount": { "type": "integer", "minimum": 0 }
   }
 }
