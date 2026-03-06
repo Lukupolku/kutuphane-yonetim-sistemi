@@ -72,7 +72,7 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
                 <SortHeader label="Yayınevi" sortKey="publisher" sort={sort} onToggle={toggle} />
                 <th>ISBN</th>
                 {hasStats && <SortHeader label="Okul Sayısı" sortKey="schoolCount" sort={sort} onToggle={toggle} className="center" />}
-                {hasStats && <SortHeader label="Toplam Adet" sortKey="totalQuantity" sort={sort} onToggle={toggle} className="center" />}
+                {hasStats && <SortHeader label="Toplam Nüsha" sortKey="totalQuantity" sort={sort} onToggle={toggle} className="center" />}
               </tr>
             </thead>
             <tbody>

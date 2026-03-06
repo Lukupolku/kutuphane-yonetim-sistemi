@@ -10,5 +10,6 @@
   {"id":"s9-izmir-konak-alsancak-lise","name":"Alsancak Fen Lisesi","province":"İzmir","district":"Konak","schoolType":"LISE","ministryCode":"35001001"},
   {"id":"s10-izmir-konak-kemeralt-ilk","name":"Kemeraltı İlkokulu","province":"İzmir","district":"Konak","schoolType":"ILKOKUL","ministryCode":"35001002"},
   {"id":"s11-izmir-bornova-ege-orta","name":"Ege Ortaokulu","province":"İzmir","district":"Bornova","schoolType":"ORTAOKUL","ministryCode":"35002001"},
-  {"id":"s12-izmir-bornova-dokuz-eylul-lise","name":"Dokuz Eylül Anadolu Lisesi","province":"İzmir","district":"Bornova","schoolType":"LISE","ministryCode":"35002002"}
+  {"id":"s12-izmir-bornova-dokuz-eylul-lise","name":"Dokuz Eylül Anadolu Lisesi","province":"İzmir","district":"Bornova","schoolType":"LISE","ministryCode":"35002002"},
+  {"id":"s13-ankara-sincan-sdemirel-lise","name":"Süleyman Demirel Anadolu Lisesi","province":"Ankara","district":"Sincan","schoolType":"LISE","ministryCode":"06003001"}
 ]

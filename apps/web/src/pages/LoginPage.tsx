@@ -73,7 +73,7 @@ export function LoginPage() {
     const school = schools.find(s => s.id === selectedSchool);
 
     login({
-      username: username.trim(),
+      username: `${username.trim()}@meb.k12.tr`,
       role,
       province: needsProvince ? selectedProvince : undefined,
       district: needsDistrict ? selectedDistrict : undefined,
@@ -93,7 +93,7 @@ export function LoginPage() {
             alt="T.C. Millî Eğitim Bakanlığı"
             className="login-meb-logo"
           />
-          <h1 className="login-title">Kütüphane Yönetim Sistemi</h1>
+          <h1 className="login-title">Okul Kütüphaneleri Yönetim Sistemi</h1>
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
@@ -162,15 +162,18 @@ export function LoginPage() {
           )}
 
           <div className="login-field">
-            <label htmlFor="username">Kullanıcı Adı</label>
-            <input
-              id="username"
-              type="text"
-              className="login-input"
-              placeholder="Kullanıcı adınızı girin"
-              value={username}
-              onChange={e => setUsername(e.target.value)}
-            />
+            <label htmlFor="username">E-posta</label>
+            <div className="login-email-group">
+              <input
+                id="username"
+                type="text"
+                className="login-input login-email-prefix"
+                placeholder="kullanici.adi"
+                value={username}
+                onChange={e => setUsername(e.target.value)}
+              />
+              <span className="login-email-suffix">@meb.k12.tr</span>
+            </div>
           </div>
 
           <div className="login-field">
@@ -191,7 +194,7 @@ export function LoginPage() {
           </button>
 
           <p className="login-hint">
-            Mock mod — herhangi bir kullanıcı adı ve şifre ile giriş yapabilirsiniz.
+            Mock mod — herhangi bir e-posta ve şifre ile giriş yapabilirsiniz.
           </p>
         </form>
       </div>

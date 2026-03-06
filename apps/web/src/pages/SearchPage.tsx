@@ -41,7 +41,7 @@ export function SearchPage() {
     : 'Tüm Türkiye';
 
   const handleExportCsv = () => {
-    const headers = ['Kitap', 'Yazar', 'Yayınevi', 'ISBN', 'Okul Sayısı', 'Toplam Kopya'];
+    const headers = ['Kitap', 'Yazar', 'Yayınevi', 'ISBN', 'Okul Sayısı', 'Toplam Nüsha'];
     const rows = books.map(b => [
       b.title,
       b.authors.join(', '),

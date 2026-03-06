@@ -6,6 +6,8 @@ import type { ComparisonRow } from '../services/api';
 import type { School, SchoolType, FilterParams } from '../types';
 import { downloadCsv } from '../utils/csv-export';
 
+const MAX_COMPARE = 8;
+
 type ViewFilter = 'all' | 'missing' | 'shared';
 type SortKey = 'title' | 'author' | 'total' | 'coverage' | string; // string for school IDs
 type SortDir = 'asc' | 'desc' | null;
@@ -30,10 +32,13 @@ export function ComparePage() {
   const [selectedDistrict, setSelectedDistrict] = useState(user?.district ?? '');
   const [selectedKademe, setSelectedKademe] = useState<SchoolType | ''>('');
 
-  const [compSchools, setCompSchools] = useState<School[]>([]);
+  const [allSchools, setAllSchools] = useState<School[]>([]);
+  const [selectedSchoolIds, setSelectedSchoolIds] = useState<Set<string>>(new Set());
   const [rows, setRows] = useState<ComparisonRow[]>([]);
   const [loading, setLoading] = useState(false);
   const [viewFilter, setViewFilter] = useState<ViewFilter>('all');
+  const [schoolSearch, setSchoolSearch] = useState('');
+  const [schoolKademeFilter, setSchoolKademeFilter] = useState<SchoolType | ''>('');
 
   const [sortKey, setSortKey] = useState<SortKey>('title');
   const [sortDir, setSortDir] = useState<SortDir>(null);
@@ -62,9 +67,11 @@ export function ComparePage() {
     if (!lockedDistrict) setSelectedDistrict('');
   }, [selectedProvince, lockedDistrict, user?.district]);
 
+  // Fetch available schools when scope changes
   useEffect(() => {
     if (!selectedProvince) {
-      setCompSchools([]);
+      setAllSchools([]);
+      setSelectedSchoolIds(new Set());
       setRows([]);
       return;
     }
@@ -73,13 +80,70 @@ export function ComparePage() {
     if (selectedDistrict) params.district = selectedDistrict;
     if (selectedKademe) params.schoolType = selectedKademe;
 
-    setLoading(true);
-    api.getComparisonData(params).then(({ schools, rows }) => {
-      setCompSchools(schools);
-      setRows(rows);
-      setLoading(false);
+    api.getSchools(params).then(schools => {
+      setAllSchools(schools);
+      // Auto-select first N schools
+      const autoSelect = new Set(schools.slice(0, MAX_COMPARE).map(s => s.id));
+      setSelectedSchoolIds(autoSelect);
     });
   }, [selectedProvince, selectedDistrict, selectedKademe]);
+
+  // Fetch comparison data for selected schools
+  useEffect(() => {
+    if (selectedSchoolIds.size < 2) {
+      setRows([]);
+      return;
+    }
+
+    setLoading(true);
+    const params: FilterParams = { province: selectedProvince };
+    if (selectedDistrict) params.district = selectedDistrict;
+    if (selectedKademe) params.schoolType = selectedKademe;
+
+    api.getComparisonData(params).then(({ rows }) => {
+      // Filter rows to only include selected schools' quantities
+      const filtered = rows.map(row => {
+        const quantities: Record<string, number> = {};
+        for (const id of selectedSchoolIds) {
+          quantities[id] = row.quantities[id] ?? 0;
+        }
+        return { ...row, quantities };
+      }).filter(row => Object.values(row.quantities).some(q => q > 0));
+      setRows(filtered);
+      setLoading(false);
+    });
+  }, [selectedSchoolIds, selectedProvince, selectedDistrict, selectedKademe]);
+
+  // Selected schools in order
+  const compSchools = useMemo(
+    () => allSchools.filter(s => selectedSchoolIds.has(s.id)),
+    [allSchools, selectedSchoolIds]
+  );
+
+  // Filtered display list for school picker
+  const displaySchools = useMemo(() => {
+    let list = allSchools;
+    if (schoolKademeFilter) {
+      list = list.filter(s => s.schoolType === schoolKademeFilter);
+    }
+    if (schoolSearch) {
+      const q = schoolSearch.toLowerCase();
+      list = list.filter(s => s.name.toLowerCase().includes(q));
+    }
+    return list;
+  }, [allSchools, schoolSearch, schoolKademeFilter]);
+
+  const toggleSchoolSelection = useCallback((id: string) => {
+    setSelectedSchoolIds(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else if (next.size < MAX_COMPARE) {
+        next.add(id);
+      }
+      return next;
+    });
+  }, []);
 
   const filteredRows = useMemo(() => rows.filter(row => {
     if (viewFilter === 'all') return true;
@@ -241,6 +305,63 @@ export function ComparePage() {
         </div>
       </div>
 
+      {/* School list — active / inactive */}
+      {allSchools.length > 0 && (
+        <div className="school-list-panel">
+          <div className="school-list-header">
+            <span className="school-list-title">Okullar</span>
+            <span className="school-list-counter">
+              {selectedSchoolIds.size} / {allSchools.length} seçili
+              {selectedSchoolIds.size >= MAX_COMPARE && <span className="school-list-max"> (maks.)</span>}
+            </span>
+          </div>
+          <div className="school-list-filters">
+            <input
+              type="text"
+              className="school-list-search"
+              placeholder="Okul adı ara..."
+              value={schoolSearch}
+              onChange={e => setSchoolSearch(e.target.value)}
+            />
+            <select
+              className="school-list-kademe-select"
+              value={schoolKademeFilter}
+              onChange={e => setSchoolKademeFilter(e.target.value as SchoolType | '')}
+            >
+              <option value="">Tüm Kademeler</option>
+              <option value="ILKOKUL">İlkokul</option>
+              <option value="ORTAOKUL">Ortaokul</option>
+              <option value="LISE">Lise</option>
+            </select>
+          </div>
+          <div className="school-list-grid">
+            {displaySchools.map(s => {
+              const active = selectedSchoolIds.has(s.id);
+              const limitReached = !active && selectedSchoolIds.size >= MAX_COMPARE;
+              return (
+                <button
+                  key={s.id}
+                  className={`school-list-item ${active ? 'active' : 'inactive'} ${limitReached ? 'limit' : ''}`}
+                  onClick={() => !limitReached && toggleSchoolSelection(s.id)}
+                  disabled={limitReached}
+                >
+                  <span className={`school-list-dot ${active ? 'on' : 'off'}`} />
+                  <span className="school-list-name">{s.name}</span>
+                  <span className={`cell-badge cell-badge--kademe-${s.schoolType.toLowerCase()}`}>
+                    {s.schoolType === 'ILKOKUL' ? 'İlkokul' : s.schoolType === 'ORTAOKUL' ? 'Ortaokul' : 'Lise'}
+                  </span>
+                </button>
+              );
+            })}
+            {displaySchools.length === 0 && (
+              <div style={{ padding: '12px 16px', color: 'var(--color-text-tertiary)', fontSize: '0.82rem' }}>
+                Filtreye uygun okul bulunamadı.
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {loading && (
         <div className="loading-state">
           <div className="loading-spinner" />
@@ -248,7 +369,7 @@ export function ComparePage() {
         </div>
       )}
 
-      {!loading && compSchools.length > 0 && (
+      {!loading && compSchools.length >= 2 && (
         <>
           <div className="compare-toolbar">
             <div className="compare-filter-chips">
@@ -274,6 +395,23 @@ export function ComparePage() {
             <button className="btn btn-primary" onClick={handleExportCsv}>
               <Download size={16} /> CSV İndir
             </button>
+          </div>
+
+          <div className="heatmap-legend">
+            <span className="heatmap-legend-title">Isı Haritası</span>
+            <div className="heatmap-legend-items">
+              <div className="heatmap-legend-swatch" style={{ background: '#f0fdf4' }} />
+              <span className="heatmap-legend-label">Az</span>
+              <div className="heatmap-legend-swatch" style={{ background: '#dcfce7' }} />
+              <div className="heatmap-legend-swatch" style={{ background: '#bbf7d0' }} />
+              <div className="heatmap-legend-swatch" style={{ background: '#86efac' }} />
+              <div className="heatmap-legend-swatch" style={{ background: '#4ade80' }} />
+              <span className="heatmap-legend-label">Çok</span>
+            </div>
+            <div className="heatmap-legend-missing">
+              <div className="heatmap-legend-swatch" style={{ background: '#fef2f2' }} />
+              <span className="heatmap-legend-label">Yok (eksik)</span>
+            </div>
           </div>
 
           <div className="compare-table-wrapper">
@@ -303,7 +441,6 @@ export function ComparePage() {
                       onClick={() => toggleSort(s.id)}
                     >
                       <span className="compare-school-name">{s.name}</span>
-                      <span className="compare-school-stat">{schoolTotals[s.id]} kopya</span>
                       <span className="sort-icon"><SortIcon col={s.id} /></span>
                     </th>
                   ))}
@@ -320,7 +457,6 @@ export function ComparePage() {
               <tbody>
                 {sortedRows.map(row => {
                   const total = Object.values(row.quantities).reduce((s, q) => s + q, 0);
-                  const presentCount = Object.values(row.quantities).filter(q => q > 0).length;
                   return (
                     <tr key={row.book.id}>
                       <td className="compare-sticky-col cell-title">{row.book.title}</td>
@@ -338,9 +474,6 @@ export function ComparePage() {
                       })}
                       <td className="compare-total-col">
                         <span className="cell-badge cell-badge--quantity">{total}</span>
-                        {presentCount < compSchools.length && (
-                          <span className="compare-coverage">{presentCount}/{compSchools.length}</span>
-                        )}
                       </td>
                     </tr>
                   );
@@ -377,6 +510,15 @@ export function ComparePage() {
             <GitCompareArrows size={40} strokeWidth={1.5} />
           </div>
           <p className="empty-state-text">Karşılaştırma için bir il seçin.</p>
+        </div>
+      )}
+
+      {!loading && selectedProvince && allSchools.length > 0 && selectedSchoolIds.size < 2 && (
+        <div className="empty-state">
+          <div className="empty-state-icon">
+            <GitCompareArrows size={40} strokeWidth={1.5} />
+          </div>
+          <p className="empty-state-text">Karşılaştırma için en az 2 okul seçin.</p>
         </div>
       )}
     </div>

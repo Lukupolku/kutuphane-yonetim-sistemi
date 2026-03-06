@@ -48,6 +48,13 @@ class SchoolProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Sets school directly (e.g. from auth login) without cascading.
+  void selectSchoolDirectly(School school) {
+    selectedProvince = school.province;
+    selectedDistrict = school.district;
+    selectedSchool = school;
+  }
+
   Future<void> loadSavedSchool() async {
     final prefs = await SharedPreferences.getInstance();
     final schoolJson = prefs.getString('selected_school');

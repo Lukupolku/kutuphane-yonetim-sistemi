@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/book.dart';
+import '../providers/auth_provider.dart';
 import '../providers/inventory_provider.dart';
 import '../providers/school_provider.dart';
+
+enum ViewMode { card, compact }
 
 class InventoryScreen extends StatefulWidget {
   const InventoryScreen({super.key});
@@ -12,6 +15,14 @@ class InventoryScreen extends StatefulWidget {
 }
 
 class _InventoryScreenState extends State<InventoryScreen> {
+  final _searchController = TextEditingController();
+  final _scrollController = ScrollController();
+  String _searchQuery = '';
+  ViewMode _viewMode = ViewMode.card;
+
+  static const _pageSize = 20;
+  int _visibleCount = 20;
+
   @override
   void initState() {
     super.initState();
@@ -22,6 +33,34 @@ class _InventoryScreenState extends State<InventoryScreen> {
         context.read<InventoryProvider>().loadInventory(school.id);
       }
     });
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 200) {
+      setState(() {
+        _visibleCount += _pageSize;
+      });
+    }
+  }
+
+  List<InventoryItem> _filterItems(List<InventoryItem> items) {
+    if (_searchQuery.isEmpty) return items;
+    final q = _searchQuery.toLowerCase();
+    return items.where((item) {
+      return item.book.title.toLowerCase().contains(q) ||
+          item.book.authors.any((a) => a.toLowerCase().contains(q)) ||
+          (item.book.isbn?.contains(q) ?? false) ||
+          (item.book.publisher?.toLowerCase().contains(q) ?? false);
+    }).toList();
   }
 
   void _showAddBookBottomSheet() {
@@ -261,6 +300,193 @@ class _InventoryScreenState extends State<InventoryScreen> {
     );
   }
 
+  Widget _buildCardItem(InventoryItem item, InventoryProvider provider) {
+    return Dismissible(
+      key: Key(item.holding.id),
+      direction: DismissDirection.endToStart,
+      confirmDismiss: (_) async {
+        _confirmDelete(item);
+        return false;
+      },
+      background: Container(
+        color: const Color(0xFFC42B2B),
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.only(right: 20),
+        child: const Icon(Icons.delete, color: Colors.white),
+      ),
+      child: Card(
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 3),
+        child: InkWell(
+          onTap: () => _showEditBookDialog(item),
+          borderRadius: BorderRadius.circular(12),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                Container(
+                  width: 44,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: item.book.coverImageUrl != null
+                      ? ClipRRect(
+                          borderRadius: BorderRadius.circular(6),
+                          child: Image.network(
+                            item.book.coverImageUrl!,
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => Icon(
+                              Icons.book,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onPrimaryContainer,
+                            ),
+                          ),
+                        )
+                      : Icon(
+                          Icons.book,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onPrimaryContainer,
+                        ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        item.book.title,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        item.book.authors.join(', '),
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF5A5A64),
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      if (item.book.publisher != null)
+                        Text(
+                          item.book.publisher!,
+                          style: const TextStyle(
+                            fontSize: 11,
+                            color: Color(0xFF8E8E9A),
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 32,
+                      height: 28,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        iconSize: 18,
+                        icon: const Icon(Icons.add_circle_outline),
+                        onPressed: () {
+                          provider.updateQuantity(
+                            item.holding.id,
+                            item.holding.quantity + 1,
+                          );
+                        },
+                      ),
+                    ),
+                    Text(
+                      '${item.holding.quantity}',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 32,
+                      height: 28,
+                      child: IconButton(
+                        padding: EdgeInsets.zero,
+                        iconSize: 18,
+                        icon: const Icon(Icons.remove_circle_outline),
+                        onPressed: item.holding.quantity > 1
+                            ? () {
+                                provider.updateQuantity(
+                                  item.holding.id,
+                                  item.holding.quantity - 1,
+                                );
+                              }
+                            : () => _confirmDelete(item),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCompactItem(InventoryItem item, InventoryProvider provider) {
+    return InkWell(
+      onTap: () => _showEditBookDialog(item),
+      onLongPress: () => _confirmDelete(item),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        decoration: const BoxDecoration(
+          border: Border(
+            bottom: BorderSide(color: Color(0xFFEDEBE8), width: 1),
+          ),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                item.book.title,
+                style: const TextStyle(
+                  fontSize: 13.5,
+                  fontWeight: FontWeight.w600,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(
+                color: const Color(0xFFEFF6FF),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                '${item.holding.quantity}',
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xFF1E40AF),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final schoolProvider = context.watch<SchoolProvider>();
@@ -271,9 +497,30 @@ class _InventoryScreenState extends State<InventoryScreen> {
         title: Text(schoolName),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.pushNamed(context, '/school-selection');
+            icon: const Icon(Icons.logout),
+            tooltip: 'Çıkış Yap',
+            onPressed: () async {
+              final confirmed = await showDialog<bool>(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  title: const Text('Çıkış Yap'),
+                  content: const Text(
+                      'Çıkış yapmak istediğinize emin misiniz?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(ctx, false),
+                      child: const Text('İptal'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.pop(ctx, true),
+                      child: const Text('Çıkış Yap'),
+                    ),
+                  ],
+                ),
+              );
+              if (confirmed == true && context.mounted) {
+                context.read<AuthProvider>().logout();
+              }
             },
           ),
         ],
@@ -289,7 +536,8 @@ class _InventoryScreenState extends State<InventoryScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.library_books, size: 64, color: const Color(0xFF8E8E9A)),
+                  Icon(Icons.library_books,
+                      size: 64, color: const Color(0xFF8E8E9A)),
                   const SizedBox(height: 16),
                   Text(
                     'Henüz kitap eklenmemiş',
@@ -311,182 +559,129 @@ class _InventoryScreenState extends State<InventoryScreen> {
             );
           }
 
+          final filtered = _filterItems(provider.items);
+          final visible = filtered.take(_visibleCount).toList();
+          final hasMore = visible.length < filtered.length;
+
           return Column(
             children: [
+              // Search + view toggle + stats bar
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.fromLTRB(12, 8, 12, 6),
                 color: Theme.of(context).colorScheme.surfaceContainerLow,
-                child: Row(
+                child: Column(
                   children: [
-                    Text(
-                      '${provider.items.length} kitap',
-                      style: Theme.of(context).textTheme.bodySmall,
+                    // Search box
+                    SizedBox(
+                      height: 38,
+                      child: TextField(
+                        controller: _searchController,
+                        onChanged: (v) => setState(() {
+                          _searchQuery = v;
+                          _visibleCount = _pageSize;
+                        }),
+                        decoration: InputDecoration(
+                          hintText: 'Kitap ara...',
+                          hintStyle: const TextStyle(fontSize: 13),
+                          prefixIcon:
+                              const Icon(Icons.search, size: 20),
+                          suffixIcon: _searchQuery.isNotEmpty
+                              ? IconButton(
+                                  icon: const Icon(Icons.clear, size: 18),
+                                  onPressed: () {
+                                    _searchController.clear();
+                                    setState(() {
+                                      _searchQuery = '';
+                                      _visibleCount = _pageSize;
+                                    });
+                                  },
+                                )
+                              : null,
+                          isDense: true,
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 8),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide:
+                                const BorderSide(color: Color(0xFFE0DDD9)),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide:
+                                const BorderSide(color: Color(0xFFE0DDD9)),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                        style: const TextStyle(fontSize: 13),
+                      ),
                     ),
-                    const Spacer(),
-                    Text(
-                      'Toplam: ${provider.items.fold<int>(0, (sum, i) => sum + i.holding.quantity)} adet',
-                      style: Theme.of(context).textTheme.bodySmall,
+                    const SizedBox(height: 6),
+                    // Stats row + view toggle
+                    Row(
+                      children: [
+                        Text(
+                          _searchQuery.isNotEmpty
+                              ? '${filtered.length} / ${provider.items.length} kitap'
+                              : '${provider.items.length} kitap',
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        const Spacer(),
+                        Text(
+                          'Toplam: ${provider.items.fold<int>(0, (sum, i) => sum + i.holding.quantity)} nüsha',
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        const SizedBox(width: 8),
+                        Container(
+                          height: 30,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: const Color(0xFFE0DDD9)),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              _viewToggleButton(
+                                icon: Icons.view_agenda_outlined,
+                                mode: ViewMode.card,
+                                isLeft: true,
+                              ),
+                              _viewToggleButton(
+                                icon: Icons.view_list_outlined,
+                                mode: ViewMode.compact,
+                                isLeft: false,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
+              // List
               Expanded(
                 child: ListView.builder(
-                  itemCount: provider.items.length,
+                  controller: _scrollController,
+                  itemCount: visible.length + (hasMore ? 1 : 0),
                   itemBuilder: (context, index) {
-                    final item = provider.items[index];
-                    return Dismissible(
-                      key: Key(item.holding.id),
-                      direction: DismissDirection.endToStart,
-                      confirmDismiss: (_) async {
-                        _confirmDelete(item);
-                        return false;
-                      },
-                      background: Container(
-                        color: const Color(0xFFC42B2B),
-                        alignment: Alignment.centerRight,
-                        padding: const EdgeInsets.only(right: 20),
-                        child:
-                            const Icon(Icons.delete, color: Colors.white),
-                      ),
-                      child: Card(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 3,
-                        ),
-                        child: InkWell(
-                          onTap: () => _showEditBookDialog(item),
-                          borderRadius: BorderRadius.circular(12),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Row(
-                              children: [
-                                // Book icon or cover
-                                Container(
-                                  width: 44,
-                                  height: 56,
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                  child: item.book.coverImageUrl != null
-                                      ? ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(6),
-                                          child: Image.network(
-                                            item.book.coverImageUrl!,
-                                            fit: BoxFit.cover,
-                                            errorBuilder:
-                                                (_, __, ___) => Icon(
-                                              Icons.book,
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimaryContainer,
-                                            ),
-                                          ),
-                                        )
-                                      : Icon(
-                                          Icons.book,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onPrimaryContainer,
-                                        ),
-                                ),
-                                const SizedBox(width: 12),
-                                // Book info
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        item.book.title,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14,
-                                        ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                      const SizedBox(height: 2),
-                                      Text(
-                                        item.book.authors.join(', '),
-                                        style: const TextStyle(
-                                          fontSize: 12,
-                                          color: Color(0xFF5A5A64),
-                                        ),
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                      if (item.book.publisher != null)
-                                        Text(
-                                          item.book.publisher!,
-                                          style: const TextStyle(
-                                            fontSize: 11,
-                                            color: Color(0xFF8E8E9A),
-                                          ),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(width: 8),
-                                // Quantity controls
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(
-                                      width: 32,
-                                      height: 28,
-                                      child: IconButton(
-                                        padding: EdgeInsets.zero,
-                                        iconSize: 18,
-                                        icon: const Icon(Icons.add_circle_outline),
-                                        onPressed: () {
-                                          provider.updateQuantity(
-                                            item.holding.id,
-                                            item.holding.quantity + 1,
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                    Text(
-                                      '${item.holding.quantity}',
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 32,
-                                      height: 28,
-                                      child: IconButton(
-                                        padding: EdgeInsets.zero,
-                                        iconSize: 18,
-                                        icon: const Icon(
-                                            Icons.remove_circle_outline),
-                                        onPressed: item.holding.quantity > 1
-                                            ? () {
-                                                provider.updateQuantity(
-                                                  item.holding.id,
-                                                  item.holding.quantity - 1,
-                                                );
-                                              }
-                                            : () => _confirmDelete(item),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                    if (index >= visible.length) {
+                      return const Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Center(
+                          child: SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(strokeWidth: 2),
                           ),
                         ),
-                      ),
-                    );
+                      );
+                    }
+                    final item = visible[index];
+                    if (_viewMode == ViewMode.compact) {
+                      return _buildCompactItem(item, provider);
+                    }
+                    return _buildCardItem(item, provider);
                   },
                 ),
               ),
@@ -498,6 +693,35 @@ class _InventoryScreenState extends State<InventoryScreen> {
         onPressed: _showAddBookBottomSheet,
         icon: const Icon(Icons.add),
         label: const Text('Kitap Ekle'),
+      ),
+    );
+  }
+
+  Widget _viewToggleButton({
+    required IconData icon,
+    required ViewMode mode,
+    required bool isLeft,
+  }) {
+    final active = _viewMode == mode;
+    return GestureDetector(
+      onTap: () => setState(() => _viewMode = mode),
+      child: Container(
+        width: 32,
+        height: 30,
+        decoration: BoxDecoration(
+          color: active
+              ? Theme.of(context).colorScheme.primary
+              : Colors.transparent,
+          borderRadius: BorderRadius.horizontal(
+            left: isLeft ? const Radius.circular(5) : Radius.zero,
+            right: !isLeft ? const Radius.circular(5) : Radius.zero,
+          ),
+        ),
+        child: Icon(
+          icon,
+          size: 16,
+          color: active ? Colors.white : const Color(0xFF5A5A64),
+        ),
       ),
     );
   }

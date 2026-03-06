@@ -33,5 +33,11 @@
   {"id":"h32","bookId":"b14","schoolId":"s6-istanbul-kadikoy-fenerbahce-lise","quantity":5,"addedBy":"Zeynep Hanım","addedAt":"2026-02-23T10:00:00Z","source":"BARCODE_SCAN"},
   {"id":"h33","bookId":"b14","schoolId":"s9-izmir-konak-alsancak-lise","quantity":4,"addedBy":"Fatma Hanım","addedAt":"2026-02-24T09:00:00Z","source":"BARCODE_SCAN"},
   {"id":"h34","bookId":"b15","schoolId":"s6-istanbul-kadikoy-fenerbahce-lise","quantity":2,"addedBy":"Zeynep Hanım","addedAt":"2026-02-25T10:00:00Z","source":"BARCODE_SCAN"},
-  {"id":"h35","bookId":"b15","schoolId":"s12-izmir-bornova-dokuz-eylul-lise","quantity":3,"addedBy":"Hasan Bey","addedAt":"2026-02-26T09:00:00Z","source":"BARCODE_SCAN"}
+  {"id":"h35","bookId":"b15","schoolId":"s12-izmir-bornova-dokuz-eylul-lise","quantity":3,"addedBy":"Hasan Bey","addedAt":"2026-02-26T09:00:00Z","source":"BARCODE_SCAN"},
+  {"id":"h36","bookId":"b1","schoolId":"s13-ankara-sincan-sdemirel-lise","quantity":4,"addedBy":"Demo Öğretmen","addedAt":"2026-02-27T10:00:00Z","source":"BARCODE_SCAN"},
+  {"id":"h37","bookId":"b3","schoolId":"s13-ankara-sincan-sdemirel-lise","quantity":6,"addedBy":"Demo Öğretmen","addedAt":"2026-02-27T10:30:00Z","source":"BARCODE_SCAN"},
+  {"id":"h38","bookId":"b5","schoolId":"s13-ankara-sincan-sdemirel-lise","quantity":3,"addedBy":"Demo Öğretmen","addedAt":"2026-02-27T11:00:00Z","source":"COVER_OCR"},
+  {"id":"h39","bookId":"b7","schoolId":"s13-ankara-sincan-sdemirel-lise","quantity":5,"addedBy":"Demo Öğretmen","addedAt":"2026-02-27T11:30:00Z","source":"BARCODE_SCAN"},
+  {"id":"h40","bookId":"b8","schoolId":"s13-ankara-sincan-sdemirel-lise","quantity":8,"addedBy":"Demo Öğretmen","addedAt":"2026-02-27T12:00:00Z","source":"MANUAL"},
+  {"id":"h41","bookId":"b14","schoolId":"s13-ankara-sincan-sdemirel-lise","quantity":2,"addedBy":"Demo Öğretmen","addedAt":"2026-02-27T12:30:00Z","source":"BARCODE_SCAN"}
 ]

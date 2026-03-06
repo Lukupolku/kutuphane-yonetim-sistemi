@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { BookOpenText, Layers, School, FileSpreadsheet, Download, Users, BarChart3 } from 'lucide-react';
+import { BookOpenText, Layers, School, FileSpreadsheet, Download, Users, BarChart3, GraduationCap, BookOpen, Library } from 'lucide-react';
 import { HierarchyFilter } from '../components/HierarchyFilter';
 import { ExcelImportModal } from '../components/ExcelImportModal';
 import { SortHeader } from '../components/SortHeader';
@@ -16,6 +16,12 @@ const kademeLabels: Record<SchoolType, string> = {
   ILKOKUL: 'İlkokul',
   ORTAOKUL: 'Ortaokul',
   LISE: 'Lise',
+};
+
+const kademeIcons: Record<SchoolType, typeof BookOpen> = {
+  ILKOKUL: BookOpen,
+  ORTAOKUL: GraduationCap,
+  LISE: Library,
 };
 
 type KademeFilter = SchoolType | 'all';
@@ -109,7 +115,7 @@ export function DashboardPage() {
   const { sorted: sortedBooks, sort: booksSort, toggle: booksToggle } = useSort(booksWithAuthorStr);
 
   const handleExportSchoolStats = () => {
-    const headers = ['Okul', 'İl', 'İlçe', 'Kademe', 'Öğrenci', 'Farklı Eser', 'Toplam Kopya', 'Öğrenci Başına'];
+    const headers = ['Okul', 'İl', 'İlçe', 'Kademe', 'Öğrenci', 'Farklı Eser', 'Toplam Nüsha', 'Öğrenci Başına'];
     const rows = filteredStats.map(s => [
       s.school.name,
       s.school.province,
@@ -150,9 +156,9 @@ export function DashboardPage() {
           <div className="stat-card-icon">
             <Layers size={20} />
           </div>
-          <div className="stat-card-label">Toplam Kopya</div>
+          <div className="stat-card-label">Toplam Nüsha</div>
           <div className="stat-card-value">{totalQuantity}</div>
-          <div className="stat-card-detail">fiziksel adet</div>
+          <div className="stat-card-detail">fiziksel nüsha</div>
         </div>
         {!isSchool && (
           <>
@@ -178,7 +184,7 @@ export function DashboardPage() {
               </div>
               <div className="stat-card-label">Okul Başına</div>
               <div className="stat-card-value">{avgBooksPerSchool.toFixed(0)}</div>
-              <div className="stat-card-detail">ortalama kopya</div>
+              <div className="stat-card-detail">ortalama nüsha</div>
             </div>
           </>
         )}
@@ -190,13 +196,30 @@ export function DashboardPage() {
           {(Object.keys(kademeLabels) as SchoolType[]).map(k => {
             const s = kademeSummary[k];
             const bps = s.students > 0 ? (s.copies / s.students) : 0;
+            const Icon = kademeIcons[k];
             return (
-              <div key={k} className="kademe-card">
-                <div className="kademe-card-title">{kademeLabels[k]}</div>
+              <div key={k} className={`kademe-card kademe-card--${k.toLowerCase()}`}>
+                <div className="kademe-card-top">
+                  <div className="kademe-card-icon">
+                    <Icon size={22} />
+                  </div>
+                  <div className="kademe-card-title">{kademeLabels[k]}</div>
+                </div>
+                <div className="kademe-card-hero">{s.copies.toLocaleString('tr-TR')}</div>
+                <div className="kademe-card-hero-label">toplam nüsha</div>
                 <div className="kademe-card-stats">
-                  <span>{s.schools} okul</span>
-                  <span>{s.copies} kopya</span>
-                  <span>{bps.toFixed(1)} kitap/öğr.</span>
+                  <div className="kademe-stat">
+                    <span className="kademe-stat-value">{s.schools}</span>
+                    <span className="kademe-stat-label">okul</span>
+                  </div>
+                  <div className="kademe-stat">
+                    <span className="kademe-stat-value">{s.students.toLocaleString('tr-TR')}</span>
+                    <span className="kademe-stat-label">öğrenci</span>
+                  </div>
+                  <div className="kademe-stat">
+                    <span className="kademe-stat-value">{bps.toFixed(1)}</span>
+                    <span className="kademe-stat-label">kitap/öğr.</span>
+                  </div>
                 </div>
               </div>
             );
@@ -266,6 +289,18 @@ export function DashboardPage() {
               })}
             </div>
           </div>
+          <div className="heatmap-legend">
+            <span className="heatmap-legend-title">Öğrenci Başına Kitap</span>
+            <div className="heatmap-legend-items">
+              <div className="heatmap-legend-swatch" style={{ background: '#fce8eb' }} />
+              <span className="heatmap-legend-label">&lt; 0.1 düşük</span>
+              <div className="heatmap-legend-swatch" style={{ background: '#fef9c3' }} />
+              <span className="heatmap-legend-label">0.1 – 0.3 orta</span>
+              <div className="heatmap-legend-swatch" style={{ background: '#dcfce7' }} />
+              <span className="heatmap-legend-label">&ge; 0.3 iyi</span>
+            </div>
+          </div>
+
           <div className="data-table-wrapper">
             <table className="data-table">
               <thead>
@@ -274,7 +309,7 @@ export function DashboardPage() {
                   <SortHeader label="Kademe" sortKey="schoolType" sort={statsSort} onToggle={statsToggle} />
                   <SortHeader label="Öğrenci" sortKey="studentCount" sort={statsSort} onToggle={statsToggle} className="center" />
                   <SortHeader label="Farklı Eser" sortKey="bookCount" sort={statsSort} onToggle={statsToggle} className="center" />
-                  <SortHeader label="Toplam Kopya" sortKey="totalCopies" sort={statsSort} onToggle={statsToggle} className="center" />
+                  <SortHeader label="Toplam Nüsha" sortKey="totalCopies" sort={statsSort} onToggle={statsToggle} className="center" />
                   <SortHeader label="Öğr. Başına" sortKey="booksPerStudent" sort={statsSort} onToggle={statsToggle} className="center" />
                 </tr>
               </thead>

@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Search, GitCompareArrows, LogOut, User } from 'lucide-react';
+import { LayoutDashboard, Search, GitCompareArrows, ShieldCheck, User, LogOut, X, Menu } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const roleLabels = {
@@ -13,6 +14,13 @@ export function Layout() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Close sidebar on route change (mobile)
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [location.pathname]);
 
   const navItems = [
     { path: '/', label: 'Genel Bakış', icon: LayoutDashboard },
@@ -21,6 +29,7 @@ export function Layout() {
   ];
 
   const handleLogout = () => {
+    setShowLogoutModal(false);
     logout();
     navigate('/login');
   };
@@ -35,14 +44,28 @@ export function Layout() {
 
   return (
     <div className="app-layout">
-      <aside className="sidebar">
+      {/* Mobile top navbar */}
+      <header className="mobile-header">
+        <img src="/favicon.png" alt="MEB" className="mobile-header-logo" />
+        <span className="mobile-header-title">Okul Kütüphaneleri</span>
+        <button className="mobile-menu-btn" onClick={() => setSidebarOpen(true)}>
+          <Menu size={22} />
+        </button>
+      </header>
+
+      {/* Sidebar overlay for mobile */}
+      {sidebarOpen && (
+        <div className="sidebar-overlay" onClick={() => setSidebarOpen(false)} />
+      )}
+
+      <aside className={`sidebar ${sidebarOpen ? 'sidebar--open' : ''}`}>
         <div className="sidebar-brand">
           <img
             src="/meb-logo-text.png"
             alt="MEB Logo"
             className="sidebar-brand-logo"
           />
-          <div className="sidebar-brand-title">Kütüphane Yönetim Sistemi</div>
+          <div className="sidebar-brand-title">Okul Kütüphaneleri Yönetim Sistemi</div>
         </div>
 
         <nav className="sidebar-nav">
@@ -78,15 +101,16 @@ export function Layout() {
                 )}
               </div>
             </div>
-            <button className="sidebar-logout" onClick={handleLogout} title="Çıkış Yap">
-              <LogOut size={16} />
+            <button className="sidebar-safe-logout" onClick={() => setShowLogoutModal(true)}>
+              <ShieldCheck size={16} />
+              <span>Güvenli Çıkış</span>
             </button>
           </div>
         )}
 
         <div className="sidebar-footer">
           <div className="sidebar-footer-text">
-            MEB Kütüphane Yönetim Sistemi — MVP
+            MEB Okul Kütüphaneleri Yönetim Sistemi
           </div>
         </div>
       </aside>
@@ -94,6 +118,32 @@ export function Layout() {
       <main className="main-content">
         <Outlet />
       </main>
+
+      {showLogoutModal && (
+        <div className="modal-overlay" onClick={() => setShowLogoutModal(false)}>
+          <div className="modal-card" onClick={e => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowLogoutModal(false)}>
+              <X size={18} />
+            </button>
+            <div className="modal-icon">
+              <LogOut size={28} />
+            </div>
+            <h3 className="modal-title">Çıkış Yap</h3>
+            <p className="modal-message">
+              Oturumunuzu kapatmak istediğinize emin misiniz?
+            </p>
+            <div className="modal-actions">
+              <button className="modal-btn modal-btn-cancel" onClick={() => setShowLogoutModal(false)}>
+                İptal
+              </button>
+              <button className="modal-btn modal-btn-confirm" onClick={handleLogout}>
+                <LogOut size={16} />
+                Çıkış Yap
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

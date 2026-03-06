@@ -32,10 +32,11 @@ class _SchoolSelectionScreenState extends State<SchoolSelectionScreen> {
             child: Column(
               children: [
                 const SizedBox(height: 24),
-                Icon(
-                  Icons.school,
-                  size: 64,
-                  color: Theme.of(context).colorScheme.primary,
+                Image.asset(
+                  'assets/images/meb-logo-text.png',
+                  width: 120,
+                  height: 120,
+                  fit: BoxFit.contain,
                 ),
                 const SizedBox(height: 16),
                 Text(

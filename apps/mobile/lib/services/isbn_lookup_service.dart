@@ -41,15 +41,18 @@ class IsbnLookupService {
   Future<Book?> _lookupGoogleBooks(String isbn) async {
     try {
       final uri = Uri.parse(
-        'https://www.googleapis.com/books/v1/volumes?q=isbn:$isbn',
+        'https://www.googleapis.com/books/v1/volumes?q=isbn:$isbn&hl=tr',
       );
-      final response = await http.get(uri).timeout(
+      final response = await http.get(
+        uri,
+        headers: {'Accept-Language': 'tr'},
+      ).timeout(
         const Duration(seconds: 10),
       );
 
       if (response.statusCode != 200) return null;
 
-      final data = json.decode(response.body) as Map<String, dynamic>;
+      final data = json.decode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
       final totalItems = data['totalItems'] as int? ?? 0;
       if (totalItems == 0) return null;
 
@@ -99,13 +102,16 @@ class IsbnLookupService {
   Future<Book?> _lookupOpenLibrary(String isbn) async {
     try {
       final uri = Uri.parse('https://openlibrary.org/isbn/$isbn.json');
-      final response = await http.get(uri).timeout(
+      final response = await http.get(
+        uri,
+        headers: {'Accept-Language': 'tr'},
+      ).timeout(
         const Duration(seconds: 10),
       );
 
       if (response.statusCode != 200) return null;
 
-      final data = json.decode(response.body) as Map<String, dynamic>;
+      final data = json.decode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
 
       final title = data['title'] as String? ?? '';
       if (title.isEmpty) return null;
@@ -158,11 +164,14 @@ class IsbnLookupService {
   Future<String?> _fetchOpenLibraryAuthor(String authorKey) async {
     try {
       final uri = Uri.parse('https://openlibrary.org$authorKey.json');
-      final response = await http.get(uri).timeout(
+      final response = await http.get(
+        uri,
+        headers: {'Accept-Language': 'tr'},
+      ).timeout(
         const Duration(seconds: 5),
       );
       if (response.statusCode != 200) return null;
-      final data = json.decode(response.body) as Map<String, dynamic>;
+      final data = json.decode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
       return data['name'] as String?;
     } catch (_) {
       return null;
