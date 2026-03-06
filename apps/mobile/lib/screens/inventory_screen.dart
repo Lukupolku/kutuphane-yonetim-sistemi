@@ -99,82 +99,131 @@ class _InventoryScreenState extends State<InventoryScreen> {
         TextEditingController(text: item.book.authors.join(', '));
     final publisherController =
         TextEditingController(text: item.book.publisher ?? '');
+    final isbnController =
+        TextEditingController(text: item.book.isbn ?? '');
     final formKey = GlobalKey<FormState>();
 
-    showDialog(
+    showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
       builder: (context) {
-        return AlertDialog(
-          title: const Text('Kitap Düzenle'),
-          content: SingleChildScrollView(
-            child: Form(
-              key: formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextFormField(
-                    controller: titleController,
-                    decoration: const InputDecoration(
-                      labelText: 'Başlık',
-                      border: OutlineInputBorder(),
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Center(
+                      child: Container(
+                        width: 40,
+                        height: 4,
+                        margin: const EdgeInsets.only(bottom: 16),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFE0DDD9),
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ),
                     ),
-                    validator: (v) =>
-                        v == null || v.trim().isEmpty ? 'Zorunlu' : null,
-                  ),
-                  const SizedBox(height: 12),
-                  TextFormField(
-                    controller: authorsController,
-                    decoration: const InputDecoration(
-                      labelText: 'Yazar',
-                      border: OutlineInputBorder(),
+                    Text(
+                      'Kitap Düzenle',
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.w700,
+                          ),
                     ),
-                  ),
-                  const SizedBox(height: 12),
-                  TextFormField(
-                    controller: publisherController,
-                    decoration: const InputDecoration(
-                      labelText: 'Yayınevi',
-                      border: OutlineInputBorder(),
+                    const SizedBox(height: 20),
+                    TextFormField(
+                      controller: titleController,
+                      decoration: const InputDecoration(
+                        labelText: 'Başlık',
+                      ),
+                      validator: (v) =>
+                          v == null || v.trim().isEmpty ? 'Zorunlu' : null,
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 14),
+                    TextFormField(
+                      controller: authorsController,
+                      decoration: const InputDecoration(
+                        labelText: 'Yazar',
+                        helperText: 'Birden fazla yazar için virgülle ayırın',
+                      ),
+                    ),
+                    const SizedBox(height: 14),
+                    TextFormField(
+                      controller: publisherController,
+                      decoration: const InputDecoration(
+                        labelText: 'Yayınevi',
+                      ),
+                    ),
+                    const SizedBox(height: 14),
+                    TextFormField(
+                      controller: isbnController,
+                      decoration: const InputDecoration(
+                        labelText: 'ISBN',
+                      ),
+                      keyboardType: TextInputType.number,
+                      readOnly: item.book.isbn != null,
+                    ),
+                    const SizedBox(height: 24),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('İptal'),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          flex: 2,
+                          child: FilledButton(
+                            onPressed: () {
+                              if (!formKey.currentState!.validate()) return;
+                              final authors = authorsController.text
+                                  .split(',')
+                                  .map((a) => a.trim())
+                                  .where((a) => a.isNotEmpty)
+                                  .toList();
+                              final isbnText = isbnController.text.trim();
+                              final updatedBook = Book(
+                                id: item.book.id,
+                                isbn: isbnText.isNotEmpty ? isbnText : null,
+                                title: titleController.text.trim(),
+                                authors:
+                                    authors.isEmpty ? ['Bilinmiyor'] : authors,
+                                publisher:
+                                    publisherController.text.trim().isNotEmpty
+                                        ? publisherController.text.trim()
+                                        : null,
+                                publishedDate: item.book.publishedDate,
+                                pageCount: item.book.pageCount,
+                                coverImageUrl: item.book.coverImageUrl,
+                                language: item.book.language,
+                                source: item.book.source,
+                                createdAt: item.book.createdAt,
+                              );
+                              context
+                                  .read<InventoryProvider>()
+                                  .updateBook(updatedBook);
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Kaydet'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('İptal'),
-            ),
-            FilledButton(
-              onPressed: () {
-                if (!formKey.currentState!.validate()) return;
-                final authors = authorsController.text
-                    .split(',')
-                    .map((a) => a.trim())
-                    .where((a) => a.isNotEmpty)
-                    .toList();
-                final updatedBook = Book(
-                  id: item.book.id,
-                  isbn: item.book.isbn,
-                  title: titleController.text.trim(),
-                  authors: authors.isEmpty ? ['Bilinmiyor'] : authors,
-                  publisher: publisherController.text.trim().isNotEmpty
-                      ? publisherController.text.trim()
-                      : null,
-                  publishedDate: item.book.publishedDate,
-                  pageCount: item.book.pageCount,
-                  coverImageUrl: item.book.coverImageUrl,
-                  language: item.book.language,
-                  source: item.book.source,
-                  createdAt: item.book.createdAt,
-                );
-                context.read<InventoryProvider>().updateBook(updatedBook);
-                Navigator.pop(context);
-              },
-              child: const Text('Kaydet'),
-            ),
-          ],
         );
       },
     );
