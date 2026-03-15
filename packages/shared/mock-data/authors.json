@@ -1,0 +1,723 @@
+[
+  {
+    "id": "a1",
+    "name": "Mehmet Akif Ersoy",
+    "birthYear": 1873,
+    "deathYear": 1936,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "İslamcı şiir",
+    "suitability": "uygun",
+    "note": "İstiklal Marşı şairi, zorunlu isim"
+  },
+  {
+    "id": "a2",
+    "name": "Necip Fazıl Kısakürek",
+    "birthYear": 1904,
+    "deathYear": 1983,
+    "genres": [
+      "Şiir",
+      "Tiyatro",
+      "Deneme"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Büyük Doğu hareketi",
+    "suitability": "uygun",
+    "note": "Büyük Doğu'nun sesi, güçlü şiir dili"
+  },
+  {
+    "id": "a3",
+    "name": "Yahya Kemal Beyatlı",
+    "birthYear": 1884,
+    "deathYear": 1958,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Neoklasik şiir",
+    "suitability": "uygun",
+    "note": "Osmanlı-İslam estetiğinin şairi"
+  },
+  {
+    "id": "a4",
+    "name": "Sezai Karakoç",
+    "birthYear": 1933,
+    "deathYear": 2021,
+    "genres": [
+      "Şiir",
+      "Deneme"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Diriliş hareketi",
+    "suitability": "uygun",
+    "note": "Diriliş şiirinin kurucusu"
+  },
+  {
+    "id": "a5",
+    "name": "Cahit Zarifoğlu",
+    "birthYear": 1940,
+    "deathYear": 1987,
+    "genres": [
+      "Şiir",
+      "Roman",
+      "Çocuk edebiyatı"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Diriliş çevresi",
+    "suitability": "uygun",
+    "note": "Mistik şiir, gençlere yakın dil"
+  },
+  {
+    "id": "a6",
+    "name": "Erdem Bayazıt",
+    "birthYear": 1939,
+    "deathYear": 2008,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Diriliş çevresi",
+    "suitability": "uygun",
+    "note": "Toplumsal şiir"
+  },
+  {
+    "id": "a7",
+    "name": "Akif İnan",
+    "birthYear": 1942,
+    "deathYear": 1991,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Diriliş çevresi",
+    "suitability": "uygun",
+    "note": "Lirik ve samimi şiir dili"
+  },
+  {
+    "id": "a8",
+    "name": "Abdürrahim Karakoç",
+    "birthYear": 1932,
+    "deathYear": 2023,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Halk şiiri geleneği",
+    "suitability": "uygun",
+    "note": "Erişilebilir dil, millî temalar"
+  },
+  {
+    "id": "a9",
+    "name": "Yavuz Bülent Bâkiler",
+    "birthYear": 1936,
+    "deathYear": null,
+    "genres": [
+      "Şiir",
+      "Deneme"
+    ],
+    "categories": [
+      "Şairler",
+      "Hem Şair Hem Düşünür"
+    ],
+    "literaryMovement": "Millî-muhafazakâr şiir",
+    "suitability": "uygun",
+    "note": "Millî-duygusal şiir, sade anlatım"
+  },
+  {
+    "id": "a10",
+    "name": "İsmet Özel",
+    "birthYear": 1944,
+    "deathYear": null,
+    "genres": [
+      "Şiir",
+      "Deneme"
+    ],
+    "categories": [
+      "Şairler",
+      "Hem Şair Hem Düşünür"
+    ],
+    "literaryMovement": "İslami şiir",
+    "suitability": "rehberli",
+    "note": "Güçlü şiir, kimlik arayışı — ideolojik dönüşümleri rehberli okunmalı"
+  },
+  {
+    "id": "a11",
+    "name": "İbrahim Tenekeci",
+    "birthYear": 1966,
+    "deathYear": null,
+    "genres": [
+      "Şiir",
+      "Hikâye"
+    ],
+    "categories": [
+      "Şairler",
+      "Hikâye Yazarları"
+    ],
+    "literaryMovement": "Çağdaş muhafazakâr edebiyat",
+    "suitability": "uygun",
+    "note": "Yeni kuşak, sade ve samimi dil"
+  },
+  {
+    "id": "a12",
+    "name": "Ömer Seyfettin",
+    "birthYear": 1884,
+    "deathYear": 1920,
+    "genres": [
+      "Hikâye",
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları",
+      "Hikâye Yazarları"
+    ],
+    "literaryMovement": "Millî edebiyat",
+    "suitability": "uygun",
+    "note": "Sade dil, millî temalar, başlangıç için ideal"
+  },
+  {
+    "id": "a13",
+    "name": "Peyami Safa",
+    "birthYear": 1899,
+    "deathYear": 1961,
+    "genres": [
+      "Roman",
+      "Deneme"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Muhafazakâr roman",
+    "suitability": "uygun",
+    "note": "Doğu-Batı çatışması, lise için ideal"
+  },
+  {
+    "id": "a14",
+    "name": "Tarık Buğra",
+    "birthYear": 1918,
+    "deathYear": 1994,
+    "genres": [
+      "Roman",
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Millî-muhafazakâr roman",
+    "suitability": "uygun",
+    "note": "Millî tarih, akıcı roman dili"
+  },
+  {
+    "id": "a15",
+    "name": "Reşat Nuri Güntekin",
+    "birthYear": 1889,
+    "deathYear": 1956,
+    "genres": [
+      "Roman",
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Millî edebiyat",
+    "suitability": "uygun",
+    "note": "Erişilebilir dil, Anadolu insanı"
+  },
+  {
+    "id": "a16",
+    "name": "Kemal Tahir",
+    "birthYear": 1910,
+    "deathYear": 1973,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Millî roman",
+    "suitability": "secici",
+    "note": "Osmanlı tarihi, güçlü roman kurgusu — bazı eserleri ağır"
+  },
+  {
+    "id": "a17",
+    "name": "Sevinç Çokum",
+    "birthYear": 1943,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Millî-muhafazakâr roman",
+    "suitability": "uygun",
+    "note": "Anadolu kadını, sade anlatım"
+  },
+  {
+    "id": "a18",
+    "name": "İskender Pala",
+    "birthYear": 1958,
+    "deathYear": null,
+    "genres": [
+      "Roman",
+      "Deneme"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Osmanlı-İslam estetiği",
+    "suitability": "uygun",
+    "note": "Osmanlı-İslam estetiği, akıcı dil"
+  },
+  {
+    "id": "a19",
+    "name": "Alev Alatlı",
+    "birthYear": 1944,
+    "deathYear": null,
+    "genres": [
+      "Roman",
+      "Deneme"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Türk-İslam medeniyeti",
+    "suitability": "secici",
+    "note": "Kimlik ve medeniyet sorgulaması — bazı eserleri ileri seviye"
+  },
+  {
+    "id": "a20",
+    "name": "Hekimoğlu İsmail",
+    "birthYear": 1925,
+    "deathYear": 2020,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İslami roman",
+    "suitability": "uygun",
+    "note": "İslami roman geleneğinin öncüsü"
+  },
+  {
+    "id": "a21",
+    "name": "Şule Yüksel Şenler",
+    "birthYear": 1938,
+    "deathYear": 2014,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İslami kadın edebiyatı",
+    "suitability": "uygun",
+    "note": "İslami kadın kimliği, Huzur Sokağı"
+  },
+  {
+    "id": "a22",
+    "name": "Cengiz Aytmatov",
+    "birthYear": 1928,
+    "deathYear": 2008,
+    "genres": [
+      "Roman",
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Türk dünyası edebiyatı",
+    "suitability": "uygun",
+    "note": "Türk dünyası, evrensel temalar — Beyaz Gemi başlangıç için ideal"
+  },
+  {
+    "id": "a23",
+    "name": "Nazan Bekiroğlu",
+    "birthYear": 1957,
+    "deathYear": null,
+    "genres": [
+      "Roman",
+      "Şiir"
+    ],
+    "categories": [
+      "Roman Yazarları",
+      "Hem Şair Hem Düşünür"
+    ],
+    "literaryMovement": "Osmanlı-İslam estetiği",
+    "suitability": "secici",
+    "note": "Tarihi kurgu, zengin dil — 11-12. sınıf için daha uygun"
+  },
+  {
+    "id": "a24",
+    "name": "Fatma Karabıyık Barbarosoğlu",
+    "birthYear": 1962,
+    "deathYear": null,
+    "genres": [
+      "Roman",
+      "Deneme"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Çağdaş İslami edebiyat",
+    "suitability": "uygun",
+    "note": "Günümüz İslami kadın kimliği"
+  },
+  {
+    "id": "a25",
+    "name": "Sibel Eraslan",
+    "birthYear": 1973,
+    "deathYear": null,
+    "genres": [
+      "Roman",
+      "Deneme"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Çağdaş İslami edebiyat",
+    "suitability": "uygun",
+    "note": "Genç kuşağa yakın dil, güncel temalar"
+  },
+  {
+    "id": "a26",
+    "name": "Rasim Özdenören",
+    "birthYear": 1940,
+    "deathYear": 2022,
+    "genres": [
+      "Hikâye",
+      "Deneme"
+    ],
+    "categories": [
+      "Hikâye Yazarları"
+    ],
+    "literaryMovement": "Diriliş çevresi",
+    "suitability": "uygun",
+    "note": "Modern hayat ve İslami değerler"
+  },
+  {
+    "id": "a27",
+    "name": "Mustafa Kutlu",
+    "birthYear": 1947,
+    "deathYear": null,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Hikâye Yazarları"
+    ],
+    "literaryMovement": "Muhafazakâr hikâye",
+    "suitability": "uygun",
+    "note": "Taşra, gelenek, sade ve derin dil"
+  },
+  {
+    "id": "a28",
+    "name": "Memduh Şevket Esendal",
+    "birthYear": 1883,
+    "deathYear": 1952,
+    "genres": [
+      "Hikâye",
+      "Roman"
+    ],
+    "categories": [
+      "Hikâye Yazarları"
+    ],
+    "literaryMovement": "Millî edebiyat",
+    "suitability": "uygun",
+    "note": "Yalın ve içten hikâye dili"
+  },
+  {
+    "id": "a29",
+    "name": "Samiha Ayverdi",
+    "birthYear": 1905,
+    "deathYear": 1993,
+    "genres": [
+      "Roman",
+      "Deneme"
+    ],
+    "categories": [
+      "Hikâye Yazarları",
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Osmanlı-tasavvuf estetiği",
+    "suitability": "secici",
+    "note": "Osmanlı-tasavvuf estetiği — seçici okunmalı"
+  },
+  {
+    "id": "a30",
+    "name": "Münevver Ayaşlı",
+    "birthYear": 1906,
+    "deathYear": 1999,
+    "genres": [
+      "Roman",
+      "Anı"
+    ],
+    "categories": [
+      "Hikâye Yazarları"
+    ],
+    "literaryMovement": "Muhafazakâr edebiyat",
+    "suitability": "uygun",
+    "note": "Osmanlı hatıraları, zarif üslup"
+  },
+  {
+    "id": "a31",
+    "name": "Sadık Yalsızuçanlar",
+    "birthYear": 1961,
+    "deathYear": null,
+    "genres": [
+      "Hikâye",
+      "Deneme"
+    ],
+    "categories": [
+      "Hikâye Yazarları"
+    ],
+    "literaryMovement": "Tasavvuf edebiyatı",
+    "suitability": "secici",
+    "note": "Tasavvuf ve modern hikâye — seçici okunmalı"
+  },
+  {
+    "id": "a32",
+    "name": "Nuri Pakdil",
+    "birthYear": 1934,
+    "deathYear": null,
+    "genres": [
+      "Hikâye",
+      "Deneme"
+    ],
+    "categories": [
+      "Hikâye Yazarları"
+    ],
+    "literaryMovement": "Diriliş çevresi",
+    "suitability": "rehberli",
+    "note": "Yoğun anlatım — 11-12. sınıfa bırakılabilir"
+  },
+  {
+    "id": "a33",
+    "name": "Cemil Meriç",
+    "birthYear": 1916,
+    "deathYear": 1987,
+    "genres": [
+      "Deneme",
+      "Eleştiri"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Medeniyet eleştirisi",
+    "suitability": "secici",
+    "note": "Doğu-Batı meselesi — seçici okunmalı, bazı bölümler ağır"
+  },
+  {
+    "id": "a34",
+    "name": "Nurettin Topçu",
+    "birthYear": 1909,
+    "deathYear": 1975,
+    "genres": [
+      "Deneme",
+      "Felsefe"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Anadoluculuk",
+    "suitability": "secici",
+    "note": "Anadoluculuk, İslam felsefesi — seçici okunmalı"
+  },
+  {
+    "id": "a35",
+    "name": "Ahmet Hamdi Tanpınar",
+    "birthYear": 1901,
+    "deathYear": 1962,
+    "genres": [
+      "Roman",
+      "Şiir",
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar",
+      "Hem Şair Hem Düşünür"
+    ],
+    "literaryMovement": "Doğu-Batı sentezi",
+    "suitability": "secici",
+    "note": "Doğu-Batı sentezi, Osmanlı nostaljisi — bazı eserleri ileri seviye"
+  },
+  {
+    "id": "a36",
+    "name": "Beşir Ayvazoğlu",
+    "birthYear": 1953,
+    "deathYear": null,
+    "genres": [
+      "Deneme",
+      "Biyografi"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Osmanlı-İslam estetiği",
+    "suitability": "uygun",
+    "note": "Osmanlı-İslam estetiği üzerine denemeler, akıcı dil"
+  },
+  {
+    "id": "a37",
+    "name": "Erol Güngör",
+    "birthYear": 1938,
+    "deathYear": 1983,
+    "genres": [
+      "Deneme",
+      "Sosyoloji"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Millî kültür",
+    "suitability": "secici",
+    "note": "Kültür, kimlik, millî değerler — seçici okunmalı"
+  },
+  {
+    "id": "a38",
+    "name": "Namık Kemal",
+    "birthYear": 1840,
+    "deathYear": 1888,
+    "genres": [
+      "Şiir",
+      "Tiyatro",
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar",
+      "Şairler"
+    ],
+    "literaryMovement": "Tanzimat edebiyatı",
+    "suitability": "secici",
+    "note": "Vatan ve hürriyet kavramları — belirli eserleri uygun"
+  },
+  {
+    "id": "a39",
+    "name": "Ahmet Mithat Efendi",
+    "birthYear": 1844,
+    "deathYear": 1912,
+    "genres": [
+      "Roman",
+      "Hikâye",
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar",
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Tanzimat edebiyatı",
+    "suitability": "uygun",
+    "note": "Popüler ve didaktik anlatım, erişilebilir dil"
+  },
+  {
+    "id": "a40",
+    "name": "Süheyl Ünver",
+    "birthYear": 1898,
+    "deathYear": 1986,
+    "genres": [
+      "Deneme",
+      "Tarih"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Osmanlı kültürü",
+    "suitability": "secici",
+    "note": "Osmanlı kültürü ve sanatı — hayatı ve önemi anlatılabilir"
+  },
+  {
+    "id": "a41",
+    "name": "Ahmet Haluk Dursun",
+    "birthYear": 1961,
+    "deathYear": null,
+    "genres": [
+      "Tarih",
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Popüler tarih yazımı",
+    "suitability": "uygun",
+    "note": "Osmanlı tarihi, popüler ve erişilebilir tarih yazımı"
+  },
+  {
+    "id": "a42",
+    "name": "Fuat Sezgin",
+    "birthYear": 1924,
+    "deathYear": 2018,
+    "genres": [
+      "Bilim Tarihi"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "İslam bilim tarihi",
+    "suitability": "rehberli",
+    "note": "Akademik içerik — sadece hayatı ve önemi anlatılabilir"
+  },
+  {
+    "id": "a43",
+    "name": "Emine Işınsu",
+    "birthYear": 1938,
+    "deathYear": 2014,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Millî-muhafazakâr roman",
+    "suitability": "uygun",
+    "note": "Millî kimlik temaları, akıcı roman dili"
+  },
+  {
+    "id": "a44",
+    "name": "Cengiz Dağcı",
+    "birthYear": 1919,
+    "deathYear": 2011,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Türk dünyası edebiyatı",
+    "suitability": "uygun",
+    "note": "Kırım Türkleri, sürgün edebiyatı, millî hafıza"
+  },
+  {
+    "id": "a45",
+    "name": "Nuri Pakdamir",
+    "birthYear": 1928,
+    "deathYear": 2008,
+    "genres": [
+      "Roman",
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Muhafazakâr roman geleneği",
+    "suitability": "uygun",
+    "note": "Anadolu insanı, değerler teması"
+  }
+]

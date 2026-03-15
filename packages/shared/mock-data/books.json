@@ -1,17 +1,1772 @@
 [
-  {"id":"b1","isbn":"9789750718533","title":"Küçük Prens","authors":["Antoine de Saint-Exupéry"],"publisher":"Can Yayınları","publishedDate":"2020","pageCount":96,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-15T10:00:00Z"},
-  {"id":"b2","isbn":"9789750726439","title":"Sefiller","authors":["Victor Hugo"],"publisher":"İş Bankası Kültür Yayınları","publishedDate":"2019","pageCount":1488,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-15T10:05:00Z"},
-  {"id":"b3","isbn":"9789750738609","title":"Suç ve Ceza","authors":["Fyodor Dostoyevski"],"publisher":"İş Bankası Kültür Yayınları","publishedDate":"2018","pageCount":687,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-16T09:00:00Z"},
-  {"id":"b4","isbn":"9789750505034","title":"Tutunamayanlar","authors":["Oğuz Atay"],"publisher":"İletişim Yayınları","publishedDate":"2021","pageCount":724,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-16T09:30:00Z"},
-  {"id":"b5","isbn":"9789750719387","title":"Fareler ve İnsanlar","authors":["John Steinbeck"],"publisher":"Can Yayınları","publishedDate":"2020","pageCount":118,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-17T08:00:00Z"},
-  {"id":"b6","isbn":"9789753638029","title":"Kürk Mantolu Madonna","authors":["Sabahattin Ali"],"publisher":"Yapı Kredi Yayınları","publishedDate":"2019","pageCount":160,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-17T08:30:00Z"},
-  {"id":"b7","isbn":"9789750736186","title":"Dönüşüm","authors":["Franz Kafka"],"publisher":"İş Bankası Kültür Yayınları","publishedDate":"2018","pageCount":77,"coverImageUrl":null,"language":"tr","source":"OPEN_LIBRARY","createdAt":"2026-01-18T10:00:00Z"},
-  {"id":"b8","isbn":"9789750724602","title":"1984","authors":["George Orwell"],"publisher":"Can Yayınları","publishedDate":"2021","pageCount":352,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-18T11:00:00Z"},
-  {"id":"b9","isbn":"9789750734762","title":"Hayvan Çiftliği","authors":["George Orwell"],"publisher":"Can Yayınları","publishedDate":"2020","pageCount":152,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-19T09:00:00Z"},
-  {"id":"b10","isbn":null,"title":"İstanbul Hatırası","authors":["Ahmet Ümit"],"publisher":"Everest Yayınları","publishedDate":"2010","pageCount":456,"coverImageUrl":null,"language":"tr","source":"MANUAL","createdAt":"2026-01-20T10:00:00Z"},
-  {"id":"b11","isbn":"9789750732881","title":"Beyaz Diş","authors":["Jack London"],"publisher":"İş Bankası Kültür Yayınları","publishedDate":"2017","pageCount":248,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-21T08:00:00Z"},
-  {"id":"b12","isbn":"9789750714542","title":"Simyacı","authors":["Paulo Coelho"],"publisher":"Can Yayınları","publishedDate":"2019","pageCount":184,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-01-22T09:00:00Z"},
-  {"id":"b13","isbn":null,"title":"Matematik Dünyası 5. Sınıf","authors":["MEB"],"publisher":"MEB Yayınları","publishedDate":"2025","pageCount":320,"coverImageUrl":null,"language":"tr","source":"OCR","createdAt":"2026-02-01T10:00:00Z"},
-  {"id":"b14","isbn":"9789750803246","title":"Çalıkuşu","authors":["Reşat Nuri Güntekin"],"publisher":"İnkılâp Kitabevi","publishedDate":"2018","pageCount":440,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-02-02T09:00:00Z"},
-  {"id":"b15","isbn":"9789750738012","title":"Savaş ve Barış","authors":["Lev Tolstoy"],"publisher":"İş Bankası Kültür Yayınları","publishedDate":"2019","pageCount":1460,"coverImageUrl":null,"language":"tr","source":"GOOGLE_BOOKS","createdAt":"2026-02-03T10:00:00Z"}
+  {
+    "id": "b1",
+    "isbn": "9789750718533",
+    "title": "Küçük Prens",
+    "authors": [
+      "Antoine de Saint-Exupéry"
+    ],
+    "publisher": "Can Yayınları",
+    "publishedDate": "2020",
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-15T10:00:00Z"
+  },
+  {
+    "id": "b2",
+    "isbn": "9789750726439",
+    "title": "Sefiller",
+    "authors": [
+      "Victor Hugo"
+    ],
+    "publisher": "İş Bankası Kültür Yayınları",
+    "publishedDate": "2019",
+    "pageCount": 1488,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-15T10:05:00Z"
+  },
+  {
+    "id": "b3",
+    "isbn": "9789750738609",
+    "title": "Suç ve Ceza",
+    "authors": [
+      "Fyodor Dostoyevski"
+    ],
+    "publisher": "İş Bankası Kültür Yayınları",
+    "publishedDate": "2018",
+    "pageCount": 687,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-16T09:00:00Z"
+  },
+  {
+    "id": "b4",
+    "isbn": "9789750505034",
+    "title": "Tutunamayanlar",
+    "authors": [
+      "Oğuz Atay"
+    ],
+    "publisher": "İletişim Yayınları",
+    "publishedDate": "2021",
+    "pageCount": 724,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-16T09:30:00Z"
+  },
+  {
+    "id": "b5",
+    "isbn": "9789750719387",
+    "title": "Fareler ve İnsanlar",
+    "authors": [
+      "John Steinbeck"
+    ],
+    "publisher": "Can Yayınları",
+    "publishedDate": "2020",
+    "pageCount": 118,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-17T08:00:00Z"
+  },
+  {
+    "id": "b6",
+    "isbn": "9789753638029",
+    "title": "Kürk Mantolu Madonna",
+    "authors": [
+      "Sabahattin Ali"
+    ],
+    "publisher": "Yapı Kredi Yayınları",
+    "publishedDate": "2019",
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-17T08:30:00Z"
+  },
+  {
+    "id": "b7",
+    "isbn": "9789750736186",
+    "title": "Dönüşüm",
+    "authors": [
+      "Franz Kafka"
+    ],
+    "publisher": "İş Bankası Kültür Yayınları",
+    "publishedDate": "2018",
+    "pageCount": 77,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "OPEN_LIBRARY",
+    "createdAt": "2026-01-18T10:00:00Z"
+  },
+  {
+    "id": "b8",
+    "isbn": "9789750724602",
+    "title": "1984",
+    "authors": [
+      "George Orwell"
+    ],
+    "publisher": "Can Yayınları",
+    "publishedDate": "2021",
+    "pageCount": 352,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-18T11:00:00Z"
+  },
+  {
+    "id": "b9",
+    "isbn": "9789750734762",
+    "title": "Hayvan Çiftliği",
+    "authors": [
+      "George Orwell"
+    ],
+    "publisher": "Can Yayınları",
+    "publishedDate": "2020",
+    "pageCount": 152,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-19T09:00:00Z"
+  },
+  {
+    "id": "b10",
+    "isbn": null,
+    "title": "İstanbul Hatırası",
+    "authors": [
+      "Ahmet Ümit"
+    ],
+    "publisher": "Everest Yayınları",
+    "publishedDate": "2010",
+    "pageCount": 456,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-01-20T10:00:00Z"
+  },
+  {
+    "id": "b11",
+    "isbn": "9789750732881",
+    "title": "Beyaz Diş",
+    "authors": [
+      "Jack London"
+    ],
+    "publisher": "İş Bankası Kültür Yayınları",
+    "publishedDate": "2017",
+    "pageCount": 248,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-21T08:00:00Z"
+  },
+  {
+    "id": "b12",
+    "isbn": "9789750714542",
+    "title": "Simyacı",
+    "authors": [
+      "Paulo Coelho"
+    ],
+    "publisher": "Can Yayınları",
+    "publishedDate": "2019",
+    "pageCount": 184,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-01-22T09:00:00Z"
+  },
+  {
+    "id": "b13",
+    "isbn": null,
+    "title": "Matematik Dünyası 5. Sınıf",
+    "authors": [
+      "MEB"
+    ],
+    "publisher": "MEB Yayınları",
+    "publishedDate": "2025",
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "OCR",
+    "createdAt": "2026-02-01T10:00:00Z"
+  },
+  {
+    "id": "b14",
+    "isbn": "9789750803246",
+    "title": "Çalıkuşu",
+    "authors": [
+      "Reşat Nuri Güntekin"
+    ],
+    "publisher": "İnkılâp Kitabevi",
+    "publishedDate": "2018",
+    "pageCount": 440,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-02-02T09:00:00Z"
+  },
+  {
+    "id": "b15",
+    "isbn": "9789750738012",
+    "title": "Savaş ve Barış",
+    "authors": [
+      "Lev Tolstoy"
+    ],
+    "publisher": "İş Bankası Kültür Yayınları",
+    "publishedDate": "2019",
+    "pageCount": 1460,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "GOOGLE_BOOKS",
+    "createdAt": "2026-02-03T10:00:00Z"
+  },
+  {
+    "id": "b16",
+    "isbn": null,
+    "title": "Benim Adım Kırmızı",
+    "authors": [
+      "Orhan Pamuk"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 472,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:00:00Z"
+  },
+  {
+    "id": "b17",
+    "isbn": null,
+    "title": "Sakıp Sabancı Bir Yaşam Öyküsü",
+    "authors": [
+      "Sakıp Sabancı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:05:00Z"
+  },
+  {
+    "id": "b18",
+    "isbn": null,
+    "title": "Toprak Ana",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 136,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:10:00Z"
+  },
+  {
+    "id": "b19",
+    "isbn": null,
+    "title": "Kuyucaklı Yusuf",
+    "authors": [
+      "Sabahattin Ali"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 216,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:15:00Z"
+  },
+  {
+    "id": "b20",
+    "isbn": null,
+    "title": "İnce Memed",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 436,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:20:00Z"
+  },
+  {
+    "id": "b21",
+    "isbn": null,
+    "title": "Yaban",
+    "authors": [
+      "Yakup Kadri Karaosmanoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:25:00Z"
+  },
+  {
+    "id": "b22",
+    "isbn": null,
+    "title": "Dokuzuncu Hariciye Koğuşu",
+    "authors": [
+      "Peyami Safa"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:30:00Z"
+  },
+  {
+    "id": "b23",
+    "isbn": null,
+    "title": "Sinekli Bakkal",
+    "authors": [
+      "Halide Edip Adıvar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 416,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:35:00Z"
+  },
+  {
+    "id": "b24",
+    "isbn": null,
+    "title": "Hasan Ali Yücel - Hayatı ve Eserleri",
+    "authors": [
+      "Hasan Ali Yücel"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:40:00Z"
+  },
+  {
+    "id": "b25",
+    "isbn": null,
+    "title": "Yaprak Dökümü",
+    "authors": [
+      "Reşat Nuri Güntekin"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 280,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:45:00Z"
+  },
+  {
+    "id": "b26",
+    "isbn": null,
+    "title": "Safahat",
+    "authors": [
+      "Mehmet Akif Ersoy"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 512,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:50:00Z"
+  },
+  {
+    "id": "b27",
+    "isbn": null,
+    "title": "Beyaz Gemi",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 144,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T10:55:00Z"
+  },
+  {
+    "id": "b28",
+    "isbn": null,
+    "title": "Gün Olur Asra Bedel",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 384,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:00:00Z"
+  },
+  {
+    "id": "b29",
+    "isbn": null,
+    "title": "Kiralık Konak",
+    "authors": [
+      "Yakup Kadri Karaosmanoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:05:00Z"
+  },
+  {
+    "id": "b30",
+    "isbn": null,
+    "title": "Fatih-Harbiye",
+    "authors": [
+      "Peyami Safa"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:10:00Z"
+  },
+  {
+    "id": "b31",
+    "isbn": null,
+    "title": "Mai ve Siyah",
+    "authors": [
+      "Halit Ziya Uşaklıgil"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 304,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:15:00Z"
+  },
+  {
+    "id": "b32",
+    "isbn": null,
+    "title": "Mor Salkımlı Ev",
+    "authors": [
+      "Halide Edip Adıvar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:20:00Z"
+  },
+  {
+    "id": "b33",
+    "isbn": null,
+    "title": "Küçük Ağa",
+    "authors": [
+      "Tarık Buğra"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 352,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:25:00Z"
+  },
+  {
+    "id": "b34",
+    "isbn": null,
+    "title": "Don Kişot",
+    "authors": [
+      "Cervantes"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 1056,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:30:00Z"
+  },
+  {
+    "id": "b35",
+    "isbn": null,
+    "title": "Drina Köprüsü",
+    "authors": [
+      "İvo Andriç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 384,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:35:00Z"
+  },
+  {
+    "id": "b36",
+    "isbn": null,
+    "title": "Çanlar Kimin İçin Çalıyor",
+    "authors": [
+      "Ernest Hemingway"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 480,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:40:00Z"
+  },
+  {
+    "id": "b37",
+    "isbn": null,
+    "title": "Kaplumbağalar",
+    "authors": [
+      "Fakir Baykurt"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:45:00Z"
+  },
+  {
+    "id": "b38",
+    "isbn": null,
+    "title": "Karartma Geceleri",
+    "authors": [
+      "Rıfat Ilgaz"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:50:00Z"
+  },
+  {
+    "id": "b39",
+    "isbn": null,
+    "title": "Esir Şehrin İnsanları",
+    "authors": [
+      "Kemal Tahir"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 432,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T11:55:00Z"
+  },
+  {
+    "id": "b40",
+    "isbn": null,
+    "title": "Eskicinin Oğulları",
+    "authors": [
+      "Orhan Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:00:00Z"
+  },
+  {
+    "id": "b41",
+    "isbn": null,
+    "title": "Yılkı Atı",
+    "authors": [
+      "Abbas Sayar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:05:00Z"
+  },
+  {
+    "id": "b42",
+    "isbn": null,
+    "title": "Yaşar Ne Yaşar Ne Yaşamaz",
+    "authors": [
+      "Aziz Nesin"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:10:00Z"
+  },
+  {
+    "id": "b43",
+    "isbn": null,
+    "title": "Sergüzeşt",
+    "authors": [
+      "Samipaşazade Sezai"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 112,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:15:00Z"
+  },
+  {
+    "id": "b44",
+    "isbn": null,
+    "title": "Tütün Zamanı",
+    "authors": [
+      "Necati Cumalı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:20:00Z"
+  },
+  {
+    "id": "b45",
+    "isbn": null,
+    "title": "Onlar da İnsandı",
+    "authors": [
+      "Cengiz Dağcı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:25:00Z"
+  },
+  {
+    "id": "b46",
+    "isbn": null,
+    "title": "Cemo",
+    "authors": [
+      "Kemal Bilbaşar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 304,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:30:00Z"
+  },
+  {
+    "id": "b47",
+    "isbn": null,
+    "title": "Bir Bilim Adamının Romanı",
+    "authors": [
+      "Oğuz Atay"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 480,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:35:00Z"
+  },
+  {
+    "id": "b48",
+    "isbn": null,
+    "title": "Madame Bovary",
+    "authors": [
+      "Gustave Flaubert"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 368,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:40:00Z"
+  },
+  {
+    "id": "b49",
+    "isbn": null,
+    "title": "Babalar ve Oğullar",
+    "authors": [
+      "Turgenyev"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:45:00Z"
+  },
+  {
+    "id": "b50",
+    "isbn": null,
+    "title": "Ölü Canlar",
+    "authors": [
+      "Gogol"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 400,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:50:00Z"
+  },
+  {
+    "id": "b51",
+    "isbn": null,
+    "title": "Açlık",
+    "authors": [
+      "Knut Hamsun"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T12:55:00Z"
+  },
+  {
+    "id": "b52",
+    "isbn": null,
+    "title": "Vadideki Zambak",
+    "authors": [
+      "Balzac"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:00:00Z"
+  },
+  {
+    "id": "b53",
+    "isbn": null,
+    "title": "İki Şehrin Hikâyesi",
+    "authors": [
+      "Charles Dickens"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 448,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:05:00Z"
+  },
+  {
+    "id": "b54",
+    "isbn": null,
+    "title": "Aganta Burina Burinata",
+    "authors": [
+      "Halikarnas Balıkçısı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:10:00Z"
+  },
+  {
+    "id": "b55",
+    "isbn": null,
+    "title": "Derviş ve Ölüm",
+    "authors": [
+      "Meşa Selimoviç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 336,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:15:00Z"
+  },
+  {
+    "id": "b56",
+    "isbn": null,
+    "title": "Kalpaklılar",
+    "authors": [
+      "Samim Kocagöz"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:20:00Z"
+  },
+  {
+    "id": "b57",
+    "isbn": null,
+    "title": "İbrahim Efendi Konağı",
+    "authors": [
+      "Samiha Ayverdi"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 304,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:25:00Z"
+  },
+  {
+    "id": "b58",
+    "isbn": null,
+    "title": "Kuyruklu Yıldız Altında Bir İzdivaç",
+    "authors": [
+      "Hüseyin Rahmi Gürpınar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 272,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:30:00Z"
+  },
+  {
+    "id": "b59",
+    "isbn": null,
+    "title": "Çile",
+    "authors": [
+      "Necip Fazıl Kısakürek"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 480,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:35:00Z"
+  },
+  {
+    "id": "b60",
+    "isbn": null,
+    "title": "Kendi Gök Kubbemiz",
+    "authors": [
+      "Yahya Kemal Beyatlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:40:00Z"
+  },
+  {
+    "id": "b61",
+    "isbn": null,
+    "title": "Beş Şehir",
+    "authors": [
+      "Ahmet Hamdi Tanpınar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:45:00Z"
+  },
+  {
+    "id": "b62",
+    "isbn": null,
+    "title": "Bu Ülke",
+    "authors": [
+      "Cemil Meriç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 304,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:50:00Z"
+  },
+  {
+    "id": "b63",
+    "isbn": null,
+    "title": "Gençlerle Başbaşa",
+    "authors": [
+      "Ali Fuat Başgil"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 144,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T13:55:00Z"
+  },
+  {
+    "id": "b64",
+    "isbn": null,
+    "title": "Otuz Beş Yaş",
+    "authors": [
+      "Cahit Sıtkı Tarancı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:00:00Z"
+  },
+  {
+    "id": "b65",
+    "isbn": null,
+    "title": "Suyu Arayan Adam",
+    "authors": [
+      "Şevket Süreyya Aydemir"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 352,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:05:00Z"
+  },
+  {
+    "id": "b66",
+    "isbn": null,
+    "title": "Anadolu Notları",
+    "authors": [
+      "Reşat Nuri Güntekin"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:10:00Z"
+  },
+  {
+    "id": "b67",
+    "isbn": null,
+    "title": "Çankaya",
+    "authors": [
+      "Falih Rıfkı Atay"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 512,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:15:00Z"
+  },
+  {
+    "id": "b68",
+    "isbn": null,
+    "title": "Zeytindağı",
+    "authors": [
+      "Falih Rıfkı Atay"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:20:00Z"
+  },
+  {
+    "id": "b69",
+    "isbn": null,
+    "title": "Nutuk",
+    "authors": [
+      "Mustafa Kemal Atatürk"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 624,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:25:00Z"
+  },
+  {
+    "id": "b70",
+    "isbn": null,
+    "title": "Boğaziçi Mehtapları",
+    "authors": [
+      "Abdülhak Şinasi Hisar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:30:00Z"
+  },
+  {
+    "id": "b71",
+    "isbn": null,
+    "title": "Sahnenin Dışındakiler",
+    "authors": [
+      "Ahmet Hamdi Tanpınar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 400,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:35:00Z"
+  },
+  {
+    "id": "b72",
+    "isbn": null,
+    "title": "Gurbet Hikâyeleri",
+    "authors": [
+      "Refik Halit Karay"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:40:00Z"
+  },
+  {
+    "id": "b73",
+    "isbn": null,
+    "title": "Memleket Hikâyeleri",
+    "authors": [
+      "Refik Halit Karay"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:45:00Z"
+  },
+  {
+    "id": "b74",
+    "isbn": null,
+    "title": "Ömer Seyfettin Hikâyelerinden Seçmeler",
+    "authors": [
+      "Ömer Seyfettin"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:50:00Z"
+  },
+  {
+    "id": "b75",
+    "isbn": null,
+    "title": "Drina\\",
+    "authors": [
+      "Faik Baysal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T14:55:00Z"
+  },
+  {
+    "id": "b76",
+    "isbn": null,
+    "title": "Kayıp Aranıyor",
+    "authors": [
+      "Sait Faik Abasıyanık"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 144,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:00:00Z"
+  },
+  {
+    "id": "b77",
+    "isbn": null,
+    "title": "Yaşlı Adam ve Deniz",
+    "authors": [
+      "Ernest Hemingway"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:05:00Z"
+  },
+  {
+    "id": "b78",
+    "isbn": null,
+    "title": "Sokakta",
+    "authors": [
+      "Bahattin Özkişi"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:10:00Z"
+  },
+  {
+    "id": "b79",
+    "isbn": null,
+    "title": "Türkçenin Sırları",
+    "authors": [
+      "Nihad Sami Banarlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:15:00Z"
+  },
+  {
+    "id": "b80",
+    "isbn": null,
+    "title": "Gora",
+    "authors": [
+      "Rabindranath Tagore"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 464,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:20:00Z"
+  },
+  {
+    "id": "b81",
+    "isbn": null,
+    "title": "Dostlar Beni Hatırlasın",
+    "authors": [
+      "Aşık Veysel"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:25:00Z"
+  },
+  {
+    "id": "b82",
+    "isbn": null,
+    "title": "Diriliş Neslinin Amentüsü",
+    "authors": [
+      "Sezai Karakoç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:30:00Z"
+  },
+  {
+    "id": "b83",
+    "isbn": null,
+    "title": "Monna Rosa",
+    "authors": [
+      "Sezai Karakoç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 64,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:35:00Z"
+  },
+  {
+    "id": "b84",
+    "isbn": null,
+    "title": "Yaşamak",
+    "authors": [
+      "Cahit Zarifoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:40:00Z"
+  },
+  {
+    "id": "b85",
+    "isbn": null,
+    "title": "Sebep Ey",
+    "authors": [
+      "Erdem Bayazıt"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:45:00Z"
+  },
+  {
+    "id": "b86",
+    "isbn": null,
+    "title": "Hicret ve Diğer Şiirler",
+    "authors": [
+      "Akif İnan"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 112,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:50:00Z"
+  },
+  {
+    "id": "b87",
+    "isbn": null,
+    "title": "Hasan\\",
+    "authors": [
+      "Abdürrahim Karakoç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 144,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T15:55:00Z"
+  },
+  {
+    "id": "b88",
+    "isbn": null,
+    "title": "Üsküp\\",
+    "authors": [
+      "Yavuz Bülent Bâkiler"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:00:00Z"
+  },
+  {
+    "id": "b89",
+    "isbn": null,
+    "title": "Erbain",
+    "authors": [
+      "İsmet Özel"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 80,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:05:00Z"
+  },
+  {
+    "id": "b90",
+    "isbn": null,
+    "title": "Sancak",
+    "authors": [
+      "İbrahim Tenekeci"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:10:00Z"
+  },
+  {
+    "id": "b91",
+    "isbn": null,
+    "title": "Hilal Görününce",
+    "authors": [
+      "Sevinç Çokum"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:15:00Z"
+  },
+  {
+    "id": "b92",
+    "isbn": null,
+    "title": "Şah ve Sultan",
+    "authors": [
+      "İskender Pala"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 384,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:20:00Z"
+  },
+  {
+    "id": "b93",
+    "isbn": null,
+    "title": "Od",
+    "authors": [
+      "İskender Pala"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:25:00Z"
+  },
+  {
+    "id": "b94",
+    "isbn": null,
+    "title": "Schrödinger\\",
+    "authors": [
+      "Alev Alatlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 480,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:30:00Z"
+  },
+  {
+    "id": "b95",
+    "isbn": null,
+    "title": "Minyeli Abdullah",
+    "authors": [
+      "Hekimoğlu İsmail"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:35:00Z"
+  },
+  {
+    "id": "b96",
+    "isbn": null,
+    "title": "Huzur Sokağı",
+    "authors": [
+      "Şule Yüksel Şenler"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 416,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:40:00Z"
+  },
+  {
+    "id": "b97",
+    "isbn": null,
+    "title": "Yusuf ile Züleyha",
+    "authors": [
+      "Nazan Bekiroğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 240,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:45:00Z"
+  },
+  {
+    "id": "b98",
+    "isbn": null,
+    "title": "Uzun Sürgün",
+    "authors": [
+      "Fatma Karabıyık Barbarosoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:50:00Z"
+  },
+  {
+    "id": "b99",
+    "isbn": null,
+    "title": "Canfeda Hatun",
+    "authors": [
+      "Sibel Eraslan"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T16:55:00Z"
+  },
+  {
+    "id": "b100",
+    "isbn": null,
+    "title": "Çözülme",
+    "authors": [
+      "Rasim Özdenören"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:00:00Z"
+  },
+  {
+    "id": "b101",
+    "isbn": null,
+    "title": "Ya Tahammül Ya Sefer",
+    "authors": [
+      "Mustafa Kutlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:05:00Z"
+  },
+  {
+    "id": "b102",
+    "isbn": null,
+    "title": "Uzun Hikâye",
+    "authors": [
+      "Mustafa Kutlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 112,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:10:00Z"
+  },
+  {
+    "id": "b103",
+    "isbn": null,
+    "title": "Ayaşlı ve Kiracıları",
+    "authors": [
+      "Memduh Şevket Esendal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:15:00Z"
+  },
+  {
+    "id": "b104",
+    "isbn": null,
+    "title": "Pertev Bey\\",
+    "authors": [
+      "Münevver Ayaşlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:20:00Z"
+  },
+  {
+    "id": "b105",
+    "isbn": null,
+    "title": "Ablam",
+    "authors": [
+      "Sadık Yalsızuçanlar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:25:00Z"
+  },
+  {
+    "id": "b106",
+    "isbn": null,
+    "title": "Biat",
+    "authors": [
+      "Nuri Pakdil"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:30:00Z"
+  },
+  {
+    "id": "b107",
+    "isbn": null,
+    "title": "Hareket Felsefesi",
+    "authors": [
+      "Nurettin Topçu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:35:00Z"
+  },
+  {
+    "id": "b108",
+    "isbn": null,
+    "title": "Ahlâk Nizamı",
+    "authors": [
+      "Nurettin Topçu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:40:00Z"
+  },
+  {
+    "id": "b109",
+    "isbn": null,
+    "title": "Güller Kitabı",
+    "authors": [
+      "Beşir Ayvazoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:45:00Z"
+  },
+  {
+    "id": "b110",
+    "isbn": null,
+    "title": "Kültür Değişmesi ve Milliyetçilik",
+    "authors": [
+      "Erol Güngör"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:50:00Z"
+  },
+  {
+    "id": "b111",
+    "isbn": null,
+    "title": "Vatan Yahut Silistre",
+    "authors": [
+      "Namık Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T17:55:00Z"
+  },
+  {
+    "id": "b112",
+    "isbn": null,
+    "title": "İntibah",
+    "authors": [
+      "Namık Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T18:00:00Z"
+  },
+  {
+    "id": "b113",
+    "isbn": null,
+    "title": "Felâtun Bey ile Râkım Efendi",
+    "authors": [
+      "Ahmet Mithat Efendi"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T18:05:00Z"
+  },
+  {
+    "id": "b114",
+    "isbn": null,
+    "title": "Bir Devrin Aydınlatılması",
+    "authors": [
+      "Süheyl Ünver"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T18:10:00Z"
+  },
+  {
+    "id": "b115",
+    "isbn": null,
+    "title": "İstanbul\\",
+    "authors": [
+      "Ahmet Haluk Dursun"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T18:15:00Z"
+  },
+  {
+    "id": "b116",
+    "isbn": null,
+    "title": "İslâm\\",
+    "authors": [
+      "Fuat Sezgin"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T18:20:00Z"
+  },
+  {
+    "id": "b117",
+    "isbn": null,
+    "title": "Sancı",
+    "authors": [
+      "Emine Işınsu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T18:25:00Z"
+  },
+  {
+    "id": "b118",
+    "isbn": null,
+    "title": "Osmanlı Minyatür Sanatı",
+    "authors": [
+      "Nuri Pakdamir"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-01T18:30:00Z"
+  }
 ]
