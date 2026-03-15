@@ -2863,5 +2863,140 @@
     "language": "tr",
     "source": "MANUAL",
     "createdAt": "2026-03-16T11:50:00Z"
+  },
+  {
+    "id": "b192",
+    "isbn": null,
+    "title": "Yer Demir Gök Bakır",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 360,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/4404306-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:00:00Z"
+  },
+  {
+    "id": "b193",
+    "isbn": null,
+    "title": "Ölmez Otu",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 312,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/4968573-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:05:00Z"
+  },
+  {
+    "id": "b194",
+    "isbn": null,
+    "title": "Orta Direk",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 328,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:10:00Z"
+  },
+  {
+    "id": "b195",
+    "isbn": null,
+    "title": "Teneke",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12296822-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:15:00Z"
+  },
+  {
+    "id": "b196",
+    "isbn": null,
+    "title": "Ağrıdağı Efsanesi",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/3178145-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:20:00Z"
+  },
+  {
+    "id": "b197",
+    "isbn": null,
+    "title": "Yılanı Öldürseler",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10879486-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:25:00Z"
+  },
+  {
+    "id": "b198",
+    "isbn": null,
+    "title": "Kuşlar da Gitti",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 240,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12273682-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:30:00Z"
+  },
+  {
+    "id": "b199",
+    "isbn": null,
+    "title": "Al Gözüm Seyreyle Salih",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:35:00Z"
+  },
+  {
+    "id": "b200",
+    "isbn": null,
+    "title": "Binboğalar Efsanesi",
+    "authors": [
+      "Yaşar Kemal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/6627987-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T12:40:00Z"
   }
 ]

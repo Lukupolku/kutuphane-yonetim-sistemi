@@ -737,5 +737,22 @@
     "literaryMovement": "Millî-muhafazakâr tiyatro",
     "suitability": "uygun",
     "note": "Türk tiyatrosunun önemli ismi, millî değerler temalı oyunlar"
+  },
+  {
+    "id": "a47",
+    "name": "Yaşar Kemal",
+    "birthYear": 1923,
+    "deathYear": 2015,
+    "genres": [
+      "Roman",
+      "Hikâye",
+      "Röportaj"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Toplumcu gerçekçilik",
+    "suitability": "uygun",
+    "note": "Türk edebiyatının dünyaca tanınmış ismi, Çukurova destanları"
   }
 ]
