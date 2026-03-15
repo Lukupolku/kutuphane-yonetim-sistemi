@@ -15,6 +15,7 @@ export function SearchPage() {
   const { user } = useAuth();
   const isSchool = user?.role === 'school';
 
+  const [showAll, setShowAll] = useState(false);
   const [filter, setFilter] = useState<FilterParams>(() => {
     if (isSchool && user?.schoolId) return { schoolId: user.schoolId };
     if (user?.role === 'district') return { province: user.province!, district: user.district! };
@@ -26,11 +27,18 @@ export function SearchPage() {
 
   useEffect(() => {
     setLoading(true);
-    api.getBooksByFilter(filter).then(result => {
-      setBooks(result);
-      setLoading(false);
-    });
-  }, [filter]);
+    if (showAll) {
+      api.getBooks().then(result => {
+        setBooks(result.map(b => ({ ...b, schoolCount: 0, totalQuantity: 0 })));
+        setLoading(false);
+      });
+    } else {
+      api.getBooksByFilter(filter).then(result => {
+        setBooks(result);
+        setLoading(false);
+      });
+    }
+  }, [filter, showAll]);
 
   const scopeLabel = isSchool
     ? user?.schoolName ?? 'Okul'
@@ -60,7 +68,24 @@ export function SearchPage() {
         <p className="page-subtitle">Başlık, yazar veya ISBN ile arama yapın — {scopeLabel}</p>
       </div>
 
-      {!isSchool && <HierarchyFilter onFilterChange={setFilter} />}
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+        <button
+          className={`btn ${!showAll ? 'btn--primary' : 'btn-secondary'}`}
+          onClick={() => setShowAll(false)}
+          style={{ fontSize: '0.85rem' }}
+        >
+          Envanterdeki Kitaplar
+        </button>
+        <button
+          className={`btn ${showAll ? 'btn--primary' : 'btn-secondary'}`}
+          onClick={() => setShowAll(true)}
+          style={{ fontSize: '0.85rem' }}
+        >
+          Tüm Katalog ({showAll ? books.length : '...'})
+        </button>
+      </div>
+
+      {!isSchool && !showAll && <HierarchyFilter onFilterChange={setFilter} />}
 
       <div className="scope-bar">
         <span className="scope-label">{scopeLabel}</span>

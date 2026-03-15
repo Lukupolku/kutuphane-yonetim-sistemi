@@ -67,6 +67,7 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
           <table className="data-table">
             <thead>
               <tr>
+                <th style={{ width: 50 }}></th>
                 <SortHeader label="Başlık" sortKey="title" sort={sort} onToggle={toggle} />
                 <SortHeader label="Yazar" sortKey="authorStr" sort={sort} onToggle={toggle} />
                 <SortHeader label="Yayınevi" sortKey="publisher" sort={sort} onToggle={toggle} />
@@ -82,6 +83,15 @@ export function BookTable({ books, loading, onBookClick }: BookTableProps) {
                   className={onBookClick ? 'clickable' : ''}
                   onClick={() => onBookClick?.(book.id)}
                 >
+                  <td style={{ width: 50, padding: '0.25rem' }}>
+                    {book.coverImageUrl ? (
+                      <img src={book.coverImageUrl} alt="" style={{ width: 40, height: 56, objectFit: 'cover', borderRadius: 4 }} />
+                    ) : (
+                      <div style={{ width: 40, height: 56, borderRadius: 4, background: 'linear-gradient(135deg, #8b1a2b, #c0392b)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 16, fontWeight: 700 }}>
+                        {book.title.charAt(0)}
+                      </div>
+                    )}
+                  </td>
                   <td className="cell-title">{book.title}</td>
                   <td className="cell-secondary">{book.authors.join(', ')}</td>
                   <td className="cell-secondary">{book.publisher ?? '—'}</td>
