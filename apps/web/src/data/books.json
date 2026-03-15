@@ -849,7 +849,7 @@
     "publisher": null,
     "publishedDate": null,
     "pageCount": 304,
-    "coverImageUrl": null,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12351879-L.jpg",
     "language": "tr",
     "source": "MANUAL",
     "createdAt": "2026-03-01T13:25:00Z"
@@ -1768,5 +1768,860 @@
     "language": "tr",
     "source": "MANUAL",
     "createdAt": "2026-03-01T18:30:00Z"
+  },
+  {
+    "id": "b119",
+    "isbn": null,
+    "title": "Mihriban",
+    "authors": [
+      "Abdürrahim Karakoç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:00:00Z"
+  },
+  {
+    "id": "b120",
+    "isbn": null,
+    "title": "Kan Yazısı",
+    "authors": [
+      "Abdürrahim Karakoç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12286147-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:05:00Z"
+  },
+  {
+    "id": "b121",
+    "isbn": null,
+    "title": "Eski İstanbul Yaşayışı",
+    "authors": [
+      "Ahmet Haluk Dursun"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:10:00Z"
+  },
+  {
+    "id": "b122",
+    "isbn": null,
+    "title": "Henüz On Yedi Yaşında",
+    "authors": [
+      "Ahmet Mithat Efendi"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:15:00Z"
+  },
+  {
+    "id": "b123",
+    "isbn": null,
+    "title": "Tenha Sözler",
+    "authors": [
+      "Akif İnan"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:20:00Z"
+  },
+  {
+    "id": "b124",
+    "isbn": null,
+    "title": "Aydınlanma Değil, Merhamet!",
+    "authors": [
+      "Alev Alatlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 544,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12277672-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:25:00Z"
+  },
+  {
+    "id": "b125",
+    "isbn": null,
+    "title": "Ateş Denizi",
+    "authors": [
+      "Beşir Ayvazoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10850360-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:30:00Z"
+  },
+  {
+    "id": "b126",
+    "isbn": null,
+    "title": "Peyami: Hayatı, Sanatı, Felsefesi",
+    "authors": [
+      "Beşir Ayvazoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 448,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12361031-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:35:00Z"
+  },
+  {
+    "id": "b127",
+    "isbn": null,
+    "title": "Savaş Ritimleri",
+    "authors": [
+      "Cahit Zarifoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 80,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:40:00Z"
+  },
+  {
+    "id": "b128",
+    "isbn": null,
+    "title": "İşaret Çocukları",
+    "authors": [
+      "Cahit Zarifoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 112,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12314651-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:45:00Z"
+  },
+  {
+    "id": "b129",
+    "isbn": null,
+    "title": "Mağaradakiler",
+    "authors": [
+      "Cemil Meriç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 352,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10849187-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:50:00Z"
+  },
+  {
+    "id": "b130",
+    "isbn": null,
+    "title": "Kırk Ambar",
+    "authors": [
+      "Cemil Meriç"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 480,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12319378-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T10:55:00Z"
+  },
+  {
+    "id": "b131",
+    "isbn": null,
+    "title": "Yurdunu Kaybeden Adam",
+    "authors": [
+      "Cengiz Dağcı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10849078-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:00:00Z"
+  },
+  {
+    "id": "b132",
+    "isbn": null,
+    "title": "Korkunç Yıllar",
+    "authors": [
+      "Cengiz Dağcı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10848975-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:05:00Z"
+  },
+  {
+    "id": "b133",
+    "isbn": null,
+    "title": "Tutsak",
+    "authors": [
+      "Emine Işınsu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10851164-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:10:00Z"
+  },
+  {
+    "id": "b134",
+    "isbn": null,
+    "title": "Küçük Dünya",
+    "authors": [
+      "Emine Işınsu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10850147-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:15:00Z"
+  },
+  {
+    "id": "b135",
+    "isbn": null,
+    "title": "Risaleler",
+    "authors": [
+      "Erdem Bayazıt"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 112,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12279166-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:20:00Z"
+  },
+  {
+    "id": "b136",
+    "isbn": null,
+    "title": "İslâm'ın Bugünkü Meseleleri",
+    "authors": [
+      "Erol Güngör"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 240,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:25:00Z"
+  },
+  {
+    "id": "b137",
+    "isbn": null,
+    "title": "Tarihte Türkler",
+    "authors": [
+      "Erol Güngör"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12311223-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:30:00Z"
+  },
+  {
+    "id": "b138",
+    "isbn": null,
+    "title": "Mektuplar",
+    "authors": [
+      "Fatma Karabıyık Barbarosoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:35:00Z"
+  },
+  {
+    "id": "b139",
+    "isbn": null,
+    "title": "İmzasız Seferler",
+    "authors": [
+      "Fatma Karabıyık Barbarosoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:40:00Z"
+  },
+  {
+    "id": "b140",
+    "isbn": null,
+    "title": "Bilim Tarihi Sohbetleri",
+    "authors": [
+      "Fuat Sezgin"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12279139-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:45:00Z"
+  },
+  {
+    "id": "b141",
+    "isbn": null,
+    "title": "Maznun",
+    "authors": [
+      "Hekimoğlu İsmail"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:50:00Z"
+  },
+  {
+    "id": "b142",
+    "isbn": null,
+    "title": "Çağ ve İlham",
+    "authors": [
+      "Hekimoğlu İsmail"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T11:55:00Z"
+  },
+  {
+    "id": "b143",
+    "isbn": null,
+    "title": "Devlet Ana",
+    "authors": [
+      "Kemal Tahir"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 608,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10834581-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:00:00Z"
+  },
+  {
+    "id": "b144",
+    "isbn": null,
+    "title": "Yorgun Savaşçı",
+    "authors": [
+      "Kemal Tahir"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 544,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/7328993-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:05:00Z"
+  },
+  {
+    "id": "b145",
+    "isbn": null,
+    "title": "Otlakçı",
+    "authors": [
+      "Memduh Şevket Esendal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 144,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12280876-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:10:00Z"
+  },
+  {
+    "id": "b146",
+    "isbn": null,
+    "title": "Vassaf Bey",
+    "authors": [
+      "Memduh Şevket Esendal"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10853294-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:15:00Z"
+  },
+  {
+    "id": "b147",
+    "isbn": null,
+    "title": "İstanbul'un Orta Yeri",
+    "authors": [
+      "Münevver Ayaşlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 240,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:20:00Z"
+  },
+  {
+    "id": "b148",
+    "isbn": null,
+    "title": "Rumelihisarı'nda Bir Konak",
+    "authors": [
+      "Münevver Ayaşlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:25:00Z"
+  },
+  {
+    "id": "b149",
+    "isbn": null,
+    "title": "Lâ",
+    "authors": [
+      "Nazan Bekiroğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12277027-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:30:00Z"
+  },
+  {
+    "id": "b150",
+    "isbn": null,
+    "title": "Cümle Kapısı",
+    "authors": [
+      "Nazan Bekiroğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12310006-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:35:00Z"
+  },
+  {
+    "id": "b151",
+    "isbn": null,
+    "title": "Bir Adam Yaratmak",
+    "authors": [
+      "Necip Fazıl Kısakürek"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:40:00Z"
+  },
+  {
+    "id": "b152",
+    "isbn": null,
+    "title": "Kaldırımlar",
+    "authors": [
+      "Necip Fazıl Kısakürek"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:45:00Z"
+  },
+  {
+    "id": "b153",
+    "isbn": null,
+    "title": "Gül Yetiştiren Adam",
+    "authors": [
+      "Rasim Özdenören"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 144,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12309898-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:50:00Z"
+  },
+  {
+    "id": "b154",
+    "isbn": null,
+    "title": "Hastalar ve Işıklar",
+    "authors": [
+      "Rasim Özdenören"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12279167-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T12:55:00Z"
+  },
+  {
+    "id": "b155",
+    "isbn": null,
+    "title": "Leyla ile Mecnun",
+    "authors": [
+      "Sadık Yalsızuçanlar"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 272,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:00:00Z"
+  },
+  {
+    "id": "b156",
+    "isbn": null,
+    "title": "Batmayan Gün",
+    "authors": [
+      "Samiha Ayverdi"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:05:00Z"
+  },
+  {
+    "id": "b157",
+    "isbn": null,
+    "title": "Yolcu Nereye Gidiyorsun",
+    "authors": [
+      "Samiha Ayverdi"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12284092-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:10:00Z"
+  },
+  {
+    "id": "b158",
+    "isbn": null,
+    "title": "Bizim Diyar",
+    "authors": [
+      "Sevinç Çokum"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12235060-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:15:00Z"
+  },
+  {
+    "id": "b159",
+    "isbn": null,
+    "title": "Ağustos Başağı",
+    "authors": [
+      "Sevinç Çokum"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 240,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10850077-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:20:00Z"
+  },
+  {
+    "id": "b160",
+    "isbn": null,
+    "title": "Mavi Lale",
+    "authors": [
+      "Sibel Eraslan"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 352,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:25:00Z"
+  },
+  {
+    "id": "b161",
+    "isbn": null,
+    "title": "Kösem Sultan",
+    "authors": [
+      "Sibel Eraslan"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 384,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:30:00Z"
+  },
+  {
+    "id": "b162",
+    "isbn": null,
+    "title": "İstanbul Risaleleri",
+    "authors": [
+      "Süheyl Ünver"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/3725087-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:35:00Z"
+  },
+  {
+    "id": "b163",
+    "isbn": null,
+    "title": "Osmancık",
+    "authors": [
+      "Tarık Buğra"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 368,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10862958-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:40:00Z"
+  },
+  {
+    "id": "b164",
+    "isbn": null,
+    "title": "İbişin Rüyası",
+    "authors": [
+      "Tarık Buğra"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10849560-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:45:00Z"
+  },
+  {
+    "id": "b165",
+    "isbn": null,
+    "title": "Eski Şiirin Rüzgârıyla",
+    "authors": [
+      "Yahya Kemal Beyatlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:50:00Z"
+  },
+  {
+    "id": "b166",
+    "isbn": null,
+    "title": "Aziz İstanbul",
+    "authors": [
+      "Yahya Kemal Beyatlı"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12283997-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T13:55:00Z"
+  },
+  {
+    "id": "b167",
+    "isbn": null,
+    "title": "Türkistan Türkistan",
+    "authors": [
+      "Yavuz Bülent Bâkiler"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:00:00Z"
+  },
+  {
+    "id": "b168",
+    "isbn": null,
+    "title": "Harman",
+    "authors": [
+      "Yavuz Bülent Bâkiler"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12260715-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:05:00Z"
+  },
+  {
+    "id": "b169",
+    "isbn": null,
+    "title": "Yalnız Efe",
+    "authors": [
+      "Ömer Seyfettin"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 144,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12250278-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:10:00Z"
+  },
+  {
+    "id": "b170",
+    "isbn": null,
+    "title": "Bomba",
+    "authors": [
+      "Ömer Seyfettin"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10855007-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:15:00Z"
+  },
+  {
+    "id": "b171",
+    "isbn": null,
+    "title": "Güneşe Asılı Evler",
+    "authors": [
+      "İbrahim Tenekeci"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 88,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:20:00Z"
+  },
+  {
+    "id": "b172",
+    "isbn": null,
+    "title": "Celladıma Gülümserken",
+    "authors": [
+      "İsmet Özel"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:25:00Z"
+  },
+  {
+    "id": "b173",
+    "isbn": null,
+    "title": "Evet İsyan",
+    "authors": [
+      "İsmet Özel"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 80,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:30:00Z"
+  },
+  {
+    "id": "b174",
+    "isbn": null,
+    "title": "Olgun Meyve",
+    "authors": [
+      "Şule Yüksel Şenler"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:35:00Z"
+  },
+  {
+    "id": "b175",
+    "isbn": null,
+    "title": "Sükût Sûretinde",
+    "authors": [
+      "Nuri Pakdil"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 112,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12351363-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-15T14:40:00Z"
   }
 ]
