@@ -2623,5 +2623,80 @@
     "language": "tr",
     "source": "MANUAL",
     "createdAt": "2026-03-15T14:40:00Z"
+  },
+  {
+    "id": "b176",
+    "isbn": null,
+    "title": "Huzur",
+    "authors": [
+      "Ahmet Hamdi Tanpınar"
+    ],
+    "publisher": "Dergâh Yayınları",
+    "publishedDate": "2021",
+    "pageCount": 408,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10461144-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T10:00:00Z"
+  },
+  {
+    "id": "b177",
+    "isbn": null,
+    "title": "Saatleri Ayarlama Enstitüsü",
+    "authors": [
+      "Ahmet Hamdi Tanpınar"
+    ],
+    "publisher": "Dergâh Yayınları",
+    "publishedDate": "2020",
+    "pageCount": 392,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12354821-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T10:05:00Z"
+  },
+  {
+    "id": "b178",
+    "isbn": null,
+    "title": "Mahur Beste",
+    "authors": [
+      "Ahmet Hamdi Tanpınar"
+    ],
+    "publisher": "Dergâh Yayınları",
+    "publishedDate": "2019",
+    "pageCount": 136,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12354814-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T10:10:00Z"
+  },
+  {
+    "id": "b179",
+    "isbn": null,
+    "title": "Abdullah Efendinin Rüyaları",
+    "authors": [
+      "Ahmet Hamdi Tanpınar"
+    ],
+    "publisher": "Dergâh Yayınları",
+    "publishedDate": "2018",
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T10:15:00Z"
+  },
+  {
+    "id": "b180",
+    "isbn": null,
+    "title": "Yaşadığım Gibi",
+    "authors": [
+      "Ahmet Hamdi Tanpınar"
+    ],
+    "publisher": "Dergâh Yayınları",
+    "publishedDate": "2017",
+    "pageCount": 448,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12354811-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T10:20:00Z"
   }
 ]
