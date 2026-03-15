@@ -2,6 +2,18 @@ export type { Book, BookSource } from './book';
 export type { School, SchoolType } from './school';
 export type { Holding, HoldingSource } from './holding';
 
+export interface Author {
+  id: string;
+  name: string;
+  birthYear: number;
+  deathYear: number | null;
+  genres: string[];
+  categories: string[];
+  literaryMovement: string;
+  suitability: 'uygun' | 'secici' | 'rehberli';
+  note: string;
+}
+
 import type { Book } from './book';
 import type { School } from './school';
 import type { Holding } from './holding';

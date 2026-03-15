@@ -1,5 +1,5 @@
-import type { Book, School, Holding, BookWithHoldings, HoldingWithSchool, FilterParams } from '../types';
-import { books, schools, holdings } from './mock-data';
+import type { Book, School, Holding, BookWithHoldings, HoldingWithSchool, FilterParams, Author } from '../types';
+import { books, schools, holdings, authors } from './mock-data';
 
 // Simulate async API delay
 const delay = (ms: number = 50) => new Promise(resolve => setTimeout(resolve, ms));
@@ -167,5 +167,25 @@ export const api = {
     });
 
     return { schools: filteredSchools, rows };
+  },
+
+  async getAuthors(): Promise<Author[]> {
+    await delay();
+    return [...authors];
+  },
+
+  async getAuthorById(id: string): Promise<Author | null> {
+    await delay();
+    return authors.find(a => a.id === id) ?? null;
+  },
+
+  async getAuthorByName(name: string): Promise<Author | null> {
+    await delay();
+    return authors.find(a => a.name === name) ?? null;
+  },
+
+  async getBooksByAuthor(authorName: string): Promise<Book[]> {
+    await delay();
+    return books.filter(b => b.authors.some(a => a === authorName));
   },
 };

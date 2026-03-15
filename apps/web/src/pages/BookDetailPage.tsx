@@ -3,12 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, School, BookCopy, BookX, MapPin } from 'lucide-react';
 import { api } from '../services/api';
 import { SchoolHoldingsList } from '../components/SchoolHoldingsList';
-import type { BookWithHoldings, HoldingWithSchool } from '../types';
+import type { BookWithHoldings, HoldingWithSchool, Author } from '../types';
 
 export function BookDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [data, setData] = useState<BookWithHoldings | null>(null);
+  const [authorInfo, setAuthorInfo] = useState<Author | null>(null);
   const [loading, setLoading] = useState(true);
   const [filterProvince, setFilterProvince] = useState('');
   const [filterDistrict, setFilterDistrict] = useState('');
@@ -16,8 +17,12 @@ export function BookDetailPage() {
   useEffect(() => {
     if (!id) return;
     setLoading(true);
-    api.getBookWithHoldings(id).then(result => {
+    api.getBookWithHoldings(id).then(async result => {
       setData(result);
+      if (result) {
+        const author = await api.getAuthorByName(result.book.authors[0]);
+        setAuthorInfo(author);
+      }
       setLoading(false);
     });
   }, [id]);
@@ -110,7 +115,18 @@ export function BookDetailPage() {
           )}
           <div>
             <h1 className="book-detail-title">{book.title}</h1>
-            <p className="book-detail-author">{book.authors.join(', ')}</p>
+            <p className="book-detail-author">
+              {authorInfo ? (
+                <span
+                  style={{ cursor: 'pointer', textDecoration: 'underline', textDecorationColor: 'rgba(139,26,43,0.3)' }}
+                  onClick={(e) => { e.stopPropagation(); navigate(`/authors/${authorInfo.id}`); }}
+                >
+                  {book.authors.join(', ')}
+                </span>
+              ) : (
+                book.authors.join(', ')
+              )}
+            </p>
           </div>
         </div>
         <div className="book-detail-meta">
