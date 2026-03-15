@@ -3088,5 +3088,215 @@
     "language": "tr",
     "source": "MANUAL",
     "createdAt": "2026-03-16T13:25:00Z"
+  },
+  {
+    "id": "b207",
+    "isbn": null,
+    "title": "Bir Bayrak Rüzgâr Bekliyor",
+    "authors": [
+      "Arif Nihat Asya"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12311215-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:00:00Z"
+  },
+  {
+    "id": "b208",
+    "isbn": null,
+    "title": "Dualar ve Âminler",
+    "authors": [
+      "Arif Nihat Asya"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12279801-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:05:00Z"
+  },
+  {
+    "id": "b209",
+    "isbn": null,
+    "title": "Kubbe-i Hadrâ",
+    "authors": [
+      "Arif Nihat Asya"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 112,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:10:00Z"
+  },
+  {
+    "id": "b210",
+    "isbn": null,
+    "title": "Emzikler",
+    "authors": [
+      "Arif Nihat Asya"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 80,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:15:00Z"
+  },
+  {
+    "id": "b211",
+    "isbn": null,
+    "title": "Küller",
+    "authors": [
+      "Halide Nusret Zorlutuna"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12118521-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:20:00Z"
+  },
+  {
+    "id": "b212",
+    "isbn": null,
+    "title": "Sisli Geceler",
+    "authors": [
+      "Halide Nusret Zorlutuna"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12242601-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:25:00Z"
+  },
+  {
+    "id": "b213",
+    "isbn": null,
+    "title": "Aydınlık Kapı",
+    "authors": [
+      "Halide Nusret Zorlutuna"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 256,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10853339-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:30:00Z"
+  },
+  {
+    "id": "b214",
+    "isbn": null,
+    "title": "Bir Devrin Romanı",
+    "authors": [
+      "Halide Nusret Zorlutuna"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12118534-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:35:00Z"
+  },
+  {
+    "id": "b215",
+    "isbn": null,
+    "title": "Yüzbaşı Celil",
+    "authors": [
+      "Necmettin Hacıeminoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:40:00Z"
+  },
+  {
+    "id": "b216",
+    "isbn": null,
+    "title": "Birinci Dünya Savaşı Hikâyeleri",
+    "authors": [
+      "Necmettin Hacıeminoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:45:00Z"
+  },
+  {
+    "id": "b217",
+    "isbn": null,
+    "title": "Çitlenbik",
+    "authors": [
+      "Necmettin Hacıeminoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:50:00Z"
+  },
+  {
+    "id": "b218",
+    "isbn": null,
+    "title": "Malazgirt Marşı",
+    "authors": [
+      "Niyazi Yıldırım Gençosmanoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 64,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:55:00Z"
+  },
+  {
+    "id": "b219",
+    "isbn": null,
+    "title": "Destanlar",
+    "authors": [
+      "Niyazi Yıldırım Gençosmanoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:60:00Z"
+  },
+  {
+    "id": "b220",
+    "isbn": null,
+    "title": "Bozkurtların Destanı",
+    "authors": [
+      "Niyazi Yıldırım Gençosmanoğlu"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12304036-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T14:65:00Z"
   }
 ]

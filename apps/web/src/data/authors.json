@@ -754,5 +754,70 @@
     "literaryMovement": "Toplumcu gerçekçilik",
     "suitability": "uygun",
     "note": "Türk edebiyatının dünyaca tanınmış ismi, Çukurova destanları"
+  },
+  {
+    "id": "a48",
+    "name": "Arif Nihat Asya",
+    "birthYear": 1904,
+    "deathYear": 1975,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Millî-muhafazakâr şiir",
+    "suitability": "uygun",
+    "note": "Bayrak Şairi, sade ve vurucu millî şiir dili"
+  },
+  {
+    "id": "a49",
+    "name": "Halide Nusret Zorlutuna",
+    "birthYear": 1901,
+    "deathYear": 1984,
+    "genres": [
+      "Roman",
+      "Şiir",
+      "Anı"
+    ],
+    "categories": [
+      "Roman Yazarları",
+      "Şairler"
+    ],
+    "literaryMovement": "Millî edebiyat",
+    "suitability": "uygun",
+    "note": "Millî mücadele dönemi kadın yazar, erişilebilir dil"
+  },
+  {
+    "id": "a50",
+    "name": "Necmettin Hacıeminoğlu",
+    "birthYear": 1932,
+    "deathYear": 1996,
+    "genres": [
+      "Roman",
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Millî-muhafazakâr roman",
+    "suitability": "uygun",
+    "note": "Tarihî roman geleneği, Birinci Dünya Savaşı temaları, akıcı anlatım"
+  },
+  {
+    "id": "a51",
+    "name": "Niyazi Yıldırım Gençosmanoğlu",
+    "birthYear": 1907,
+    "deathYear": 1997,
+    "genres": [
+      "Şiir",
+      "Destan"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Destancı millî şiir",
+    "suitability": "uygun",
+    "note": "Malazgirt Marşı şairi, destan geleneğini yaşatan coşkulu dil"
   }
 ]
