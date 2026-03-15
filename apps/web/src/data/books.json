@@ -2998,5 +2998,95 @@
     "language": "tr",
     "source": "MANUAL",
     "createdAt": "2026-03-16T12:40:00Z"
+  },
+  {
+    "id": "b201",
+    "isbn": null,
+    "title": "Matmazel Noraliya'nın Koltuğu",
+    "authors": [
+      "Peyami Safa"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 288,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12123169-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T13:00:00Z"
+  },
+  {
+    "id": "b202",
+    "isbn": null,
+    "title": "Yalnızız",
+    "authors": [
+      "Peyami Safa"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 576,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12311258-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T13:05:00Z"
+  },
+  {
+    "id": "b203",
+    "isbn": null,
+    "title": "Bir Tereddüdün Romanı",
+    "authors": [
+      "Peyami Safa"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 224,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12311227-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T13:10:00Z"
+  },
+  {
+    "id": "b204",
+    "isbn": null,
+    "title": "Sözde Kızlar",
+    "authors": [
+      "Peyami Safa"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 208,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10848910-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T13:15:00Z"
+  },
+  {
+    "id": "b205",
+    "isbn": null,
+    "title": "Biz İnsanlar",
+    "authors": [
+      "Peyami Safa"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 320,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12311237-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T13:20:00Z"
+  },
+  {
+    "id": "b206",
+    "isbn": null,
+    "title": "Canan",
+    "authors": [
+      "Peyami Safa"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/10849542-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T13:25:00Z"
   }
 ]
