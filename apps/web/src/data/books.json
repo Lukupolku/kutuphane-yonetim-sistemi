@@ -2698,5 +2698,170 @@
     "language": "tr",
     "source": "MANUAL",
     "createdAt": "2026-03-16T10:20:00Z"
+  },
+  {
+    "id": "b181",
+    "isbn": null,
+    "title": "Çakır'ın Destanı",
+    "authors": [
+      "Gürbüz Azak"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 160,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:00:00Z"
+  },
+  {
+    "id": "b182",
+    "isbn": null,
+    "title": "Payitaht'ın Son Günleri",
+    "authors": [
+      "Gürbüz Azak"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 192,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:05:00Z"
+  },
+  {
+    "id": "b183",
+    "isbn": null,
+    "title": "Tohum ve Toprak",
+    "authors": [
+      "Gürbüz Azak"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 144,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:10:00Z"
+  },
+  {
+    "id": "b184",
+    "isbn": null,
+    "title": "Dergâh",
+    "authors": [
+      "Gürbüz Azak"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:15:00Z"
+  },
+  {
+    "id": "b185",
+    "isbn": null,
+    "title": "Köle Hanım",
+    "authors": [
+      "Gürbüz Azak"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 136,
+    "coverImageUrl": null,
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:20:00Z"
+  },
+  {
+    "id": "b186",
+    "isbn": null,
+    "title": "Cemile",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 96,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12206809-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:25:00Z"
+  },
+  {
+    "id": "b187",
+    "isbn": null,
+    "title": "Selvi Boylum Al Yazmalım",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 112,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12256117-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:30:00Z"
+  },
+  {
+    "id": "b188",
+    "isbn": null,
+    "title": "Dişi Kurdun Rüyaları",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 480,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12257355-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:35:00Z"
+  },
+  {
+    "id": "b189",
+    "isbn": null,
+    "title": "Elveda Gülsarı",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 176,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12245540-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:40:00Z"
+  },
+  {
+    "id": "b190",
+    "isbn": null,
+    "title": "Yüz Yüze",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 128,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12359190-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:45:00Z"
+  },
+  {
+    "id": "b191",
+    "isbn": null,
+    "title": "Cengiz Han'a Küsen Bulut",
+    "authors": [
+      "Cengiz Aytmatov"
+    ],
+    "publisher": null,
+    "publishedDate": null,
+    "pageCount": 384,
+    "coverImageUrl": "https://covers.openlibrary.org/b/id/12257337-L.jpg",
+    "language": "tr",
+    "source": "MANUAL",
+    "createdAt": "2026-03-16T11:50:00Z"
   }
 ]

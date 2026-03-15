@@ -719,5 +719,23 @@
     "literaryMovement": "Muhafazakâr roman geleneği",
     "suitability": "uygun",
     "note": "Anadolu insanı, değerler teması"
+  },
+  {
+    "id": "a46",
+    "name": "Gürbüz Azak",
+    "birthYear": 1934,
+    "deathYear": 2020,
+    "genres": [
+      "Tiyatro",
+      "Roman",
+      "Hikâye"
+    ],
+    "categories": [
+      "Tiyatro Yazarları",
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Millî-muhafazakâr tiyatro",
+    "suitability": "uygun",
+    "note": "Türk tiyatrosunun önemli ismi, millî değerler temalı oyunlar"
   }
 ]
