@@ -29,6 +29,7 @@ function AppRoutes() {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/books/:id" element={<BookDetailPage />} />
         <Route path="/authors" element={<AuthorsPage />} />
+        <Route path="/authors/by-name/:name" element={<AuthorDetailPage />} />
         <Route path="/authors/:id" element={<AuthorDetailPage />} />
         <Route path="/compare" element={<ComparePage />} />
         <Route path="*" element={<NotFoundPage />} />

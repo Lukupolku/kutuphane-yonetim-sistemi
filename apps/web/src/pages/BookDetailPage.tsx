@@ -116,16 +116,19 @@ export function BookDetailPage() {
           <div>
             <h1 className="book-detail-title">{book.title}</h1>
             <p className="book-detail-author">
-              {authorInfo ? (
-                <span
-                  style={{ cursor: 'pointer', textDecoration: 'underline', textDecorationColor: 'rgba(139,26,43,0.3)' }}
-                  onClick={(e) => { e.stopPropagation(); navigate(`/authors/${authorInfo.id}`); }}
-                >
-                  {book.authors.join(', ')}
-                </span>
-              ) : (
-                book.authors.join(', ')
-              )}
+              <span
+                style={{ cursor: 'pointer', textDecoration: 'underline', textDecorationColor: 'rgba(139,26,43,0.3)' }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (authorInfo) {
+                    navigate(`/authors/${authorInfo.id}`);
+                  } else {
+                    navigate(`/authors/by-name/${encodeURIComponent(book.authors[0])}`);
+                  }
+                }}
+              >
+                {book.authors.join(', ')}
+              </span>
             </p>
           </div>
         </div>

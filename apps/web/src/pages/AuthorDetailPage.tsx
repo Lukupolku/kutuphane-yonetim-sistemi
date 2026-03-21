@@ -11,24 +11,39 @@ const SUITABILITY_LABELS: Record<string, { label: string; color: string }> = {
 };
 
 export function AuthorDetailPage() {
-  const { id } = useParams<{ id: string }>();
+  const { id, name: nameParam } = useParams<{ id?: string; name?: string }>();
   const navigate = useNavigate();
   const [author, setAuthor] = useState<Author | null>(null);
+  const [authorName, setAuthorName] = useState<string>('');
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!id) return;
     setLoading(true);
-    api.getAuthorById(id).then(async (result) => {
-      setAuthor(result);
-      if (result) {
-        const authorBooks = await api.getBooksByAuthor(result.name);
+
+    if (nameParam) {
+      // by-name route: yazar listede olmayabilir
+      const decodedName = decodeURIComponent(nameParam);
+      api.getAuthorByName(decodedName).then(async (result) => {
+        setAuthor(result);
+        setAuthorName(decodedName);
+        const authorBooks = await api.getBooksByAuthor(decodedName);
         setBooks(authorBooks);
-      }
-      setLoading(false);
-    });
-  }, [id]);
+        setLoading(false);
+      });
+    } else if (id) {
+      // by-id route
+      api.getAuthorById(id).then(async (result) => {
+        setAuthor(result);
+        if (result) {
+          setAuthorName(result.name);
+          const authorBooks = await api.getBooksByAuthor(result.name);
+          setBooks(authorBooks);
+        }
+        setLoading(false);
+      });
+    }
+  }, [id, nameParam]);
 
   if (loading) {
     return (
@@ -41,7 +56,7 @@ export function AuthorDetailPage() {
     );
   }
 
-  if (!author) {
+  if (!author && books.length === 0) {
     return (
       <div className="page-container">
         <div className="empty-state">
@@ -55,10 +70,11 @@ export function AuthorDetailPage() {
     );
   }
 
-  const suitability = SUITABILITY_LABELS[author.suitability] || SUITABILITY_LABELS.uygun;
-  const lifeSpan = author.deathYear
-    ? `${author.birthYear} – ${author.deathYear}`
-    : `${author.birthYear} – günümüz`;
+  const suitability = author ? (SUITABILITY_LABELS[author.suitability] || SUITABILITY_LABELS.uygun) : null;
+  const lifeSpan = author
+    ? (author.deathYear ? `${author.birthYear} – ${author.deathYear}` : `${author.birthYear} – günümüz`)
+    : null;
+  const displayName = author?.name || authorName;
 
   return (
     <div className="page-container">
@@ -74,39 +90,49 @@ export function AuthorDetailPage() {
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: '#fff', fontSize: 36, fontWeight: 700, flexShrink: 0
           }}>
-            {author.name.charAt(0)}
+            {displayName.charAt(0)}
           </div>
           <div>
-            <h1 className="book-detail-title">{author.name}</h1>
-            <p style={{ color: '#666', marginTop: 4, display: 'flex', alignItems: 'center', gap: 6 }}>
-              <Calendar size={14} /> {lifeSpan}
-            </p>
-            <p style={{ color: '#888', marginTop: 4, fontSize: '0.9rem' }}>{author.literaryMovement}</p>
+            <h1 className="book-detail-title">{displayName}</h1>
+            {lifeSpan && (
+              <p style={{ color: '#666', marginTop: 4, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <Calendar size={14} /> {lifeSpan}
+              </p>
+            )}
+            {author?.literaryMovement && (
+              <p style={{ color: '#888', marginTop: 4, fontSize: '0.9rem' }}>{author.literaryMovement}</p>
+            )}
           </div>
         </div>
 
         <div className="book-detail-meta">
-          <div className="meta-item">
-            <span className="meta-item-label">Türler</span>
-            <span className="meta-item-value">{author.genres.join(', ')}</span>
-          </div>
-          <div className="meta-item">
-            <span className="meta-item-label">Kategoriler</span>
-            <span className="meta-item-value">{author.categories.join(', ')}</span>
-          </div>
-          <div className="meta-item">
-            <span className="meta-item-label">Lise Uygunluğu</span>
-            <span className="meta-item-value" style={{ color: suitability.color, fontWeight: 600 }}>
-              {suitability.label}
-            </span>
-          </div>
+          {author?.genres && (
+            <div className="meta-item">
+              <span className="meta-item-label">Türler</span>
+              <span className="meta-item-value">{author.genres.join(', ')}</span>
+            </div>
+          )}
+          {author?.categories && (
+            <div className="meta-item">
+              <span className="meta-item-label">Kategoriler</span>
+              <span className="meta-item-value">{author.categories.join(', ')}</span>
+            </div>
+          )}
+          {suitability && (
+            <div className="meta-item">
+              <span className="meta-item-label">Lise Uygunluğu</span>
+              <span className="meta-item-value" style={{ color: suitability.color, fontWeight: 600 }}>
+                {suitability.label}
+              </span>
+            </div>
+          )}
           <div className="meta-item">
             <span className="meta-item-label">Kitap Sayısı</span>
             <span className="meta-item-value">{books.length}</span>
           </div>
         </div>
 
-        {author.note && (
+        {author?.note && (
           <div style={{ padding: '1rem 1.5rem', borderTop: '1px solid #eee', color: '#555', fontSize: '0.9rem', lineHeight: 1.6 }}>
             <Tag size={14} style={{ marginRight: 6, verticalAlign: 'middle' }} />
             {author.note}
