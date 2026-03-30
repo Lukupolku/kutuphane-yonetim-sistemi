@@ -6,16 +6,25 @@ class MebColors {
   static const primary = Color(0xFF8B1A2B);
   static const primaryDark = Color(0xFF6E1422);
   static const primaryLight = Color(0xFFF5E6E9);
+  static const primary50 = Color(0xFFFAF2F3);
   static const accent = Color(0xFFA62639);
+  static const accentLight = Color(0xFFFCE8EB);
+  static const accentDark = Color(0xFF7A1D2B);
   static const sidebarDark = Color(0xFF2D1018);
+  static const sidebarHover = Color(0xFF3D1A24);
 
   static const surface = Color(0xFFFFFFFF);
   static const background = Color(0xFFF5F4F3);
   static const border = Color(0xFFE0DDD9);
+  static const borderLight = Color(0xFFEDEBE8);
 
   static const textPrimary = Color(0xFF1E1E20);
   static const textSecondary = Color(0xFF5A5A64);
   static const textTertiary = Color(0xFF8E8E9A);
+
+  /// Use on bordo/dark backgrounds — NOT black/dark text
+  static const textOnDark = Color(0xFFF0E8EA);
+  static const textOnDarkMuted = Color(0x80FFFFFF); // 50% white
 
   static const success = Color(0xFF16A34A);
   static const warning = Color(0xFFD97706);
@@ -179,6 +188,29 @@ ThemeData buildMebTheme() {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      indicatorColor: MebColors.primaryLight,
+      iconTheme: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return const IconThemeData(color: MebColors.primary);
+        }
+        return const IconThemeData(color: MebColors.textTertiary);
+      }),
+      labelTextStyle: WidgetStateProperty.resolveWith((states) {
+        if (states.contains(WidgetState.selected)) {
+          return GoogleFonts.nunito(
+            fontSize: 12,
+            fontWeight: FontWeight.w700,
+            color: MebColors.primary,
+          );
+        }
+        return GoogleFonts.nunito(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+          color: MebColors.textTertiary,
+        );
+      }),
     ),
   );
 }

@@ -1,5 +1,5 @@
-name: kutuphane_mobile
-description: "Kutuphane Yonetim Sistemi Mobile App"
+name: rafta
+description: "Rafta — Kisisel Kutuphane Yoneticisi"
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -9,18 +9,26 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  mobile_scanner: ^6.0.0
-  google_mlkit_text_recognition: ^0.14.0
-  http: ^1.2.0
-  uuid: ^4.5.0
+  # State management
   provider: ^6.1.0
+  # Database
+  sqflite: ^2.4.2
+  path: ^1.9.1
+  # Network
+  http: ^1.2.0
+  # Barcode scanning
+  mobile_scanner: ^6.0.0
+  # OCR
+  google_mlkit_text_recognition: ^0.14.0
+  # Images
   cached_network_image: ^3.4.0
   image_picker: ^1.1.0
+  # Utils
+  uuid: ^4.5.0
   shared_preferences: ^2.3.0
-  file_picker: ^8.0.0
-  excel: ^4.0.0
   google_fonts: ^6.2.0
-  flutter_native_splash: ^2.4.0
+  intl: ^0.20.2
+  sqflite_common_ffi_web: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -35,18 +43,7 @@ flutter_launcher_icons:
   adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/images/meb-logo-icon.png"
 
-flutter_native_splash:
-  color: "#FFFFFF"
-  image: "assets/images/meb-logo-icon.png"
-  android: true
-  ios: false
-  android_12:
-    color: "#FFFFFF"
-    icon_background_color: "#FFFFFF"
-    image: "assets/images/meb-logo-icon.png"
-
 flutter:
   uses-material-design: true
   assets:
-    - assets/mock-data/
     - assets/images/

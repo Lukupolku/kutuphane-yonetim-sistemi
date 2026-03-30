@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-School library management system (Union Catalog model) for Turkey's Ministry of Education (MEB). Monorepo with two apps sharing common data models.
+Monorepo with two apps:
+- **Rafta** — Personal home library management mobile app (Flutter)
+- **MEB Okul Kutuphaneleri Yonetim Sistemi** — School library dashboard (React)
 
 ## Commands
 
@@ -14,49 +16,55 @@ cd apps/web
 npm run dev          # Dev server at localhost:5173
 npm run build        # Production build
 npx vitest run       # Run all tests
-npx vitest run src/__tests__/api.test.ts  # Single test file
 npx tsc --noEmit     # Type check
 ```
 
-### Mobile App (apps/mobile/) — requires Flutter SDK
+### Mobile App — Rafta (apps/mobile/) — requires Flutter SDK
 ```bash
 cd apps/mobile
 flutter pub get
-flutter test                              # All tests
-flutter test test/models/book_test.dart   # Single test file
-flutter run
+flutter analyze      # Static analysis
+flutter run          # Run on device/emulator
 ```
 
 ## Architecture
 
-- **apps/mobile/** — Flutter (Dart). ISBN barcode scanning + cover/shelf OCR + book registration. State management via Provider.
-- **apps/web/** — React + TypeScript + Vite. Hierarchical dashboard (province → district → school filtering), book search, book detail with school holdings. Uses react-router-dom for routing.
-- **packages/shared/** — JSON Schema models (book, school, holding), mock data (15 books, 12 schools, 35 holdings), OpenAPI contract.
+### Mobile App — Rafta (apps/mobile/)
+Personal home library manager for kids and adults. SQLite local database, Provider state management.
 
-### Data Flow (Mock Phase)
-Both apps use a repository/service pattern with in-memory mock data. The API interface is defined so swapping to a real backend requires only replacing the service implementation — no UI changes needed.
+**Data Model:**
+- Room → Bookshelf → Shelf → Book (physical library hierarchy)
+- UserBook: user's copy with status (toRead/reading/read/dropped), rating, favorites
+- BookNote: highlights, notes, quotes linked to books (OCR from page photos)
+- Lending: track who borrowed which book
+- ReadingList: user-created or API-suggested book lists
 
-### Key Patterns
-- **Union Catalog**: Single book catalog, schools attach holdings (ownership records). Same ISBN entered by different schools references the same Book record.
-- **Fallback chain for ISBN lookup**: Google Books API → Open Library API → manual entry.
-- **HierarchyFilter** cascading: Province selection loads districts, district loads schools. All levels have "all" option.
+**Key Services:**
+- `BookLookupService`: Google Books API → Open Library API → manual entry (fallback chain)
+- OCR via google_mlkit_text_recognition for page note capture
+- Barcode scanning via mobile_scanner for ISBN lookup
 
-### Web App Structure
-- `src/types/` — TypeScript interfaces matching shared JSON schemas
+**Structure:**
+- `lib/models/` — Room, Bookshelf, Shelf, Book, UserBook, BookNote, Lending, ReadingList
+- `lib/database/database_helper.dart` — SQLite schema and singleton
+- `lib/providers/` — LibraryProvider (rooms/shelves), BookProvider (books/notes/lending)
+- `lib/services/` — BookLookupService (API integration)
+- `lib/screens/` — HomeScreen, LibraryScreen, BookDetailScreen, SearchScreen, BarcodeScanScreen, NoteCaptureScreen
+- `lib/widgets/` — BookCard, RatingWidget, ErrorView
+
+### Web Dashboard (apps/web/)
+React + TypeScript + Vite. School library dashboard with hierarchical filtering, book catalog, school comparison heat map.
+
+- `src/pages/` — DashboardPage, SearchPage, BookDetailPage, ComparePage, LoginPage, NotFoundPage
+- `src/components/` — HierarchyFilter, BookTable, Layout, ErrorBoundary
 - `src/services/api.ts` — Mock API service (async, mirrors real API contract)
-- `src/services/mock-data.ts` — Typed imports of JSON mock data
-- `src/pages/` — DashboardPage, SearchPage, BookDetailPage
-- `src/components/` — HierarchyFilter, BookTable, SchoolHoldingsList, Layout
+- `src/contexts/AuthContext.tsx` — Role-based auth with session persistence
 
-### Mobile App Structure
-- `lib/models/` — Book, School, Holding Dart classes with fromJson/toJson
-- `lib/repositories/` — Abstract BookRepository + MockBookRepository (planned)
-- `lib/services/` — IsbnLookupService, OcrService (planned)
-- `lib/screens/` — UI screens (planned)
+### Shared (packages/shared/)
+JSON Schema models, mock data (15 books, 12 schools, 41 holdings), OpenAPI contract. Used by web app only.
 
-## Mock Data Reference
-- Schools: 3 provinces (Ankara, İstanbul, İzmir), 2 districts each, 2 schools per district = 12 schools
-- Books: 15 Turkish titles (13 with ISBN, 2 without)
-- Holdings: 35 entries linking books to schools
-- School IDs follow pattern: `s{n}-{province}-{district}-{name}-{type}`
-- Book IDs: `b1` through `b15`
+## Key Patterns
+- **Fallback chain for ISBN lookup**: Google Books API → Open Library API → manual entry
+- **MEB bordo theme**: Primary #8B1A2B, shared between web and mobile via theme.dart / index.css
+- **Provider pattern**: ChangeNotifier-based state management in mobile app
+- **SQLite local DB**: All mobile data persisted locally via sqflite

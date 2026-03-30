@@ -1,215 +1,230 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'models/book.dart';
-import 'models/holding.dart';
-import 'models/school.dart';
-import 'providers/auth_provider.dart';
-import 'providers/inventory_provider.dart';
-import 'providers/school_provider.dart';
-import 'repositories/mock_book_repository.dart';
-import 'repositories/mock_holding_repository.dart';
-import 'repositories/mock_school_repository.dart';
-import 'screens/barcode_scan_screen.dart';
-import 'screens/book_confirm_screen.dart';
-import 'screens/cover_ocr_screen.dart';
-import 'screens/excel_import_screen.dart';
-import 'screens/inventory_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/shelf_ocr_screen.dart';
-import 'screens/splash_screen.dart';
-import 'screens/welcome_screen.dart';
-import 'services/isbn_lookup_service.dart';
-import 'services/mock_data_service.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart';
+import 'package:sqflite/sqflite.dart';
 import 'theme.dart';
+import 'providers/library_provider.dart';
+import 'providers/book_provider.dart';
+import 'screens/home_screen.dart';
+import 'screens/library_screen.dart';
+import 'screens/search_screen.dart';
+import 'screens/barcode_scan_screen.dart';
+import 'screens/book_detail_screen.dart';
+import 'screens/note_capture_screen.dart';
 import 'widgets/error_view.dart';
 
 void main() {
-  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // Override default red error screen with user-friendly widget
+  // Use web-compatible sqflite factory when running on web
+  if (kIsWeb) {
+    databaseFactory = databaseFactoryFfiWeb;
+  }
+
   ErrorWidget.builder = (FlutterErrorDetails details) {
     return Material(
       child: ErrorView(
-        title: 'Bir Hata Oluştu',
+        title: 'Bir Hata Olustu',
         message: details.exceptionAsString(),
         icon: Icons.warning_amber_rounded,
       ),
     );
   };
 
-  runApp(const KutuphaneApp());
+  runApp(const RaftaApp());
 }
 
-class KutuphaneApp extends StatefulWidget {
-  const KutuphaneApp({super.key});
-
-  @override
-  State<KutuphaneApp> createState() => _KutuphaneAppState();
-}
-
-class _KutuphaneAppState extends State<KutuphaneApp> {
-  final _authProvider = AuthProvider();
-
-  // Created once after data loads — stable across rebuilds
-  bool _ready = false;
-  bool _showWelcome = false;
-  bool _skipWelcomePref = false;
-  late final List<School> _schools;
-  late final SchoolProvider _schoolProvider;
-  late final InventoryProvider _inventoryProvider;
-  late final IsbnLookupService _isbnLookupService;
-
-  Future<void> _loadAll() async {
-    final results = await Future.wait([
-      _loadMockData(),
-      _authProvider.restoreSession(),
-      SharedPreferences.getInstance(),
-    ]);
-    final data = results[0] as _MockData;
-    final prefs = results[2] as SharedPreferences;
-    _skipWelcomePref = prefs.getBool('skip_welcome') ?? false;
-    _schools = data.schools;
-
-    final bookRepo = MockBookRepository(data.books);
-    final schoolRepo = MockSchoolRepository(data.schools);
-    final holdingRepo = MockHoldingRepository(data.holdings);
-
-    _schoolProvider = SchoolProvider(schoolRepository: schoolRepo);
-    _schoolProvider.loadProvinces();
-
-    _inventoryProvider = InventoryProvider(
-      bookRepository: bookRepo,
-      holdingRepository: holdingRepo,
-    );
-
-    _isbnLookupService = IsbnLookupService(bookRepository: bookRepo);
-
-    // If already logged in, set school + load inventory
-    _syncSchoolFromAuth();
-
-    setState(() => _ready = true);
-    FlutterNativeSplash.remove();
-
-    // Listen for auth changes to sync school
-    _authProvider.addListener(_onAuthChanged);
-  }
-
-  void _onAuthChanged() {
-    _syncSchoolFromAuth();
-    // Show welcome on fresh login (not on session restore)
-    if (_authProvider.isLoggedIn && !_skipWelcomePref) {
-      setState(() => _showWelcome = true);
-    }
-    if (!_authProvider.isLoggedIn) {
-      setState(() => _showWelcome = false);
-    }
-  }
-
-  void _syncSchoolFromAuth() {
-    if (_authProvider.isLoggedIn) {
-      final userSchoolId = _authProvider.user!.schoolId;
-      final school = _schools.cast<School?>().firstWhere(
-            (s) => s!.id == userSchoolId,
-            orElse: () => null,
-          );
-      if (school != null) {
-        _schoolProvider.selectSchoolDirectly(school);
-        _inventoryProvider.loadInventory(school.id);
-      }
-    }
-  }
-
-  @override
-  void dispose() {
-    _authProvider.removeListener(_onAuthChanged);
-    super.dispose();
-  }
+class RaftaApp extends StatelessWidget {
+  const RaftaApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    if (!_ready) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'MEB Okul Kütüphaneleri Yönetim Sistemi',
-        theme: buildMebTheme(),
-        home: SplashScreen(
-          loadData: _loadAll,
-          onReady: () {},
-        ),
-      );
-    }
-
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AuthProvider>.value(value: _authProvider),
-        ChangeNotifierProvider<SchoolProvider>.value(value: _schoolProvider),
-        ChangeNotifierProvider<InventoryProvider>.value(
-            value: _inventoryProvider),
-        Provider<IsbnLookupService>.value(value: _isbnLookupService),
+        ChangeNotifierProvider(create: (_) => LibraryProvider()),
+        ChangeNotifierProvider(create: (_) => BookProvider()),
       ],
-      child: Consumer<AuthProvider>(
-        builder: (context, auth, _) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'MEB Okul Kütüphaneleri Yönetim Sistemi',
-            theme: buildMebTheme(),
-            home: !auth.isLoggedIn
-                ? const LoginScreen()
-                : _showWelcome
-                    ? WelcomeScreen(
-                        onContinue: () =>
-                            setState(() => _showWelcome = false),
-                      )
-                    : const InventoryScreen(),
-            routes: {
-              '/inventory': (_) => const InventoryScreen(),
-              '/scan/barcode': (_) => const BarcodeScanScreen(),
-              '/scan/cover': (_) => const CoverOcrScreen(),
-              '/scan/shelf': (_) => const ShelfOcrScreen(),
-              '/import/excel': (_) => const ExcelImportScreen(),
-            },
-            onGenerateRoute: (settings) {
-              if (settings.name == '/book/confirm') {
-                final args =
-                    settings.arguments as Map<String, dynamic>?;
-                return MaterialPageRoute(
-                  builder: (_) => BookConfirmScreen(
-                    book: args?['book'] as Book?,
-                    isbn: args?['isbn'] as String?,
-                    sourceType:
-                        args?['source'] as String? ?? 'MANUAL',
-                    parsedTitle: args?['parsedTitle'] as String?,
-                    parsedAuthor: args?['parsedAuthor'] as String?,
-                  ),
-                );
-              }
-              return null;
-            },
-          );
+      child: MaterialApp(
+        title: 'Rafta',
+        theme: buildMebTheme(),
+        debugShowCheckedModeBanner: false,
+        home: const _AppLoader(),
+        routes: {
+          '/scan': (_) => const BarcodeScanScreen(),
+          '/search': (_) => const SearchScreen(),
+          '/book-detail': (_) => const BookDetailScreen(),
+          '/note-capture': (_) => const NoteCaptureScreen(),
         },
       ),
     );
   }
 }
 
-class _MockData {
-  final List<Book> books;
-  final List<School> schools;
-  final List<Holding> holdings;
-  _MockData({required this.books, required this.schools, required this.holdings});
+/// Loads database data before showing the main shell.
+class _AppLoader extends StatefulWidget {
+  const _AppLoader();
+
+  @override
+  State<_AppLoader> createState() => _AppLoaderState();
 }
 
-Future<_MockData> _loadMockData() async {
-  try {
-    final books = await MockDataService.loadBooks();
-    final schools = await MockDataService.loadSchools();
-    final holdings = await MockDataService.loadHoldings();
-    return _MockData(books: books, schools: schools, holdings: holdings);
-  } catch (_) {
-    return _MockData(books: [], schools: [], holdings: []);
+class _AppLoaderState extends State<_AppLoader> {
+  bool _loaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final libProv = context.read<LibraryProvider>();
+    final bookProv = context.read<BookProvider>();
+
+    await Future.wait([
+      libProv.loadAll(),
+      bookProv.loadAll(),
+    ]);
+
+    if (mounted) setState(() => _loaded = true);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!_loaded) {
+      return Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.menu_book_rounded, size: 64, color: MebColors.primary),
+              const SizedBox(height: 16),
+              Text('Rafta',
+                  style: GoogleFonts.outfit(
+                    fontSize: 28,
+                    fontWeight: FontWeight.w800,
+                    color: MebColors.primary,
+                  )),
+              const SizedBox(height: 4),
+              Text('Kisisel Kutuphane Yoneticin',
+                  style: GoogleFonts.nunito(
+                    fontSize: 14,
+                    color: MebColors.textTertiary,
+                  )),
+              const SizedBox(height: 32),
+              const CircularProgressIndicator(),
+            ],
+          ),
+        ),
+      );
+    }
+
+    return const _MainShell();
+  }
+}
+
+/// Bottom navigation shell with Home and Library tabs.
+class _MainShell extends StatefulWidget {
+  const _MainShell();
+
+  @override
+  State<_MainShell> createState() => _MainShellState();
+}
+
+class _MainShellState extends State<_MainShell> {
+  int _currentIndex = 0;
+
+  static const _screens = [
+    HomeScreen(),
+    LibraryScreen(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _screens,
+      ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (i) => setState(() => _currentIndex = i),
+        destinations: [
+          const NavigationDestination(
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home_rounded),
+            label: 'Ana Sayfa',
+          ),
+          const NavigationDestination(
+            icon: Icon(Icons.library_books_outlined),
+            selectedIcon: Icon(Icons.library_books),
+            label: 'Kitapligim',
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        heroTag: 'mainFab',
+        onPressed: () => _showAddOptions(context),
+        child: const Icon(Icons.add_rounded),
+      ),
+    );
+  }
+
+  void _showAddOptions(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Kitap Ekle',
+                  style: GoogleFonts.outfit(fontSize: 18, fontWeight: FontWeight.w700)),
+              const SizedBox(height: 16),
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: MebColors.primaryLight,
+                  child: const Icon(Icons.qr_code_scanner_rounded, color: MebColors.primary),
+                ),
+                title: const Text('Barkod Tara'),
+                subtitle: const Text('Kitabin barkodunu tarayin'),
+                onTap: () {
+                  Navigator.pop(ctx);
+                  Navigator.pushNamed(context, '/scan');
+                },
+              ),
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: MebColors.primaryLight,
+                  child: const Icon(Icons.search_rounded, color: MebColors.primary),
+                ),
+                title: const Text('Kitap Ara'),
+                subtitle: const Text('Isim, yazar veya ISBN ile arayin'),
+                onTap: () {
+                  Navigator.pop(ctx);
+                  Navigator.pushNamed(context, '/search');
+                },
+              ),
+              ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: MebColors.primaryLight,
+                  child: const Icon(Icons.edit_note_rounded, color: MebColors.primary),
+                ),
+                title: const Text('Manuel Ekle'),
+                subtitle: const Text('Bilgileri kendiniz girin'),
+                onTap: () {
+                  Navigator.pop(ctx);
+                  Navigator.pushNamed(context, '/add-manual');
+                },
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

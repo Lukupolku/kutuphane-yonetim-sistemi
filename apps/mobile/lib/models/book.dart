@@ -1,28 +1,6 @@
-enum BookSource {
-  googleBooks,
-  openLibrary,
-  manual,
-  ocr;
+import 'dart:convert';
 
-  static BookSource fromString(String value) {
-    switch (value) {
-      case 'GOOGLE_BOOKS': return BookSource.googleBooks;
-      case 'OPEN_LIBRARY': return BookSource.openLibrary;
-      case 'MANUAL': return BookSource.manual;
-      case 'OCR': return BookSource.ocr;
-      default: throw ArgumentError('Unknown BookSource: $value');
-    }
-  }
-
-  String toJsonString() {
-    switch (this) {
-      case BookSource.googleBooks: return 'GOOGLE_BOOKS';
-      case BookSource.openLibrary: return 'OPEN_LIBRARY';
-      case BookSource.manual: return 'MANUAL';
-      case BookSource.ocr: return 'OCR';
-    }
-  }
-}
+enum BookSource { googleBooks, openLibrary, manual }
 
 class Book {
   final String id;
@@ -33,6 +11,8 @@ class Book {
   final String? publishedDate;
   final int? pageCount;
   final String? coverImageUrl;
+  final String? description;
+  final List<String> categories;
   final String language;
   final BookSource source;
   final DateTime createdAt;
@@ -46,40 +26,85 @@ class Book {
     this.publishedDate,
     this.pageCount,
     this.coverImageUrl,
-    required this.language,
+    this.description,
+    this.categories = const [],
+    this.language = 'tr',
     required this.source,
     required this.createdAt,
   });
 
-  factory Book.fromJson(Map<String, dynamic> json) {
-    return Book(
-      id: json['id'] as String,
-      isbn: json['isbn'] as String?,
-      title: json['title'] as String,
-      authors: List<String>.from(json['authors'] as List),
-      publisher: json['publisher'] as String?,
-      publishedDate: json['publishedDate'] as String?,
-      pageCount: json['pageCount'] as int?,
-      coverImageUrl: json['coverImageUrl'] as String?,
-      language: json['language'] as String,
-      source: BookSource.fromString(json['source'] as String),
-      createdAt: DateTime.parse(json['createdAt'] as String),
-    );
+  Map<String, dynamic> toMap() => {
+        'id': id,
+        'isbn': isbn,
+        'title': title,
+        'authors': jsonEncode(authors),
+        'publisher': publisher,
+        'published_date': publishedDate,
+        'page_count': pageCount,
+        'cover_image_url': coverImageUrl,
+        'description': description,
+        'categories': jsonEncode(categories),
+        'language': language,
+        'source': source.name,
+        'created_at': createdAt.toIso8601String(),
+      };
+
+  factory Book.fromMap(Map<String, dynamic> map) => Book(
+        id: map['id'] as String,
+        isbn: map['isbn'] as String?,
+        title: map['title'] as String,
+        authors: _decodeList(map['authors']),
+        publisher: map['publisher'] as String?,
+        publishedDate: map['published_date'] as String?,
+        pageCount: map['page_count'] as int?,
+        coverImageUrl: map['cover_image_url'] as String?,
+        description: map['description'] as String?,
+        categories: _decodeList(map['categories']),
+        language: (map['language'] as String?) ?? 'tr',
+        source: BookSource.values.firstWhere(
+          (e) => e.name == map['source'],
+          orElse: () => BookSource.manual,
+        ),
+        createdAt: DateTime.parse(map['created_at'] as String),
+      );
+
+  static List<String> _decodeList(dynamic value) {
+    if (value == null) return [];
+    if (value is List) return value.cast<String>();
+    if (value is String) {
+      try {
+        return (jsonDecode(value) as List).cast<String>();
+      } catch (_) {
+        return [];
+      }
+    }
+    return [];
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'isbn': isbn,
-      'title': title,
-      'authors': authors,
-      'publisher': publisher,
-      'publishedDate': publishedDate,
-      'pageCount': pageCount,
-      'coverImageUrl': coverImageUrl,
-      'language': language,
-      'source': source.toJsonString(),
-      'createdAt': createdAt.toIso8601String(),
-    };
-  }
+  Book copyWith({
+    String? isbn,
+    String? title,
+    List<String>? authors,
+    String? publisher,
+    String? publishedDate,
+    int? pageCount,
+    String? coverImageUrl,
+    String? description,
+    List<String>? categories,
+  }) =>
+      Book(
+        id: id,
+        isbn: isbn ?? this.isbn,
+        title: title ?? this.title,
+        authors: authors ?? this.authors,
+        publisher: publisher ?? this.publisher,
+        publishedDate: publishedDate ?? this.publishedDate,
+        pageCount: pageCount ?? this.pageCount,
+        coverImageUrl: coverImageUrl ?? this.coverImageUrl,
+        description: description ?? this.description,
+        categories: categories ?? this.categories,
+        language: language,
+        source: source,
+        createdAt: createdAt,
+      );
 }
