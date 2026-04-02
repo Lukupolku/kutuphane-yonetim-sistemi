@@ -48,7 +48,7 @@ export function ExcelImportModal({ open, onClose, onImport }: ExcelImportModalPr
         // Skip header row, parse data rows
         const parsed: ImportRow[] = [];
         for (let i = 1; i < json.length; i++) {
-          const row = json[i] as unknown[];
+          const row = json[i] as unknown as unknown[];
           if (!row || !row[0]) continue;
           const title = String(row[0] ?? '').trim();
           if (!title) continue;

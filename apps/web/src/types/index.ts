@@ -12,6 +12,7 @@ export interface Author {
   literaryMovement: string;
   suitability: 'uygun' | 'secici' | 'rehberli';
   note: string;
+  photoUrl?: string | null;
 }
 
 import type { Book } from './book';

@@ -91,14 +91,22 @@ export function AuthorsPage() {
                 onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)')}
                 onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
               >
-                <div style={{
-                  width: 56, height: 56, borderRadius: '50%', flexShrink: 0,
-                  background: 'linear-gradient(135deg, #8b1a2b, #c0392b)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#fff', fontSize: 22, fontWeight: 700
-                }}>
-                  {author.name.charAt(0)}
-                </div>
+                {author.photoUrl ? (
+                  <img src={author.photoUrl} alt={author.name}
+                    style={{
+                      width: 56, height: 56, borderRadius: '50%', flexShrink: 0,
+                      objectFit: 'cover'
+                    }} />
+                ) : (
+                  <div style={{
+                    width: 56, height: 56, borderRadius: '50%', flexShrink: 0,
+                    background: 'linear-gradient(135deg, #8b1a2b, #c0392b)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#fff', fontSize: 22, fontWeight: 700
+                  }}>
+                    {author.name.charAt(0)}
+                  </div>
+                )}
                 <div style={{ minWidth: 0, flex: 1 }}>
                   <div style={{ fontWeight: 600, fontSize: '0.95rem', color: '#1a1a2e' }}>{author.name}</div>
                   <div style={{ fontSize: '0.8rem', color: '#888', marginTop: 2 }}>

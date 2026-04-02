@@ -84,14 +84,22 @@ export function AuthorDetailPage() {
 
       <div className="book-detail-card">
         <div className="book-detail-header" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-          <div style={{
-            width: 100, height: 100, borderRadius: '50%',
-            background: 'linear-gradient(135deg, #8b1a2b, #c0392b)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: '#fff', fontSize: 36, fontWeight: 700, flexShrink: 0
-          }}>
-            {displayName.charAt(0)}
-          </div>
+          {author?.photoUrl ? (
+            <img src={author.photoUrl} alt={displayName}
+              style={{
+                width: 100, height: 100, borderRadius: '50%',
+                objectFit: 'cover', flexShrink: 0
+              }} />
+          ) : (
+            <div style={{
+              width: 100, height: 100, borderRadius: '50%',
+              background: 'linear-gradient(135deg, #8b1a2b, #c0392b)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              color: '#fff', fontSize: 36, fontWeight: 700, flexShrink: 0
+            }}>
+              {displayName.charAt(0)}
+            </div>
+          )}
           <div>
             <h1 className="book-detail-title">{displayName}</h1>
             {lifeSpan && (

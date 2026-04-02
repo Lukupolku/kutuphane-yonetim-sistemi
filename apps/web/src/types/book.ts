@@ -9,6 +9,7 @@ export interface Book {
   publishedDate: string | null;
   pageCount: number | null;
   coverImageUrl: string | null;
+  description: string | null;
   language: string;
   source: BookSource;
   createdAt: string;

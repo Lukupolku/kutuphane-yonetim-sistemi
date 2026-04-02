@@ -12,7 +12,8 @@
     ],
     "literaryMovement": "İslamcı şiir",
     "suitability": "uygun",
-    "note": "İstiklal Marşı şairi, zorunlu isim"
+    "note": "İstiklal Marşı şairi, zorunlu isim",
+    "photoUrl": "/authors/a1.jpg"
   },
   {
     "id": "a2",
@@ -29,7 +30,8 @@
     ],
     "literaryMovement": "Büyük Doğu hareketi",
     "suitability": "uygun",
-    "note": "Büyük Doğu'nun sesi, güçlü şiir dili"
+    "note": "Büyük Doğu'nun sesi, güçlü şiir dili",
+    "photoUrl": "/authors/a2.jpg"
   },
   {
     "id": "a3",
@@ -44,7 +46,8 @@
     ],
     "literaryMovement": "Neoklasik şiir",
     "suitability": "uygun",
-    "note": "Osmanlı-İslam estetiğinin şairi"
+    "note": "Osmanlı-İslam estetiğinin şairi",
+    "photoUrl": "/authors/a3.jpg"
   },
   {
     "id": "a4",
@@ -60,7 +63,8 @@
     ],
     "literaryMovement": "Diriliş hareketi",
     "suitability": "uygun",
-    "note": "Diriliş şiirinin kurucusu"
+    "note": "Diriliş şiirinin kurucusu",
+    "photoUrl": "/authors/a4.jpg"
   },
   {
     "id": "a5",
@@ -77,7 +81,8 @@
     ],
     "literaryMovement": "Diriliş çevresi",
     "suitability": "uygun",
-    "note": "Mistik şiir, gençlere yakın dil"
+    "note": "Mistik şiir, gençlere yakın dil",
+    "photoUrl": "/authors/a5.jpeg"
   },
   {
     "id": "a6",
@@ -92,7 +97,8 @@
     ],
     "literaryMovement": "Diriliş çevresi",
     "suitability": "uygun",
-    "note": "Toplumsal şiir"
+    "note": "Toplumsal şiir",
+    "photoUrl": "/authors/a6.jpg"
   },
   {
     "id": "a7",
@@ -107,7 +113,8 @@
     ],
     "literaryMovement": "Diriliş çevresi",
     "suitability": "uygun",
-    "note": "Lirik ve samimi şiir dili"
+    "note": "Lirik ve samimi şiir dili",
+    "photoUrl": "/authors/a7.jpg"
   },
   {
     "id": "a8",
@@ -122,7 +129,8 @@
     ],
     "literaryMovement": "Halk şiiri geleneği",
     "suitability": "uygun",
-    "note": "Erişilebilir dil, millî temalar"
+    "note": "Erişilebilir dil, millî temalar",
+    "photoUrl": "/authors/a8.jpg"
   },
   {
     "id": "a9",
@@ -139,7 +147,8 @@
     ],
     "literaryMovement": "Millî-muhafazakâr şiir",
     "suitability": "uygun",
-    "note": "Millî-duygusal şiir, sade anlatım"
+    "note": "Millî-duygusal şiir, sade anlatım",
+    "photoUrl": "/authors/a9.jpg"
   },
   {
     "id": "a10",
@@ -156,7 +165,8 @@
     ],
     "literaryMovement": "İslami şiir",
     "suitability": "rehberli",
-    "note": "Güçlü şiir, kimlik arayışı — ideolojik dönüşümleri rehberli okunmalı"
+    "note": "Güçlü şiir, kimlik arayışı — ideolojik dönüşümleri rehberli okunmalı",
+    "photoUrl": "/authors/a10.jpg"
   },
   {
     "id": "a11",
@@ -173,7 +183,8 @@
     ],
     "literaryMovement": "Çağdaş muhafazakâr edebiyat",
     "suitability": "uygun",
-    "note": "Yeni kuşak, sade ve samimi dil"
+    "note": "Yeni kuşak, sade ve samimi dil",
+    "photoUrl": "/authors/a11.jpg"
   },
   {
     "id": "a12",
@@ -190,7 +201,8 @@
     ],
     "literaryMovement": "Millî edebiyat",
     "suitability": "uygun",
-    "note": "Sade dil, millî temalar, başlangıç için ideal"
+    "note": "Sade dil, millî temalar, başlangıç için ideal",
+    "photoUrl": "/authors/a12.jpg"
   },
   {
     "id": "a13",
@@ -206,7 +218,8 @@
     ],
     "literaryMovement": "Muhafazakâr roman",
     "suitability": "uygun",
-    "note": "Doğu-Batı çatışması, lise için ideal"
+    "note": "Doğu-Batı çatışması, lise için ideal",
+    "photoUrl": "/authors/a13.png"
   },
   {
     "id": "a14",
@@ -222,7 +235,8 @@
     ],
     "literaryMovement": "Millî-muhafazakâr roman",
     "suitability": "uygun",
-    "note": "Millî tarih, akıcı roman dili"
+    "note": "Millî tarih, akıcı roman dili",
+    "photoUrl": "/authors/a14.jpg"
   },
   {
     "id": "a15",
@@ -238,7 +252,8 @@
     ],
     "literaryMovement": "Millî edebiyat",
     "suitability": "uygun",
-    "note": "Erişilebilir dil, Anadolu insanı"
+    "note": "Erişilebilir dil, Anadolu insanı",
+    "photoUrl": "/authors/a15.jpg"
   },
   {
     "id": "a16",
@@ -253,7 +268,8 @@
     ],
     "literaryMovement": "Millî roman",
     "suitability": "secici",
-    "note": "Osmanlı tarihi, güçlü roman kurgusu — bazı eserleri ağır"
+    "note": "Osmanlı tarihi, güçlü roman kurgusu — bazı eserleri ağır",
+    "photoUrl": "/authors/a16.jpg"
   },
   {
     "id": "a17",
@@ -268,7 +284,8 @@
     ],
     "literaryMovement": "Millî-muhafazakâr roman",
     "suitability": "uygun",
-    "note": "Anadolu kadını, sade anlatım"
+    "note": "Anadolu kadını, sade anlatım",
+    "photoUrl": "/authors/a17.jpg"
   },
   {
     "id": "a18",
@@ -284,7 +301,8 @@
     ],
     "literaryMovement": "Osmanlı-İslam estetiği",
     "suitability": "uygun",
-    "note": "Osmanlı-İslam estetiği, akıcı dil"
+    "note": "Osmanlı-İslam estetiği, akıcı dil",
+    "photoUrl": "/authors/a18.jpg"
   },
   {
     "id": "a19",
@@ -300,7 +318,8 @@
     ],
     "literaryMovement": "Türk-İslam medeniyeti",
     "suitability": "secici",
-    "note": "Kimlik ve medeniyet sorgulaması — bazı eserleri ileri seviye"
+    "note": "Kimlik ve medeniyet sorgulaması — bazı eserleri ileri seviye",
+    "photoUrl": "/authors/a19.jpg"
   },
   {
     "id": "a20",
@@ -315,7 +334,8 @@
     ],
     "literaryMovement": "İslami roman",
     "suitability": "uygun",
-    "note": "İslami roman geleneğinin öncüsü"
+    "note": "İslami roman geleneğinin öncüsü",
+    "photoUrl": "/authors/a20.jpg"
   },
   {
     "id": "a21",
@@ -330,7 +350,8 @@
     ],
     "literaryMovement": "İslami kadın edebiyatı",
     "suitability": "uygun",
-    "note": "İslami kadın kimliği, Huzur Sokağı"
+    "note": "İslami kadın kimliği, Huzur Sokağı",
+    "photoUrl": "/authors/a21.jpg"
   },
   {
     "id": "a22",
@@ -346,7 +367,8 @@
     ],
     "literaryMovement": "Türk dünyası edebiyatı",
     "suitability": "uygun",
-    "note": "Türk dünyası, evrensel temalar — Beyaz Gemi başlangıç için ideal"
+    "note": "Türk dünyası, evrensel temalar — Beyaz Gemi başlangıç için ideal",
+    "photoUrl": "/authors/a22.jpg"
   },
   {
     "id": "a23",
@@ -363,7 +385,8 @@
     ],
     "literaryMovement": "Osmanlı-İslam estetiği",
     "suitability": "secici",
-    "note": "Tarihi kurgu, zengin dil — 11-12. sınıf için daha uygun"
+    "note": "Tarihi kurgu, zengin dil — 11-12. sınıf için daha uygun",
+    "photoUrl": "/authors/a23.jpg"
   },
   {
     "id": "a24",
@@ -379,7 +402,8 @@
     ],
     "literaryMovement": "Çağdaş İslami edebiyat",
     "suitability": "uygun",
-    "note": "Günümüz İslami kadın kimliği"
+    "note": "Günümüz İslami kadın kimliği",
+    "photoUrl": null
   },
   {
     "id": "a25",
@@ -395,7 +419,8 @@
     ],
     "literaryMovement": "Çağdaş İslami edebiyat",
     "suitability": "uygun",
-    "note": "Genç kuşağa yakın dil, güncel temalar"
+    "note": "Genç kuşağa yakın dil, güncel temalar",
+    "photoUrl": "/authors/a25.jpg"
   },
   {
     "id": "a26",
@@ -411,7 +436,8 @@
     ],
     "literaryMovement": "Diriliş çevresi",
     "suitability": "uygun",
-    "note": "Modern hayat ve İslami değerler"
+    "note": "Modern hayat ve İslami değerler",
+    "photoUrl": "/authors/a26.png"
   },
   {
     "id": "a27",
@@ -426,7 +452,8 @@
     ],
     "literaryMovement": "Muhafazakâr hikâye",
     "suitability": "uygun",
-    "note": "Taşra, gelenek, sade ve derin dil"
+    "note": "Taşra, gelenek, sade ve derin dil",
+    "photoUrl": "/authors/a27.jpg"
   },
   {
     "id": "a28",
@@ -442,7 +469,8 @@
     ],
     "literaryMovement": "Millî edebiyat",
     "suitability": "uygun",
-    "note": "Yalın ve içten hikâye dili"
+    "note": "Yalın ve içten hikâye dili",
+    "photoUrl": "/authors/a28.jpg"
   },
   {
     "id": "a29",
@@ -459,7 +487,8 @@
     ],
     "literaryMovement": "Osmanlı-tasavvuf estetiği",
     "suitability": "secici",
-    "note": "Osmanlı-tasavvuf estetiği — seçici okunmalı"
+    "note": "Osmanlı-tasavvuf estetiği — seçici okunmalı",
+    "photoUrl": "/authors/a29.jpg"
   },
   {
     "id": "a30",
@@ -475,7 +504,8 @@
     ],
     "literaryMovement": "Muhafazakâr edebiyat",
     "suitability": "uygun",
-    "note": "Osmanlı hatıraları, zarif üslup"
+    "note": "Osmanlı hatıraları, zarif üslup",
+    "photoUrl": "/authors/a30.jpg"
   },
   {
     "id": "a31",
@@ -491,7 +521,8 @@
     ],
     "literaryMovement": "Tasavvuf edebiyatı",
     "suitability": "secici",
-    "note": "Tasavvuf ve modern hikâye — seçici okunmalı"
+    "note": "Tasavvuf ve modern hikâye — seçici okunmalı",
+    "photoUrl": "/authors/a31.jpg"
   },
   {
     "id": "a32",
@@ -507,7 +538,8 @@
     ],
     "literaryMovement": "Diriliş çevresi",
     "suitability": "rehberli",
-    "note": "Yoğun anlatım — 11-12. sınıfa bırakılabilir"
+    "note": "Yoğun anlatım — 11-12. sınıfa bırakılabilir",
+    "photoUrl": "/authors/a32.jpg"
   },
   {
     "id": "a33",
@@ -523,7 +555,8 @@
     ],
     "literaryMovement": "Medeniyet eleştirisi",
     "suitability": "secici",
-    "note": "Doğu-Batı meselesi — seçici okunmalı, bazı bölümler ağır"
+    "note": "Doğu-Batı meselesi — seçici okunmalı, bazı bölümler ağır",
+    "photoUrl": "/authors/a33.jpg"
   },
   {
     "id": "a34",
@@ -539,7 +572,8 @@
     ],
     "literaryMovement": "Anadoluculuk",
     "suitability": "secici",
-    "note": "Anadoluculuk, İslam felsefesi — seçici okunmalı"
+    "note": "Anadoluculuk, İslam felsefesi — seçici okunmalı",
+    "photoUrl": "/authors/a34.jpg"
   },
   {
     "id": "a35",
@@ -557,7 +591,8 @@
     ],
     "literaryMovement": "Doğu-Batı sentezi",
     "suitability": "secici",
-    "note": "Doğu-Batı sentezi, Osmanlı nostaljisi — bazı eserleri ileri seviye"
+    "note": "Doğu-Batı sentezi, Osmanlı nostaljisi — bazı eserleri ileri seviye",
+    "photoUrl": "/authors/a35.jpg"
   },
   {
     "id": "a36",
@@ -573,7 +608,8 @@
     ],
     "literaryMovement": "Osmanlı-İslam estetiği",
     "suitability": "uygun",
-    "note": "Osmanlı-İslam estetiği üzerine denemeler, akıcı dil"
+    "note": "Osmanlı-İslam estetiği üzerine denemeler, akıcı dil",
+    "photoUrl": "/authors/a36.jpg"
   },
   {
     "id": "a37",
@@ -589,7 +625,8 @@
     ],
     "literaryMovement": "Millî kültür",
     "suitability": "secici",
-    "note": "Kültür, kimlik, millî değerler — seçici okunmalı"
+    "note": "Kültür, kimlik, millî değerler — seçici okunmalı",
+    "photoUrl": "/authors/a37.jpg"
   },
   {
     "id": "a38",
@@ -607,7 +644,8 @@
     ],
     "literaryMovement": "Tanzimat edebiyatı",
     "suitability": "secici",
-    "note": "Vatan ve hürriyet kavramları — belirli eserleri uygun"
+    "note": "Vatan ve hürriyet kavramları — belirli eserleri uygun",
+    "photoUrl": "/authors/a38.jpg"
   },
   {
     "id": "a39",
@@ -625,7 +663,8 @@
     ],
     "literaryMovement": "Tanzimat edebiyatı",
     "suitability": "uygun",
-    "note": "Popüler ve didaktik anlatım, erişilebilir dil"
+    "note": "Popüler ve didaktik anlatım, erişilebilir dil",
+    "photoUrl": "/authors/a39.jpg"
   },
   {
     "id": "a40",
@@ -641,7 +680,8 @@
     ],
     "literaryMovement": "Osmanlı kültürü",
     "suitability": "secici",
-    "note": "Osmanlı kültürü ve sanatı — hayatı ve önemi anlatılabilir"
+    "note": "Osmanlı kültürü ve sanatı — hayatı ve önemi anlatılabilir",
+    "photoUrl": "/authors/a40.jpg"
   },
   {
     "id": "a41",
@@ -657,7 +697,8 @@
     ],
     "literaryMovement": "Popüler tarih yazımı",
     "suitability": "uygun",
-    "note": "Osmanlı tarihi, popüler ve erişilebilir tarih yazımı"
+    "note": "Osmanlı tarihi, popüler ve erişilebilir tarih yazımı",
+    "photoUrl": "/authors/a41.jpg"
   },
   {
     "id": "a42",
@@ -672,7 +713,8 @@
     ],
     "literaryMovement": "İslam bilim tarihi",
     "suitability": "rehberli",
-    "note": "Akademik içerik — sadece hayatı ve önemi anlatılabilir"
+    "note": "Akademik içerik — sadece hayatı ve önemi anlatılabilir",
+    "photoUrl": "/authors/a42.jpg"
   },
   {
     "id": "a43",
@@ -687,7 +729,8 @@
     ],
     "literaryMovement": "Millî-muhafazakâr roman",
     "suitability": "uygun",
-    "note": "Millî kimlik temaları, akıcı roman dili"
+    "note": "Millî kimlik temaları, akıcı roman dili",
+    "photoUrl": "/authors/a43.jpg"
   },
   {
     "id": "a44",
@@ -702,7 +745,8 @@
     ],
     "literaryMovement": "Türk dünyası edebiyatı",
     "suitability": "uygun",
-    "note": "Kırım Türkleri, sürgün edebiyatı, millî hafıza"
+    "note": "Kırım Türkleri, sürgün edebiyatı, millî hafıza",
+    "photoUrl": "/authors/a44.jpg"
   },
   {
     "id": "a45",
@@ -718,7 +762,8 @@
     ],
     "literaryMovement": "Muhafazakâr roman geleneği",
     "suitability": "uygun",
-    "note": "Anadolu insanı, değerler teması"
+    "note": "Anadolu insanı, değerler teması",
+    "photoUrl": null
   },
   {
     "id": "a46",
@@ -736,7 +781,8 @@
     ],
     "literaryMovement": "Millî-muhafazakâr tiyatro",
     "suitability": "uygun",
-    "note": "Türk tiyatrosunun önemli ismi, millî değerler temalı oyunlar"
+    "note": "Türk tiyatrosunun önemli ismi, millî değerler temalı oyunlar",
+    "photoUrl": "/authors/a46.jpg"
   },
   {
     "id": "a47",
@@ -753,7 +799,8 @@
     ],
     "literaryMovement": "Toplumcu gerçekçilik",
     "suitability": "uygun",
-    "note": "Türk edebiyatının dünyaca tanınmış ismi, Çukurova destanları"
+    "note": "Türk edebiyatının dünyaca tanınmış ismi, Çukurova destanları",
+    "photoUrl": "/authors/a47.jpg"
   },
   {
     "id": "a48",
@@ -768,7 +815,8 @@
     ],
     "literaryMovement": "Millî-muhafazakâr şiir",
     "suitability": "uygun",
-    "note": "Bayrak Şairi, sade ve vurucu millî şiir dili"
+    "note": "Bayrak Şairi, sade ve vurucu millî şiir dili",
+    "photoUrl": "/authors/a48.jpg"
   },
   {
     "id": "a49",
@@ -786,7 +834,8 @@
     ],
     "literaryMovement": "Millî edebiyat",
     "suitability": "uygun",
-    "note": "Millî mücadele dönemi kadın yazar, erişilebilir dil"
+    "note": "Millî mücadele dönemi kadın yazar, erişilebilir dil",
+    "photoUrl": "/authors/a49.jpg"
   },
   {
     "id": "a50",
@@ -802,7 +851,8 @@
     ],
     "literaryMovement": "Millî-muhafazakâr roman",
     "suitability": "uygun",
-    "note": "Tarihî roman geleneği, Birinci Dünya Savaşı temaları, akıcı anlatım"
+    "note": "Tarihî roman geleneği, Birinci Dünya Savaşı temaları, akıcı anlatım",
+    "photoUrl": "/authors/a50.jpg"
   },
   {
     "id": "a51",
@@ -818,6 +868,2311 @@
     ],
     "literaryMovement": "Destancı millî şiir",
     "suitability": "uygun",
-    "note": "Malazgirt Marşı şairi, destan geleneğini yaşatan coşkulu dil"
+    "note": "Malazgirt Marşı şairi, destan geleneğini yaşatan coşkulu dil",
+    "photoUrl": "/authors/a51.jpg"
+  },
+  {
+    "id": "a52",
+    "name": "Halit Ziya Usakligil",
+    "birthYear": 1866,
+    "deathYear": 1945,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a52.jpg"
+  },
+  {
+    "id": "a53",
+    "name": "Recaizade Mahmut Ekrem",
+    "birthYear": 1847,
+    "deathYear": 1914,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a53.jpg"
+  },
+  {
+    "id": "a54",
+    "name": "Semsettin Sami",
+    "birthYear": 1850,
+    "deathYear": 1904,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a54.jpg"
+  },
+  {
+    "id": "a55",
+    "name": "Hüseyin Rahmi Gürpınar",
+    "birthYear": 1864,
+    "deathYear": 1944,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a55.jpg"
+  },
+  {
+    "id": "a56",
+    "name": "Tevfik Fikret",
+    "birthYear": 1867,
+    "deathYear": 1915,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a56.jpg"
+  },
+  {
+    "id": "a57",
+    "name": "Halide Edip Adıvar",
+    "birthYear": 1884,
+    "deathYear": 1964,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a57.jpg"
+  },
+  {
+    "id": "a58",
+    "name": "Yakup Kadri Karaosmanoğlu",
+    "birthYear": 1889,
+    "deathYear": 1974,
+    "genres": [
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a58.jpg"
+  },
+  {
+    "id": "a59",
+    "name": "Refik Halit Karay",
+    "birthYear": 1888,
+    "deathYear": 1965,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a59.jpg"
+  },
+  {
+    "id": "a60",
+    "name": "Haldun Taner",
+    "birthYear": 1915,
+    "deathYear": 1986,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a60.jpg"
+  },
+  {
+    "id": "a61",
+    "name": "Nurullah Atac",
+    "birthYear": 1898,
+    "deathYear": 1957,
+    "genres": [
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a61.jpg"
+  },
+  {
+    "id": "a62",
+    "name": "Faruk Nafiz Camlibel",
+    "birthYear": 1898,
+    "deathYear": 1973,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a62.jpg"
+  },
+  {
+    "id": "a63",
+    "name": "Sabahattin Ali",
+    "birthYear": 1907,
+    "deathYear": 1948,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a63.jpg"
+  },
+  {
+    "id": "a64",
+    "name": "Orhan Kemal",
+    "birthYear": 1914,
+    "deathYear": 1970,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a64.jpg"
+  },
+  {
+    "id": "a65",
+    "name": "Orhan Asena",
+    "birthYear": 1922,
+    "deathYear": 2001,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a65.jpg"
+  },
+  {
+    "id": "a66",
+    "name": "Cemil Meric",
+    "birthYear": 1916,
+    "deathYear": 1987,
+    "genres": [
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a66.jpg"
+  },
+  {
+    "id": "a67",
+    "name": "Yasar Kemal",
+    "birthYear": 1923,
+    "deathYear": 2015,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a67.jpg"
+  },
+  {
+    "id": "a68",
+    "name": "Necip Fazil Kisakurek",
+    "birthYear": 1904,
+    "deathYear": 1983,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a68.jpg"
+  },
+  {
+    "id": "a69",
+    "name": "Cahit Zarifoglu",
+    "birthYear": 1940,
+    "deathYear": 1987,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a69.jpg"
+  },
+  {
+    "id": "a70",
+    "name": "Fakir Baykurt",
+    "birthYear": 1929,
+    "deathYear": 1999,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a70.jpg"
+  },
+  {
+    "id": "a71",
+    "name": "Ahmet Hamdi Tanpinar",
+    "birthYear": 1901,
+    "deathYear": 1962,
+    "genres": [
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a71.jpg"
+  },
+  {
+    "id": "a72",
+    "name": "Falih Rifki Atay",
+    "birthYear": 1894,
+    "deathYear": 1971,
+    "genres": [
+      "Anı"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a72.jpg"
+  },
+  {
+    "id": "a73",
+    "name": "Rıfat Ilgaz",
+    "birthYear": 1911,
+    "deathYear": 1993,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a73.jpg"
+  },
+  {
+    "id": "a74",
+    "name": "Turan Oflazoglu",
+    "birthYear": 1932,
+    "deathYear": 2010,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a74.jpg"
+  },
+  {
+    "id": "a75",
+    "name": "Orhan Veli Kanik",
+    "birthYear": 1914,
+    "deathYear": 1950,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a75.jpg"
+  },
+  {
+    "id": "a76",
+    "name": "Sezai Karakoc",
+    "birthYear": 1933,
+    "deathYear": 2021,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a76.jpg"
+  },
+  {
+    "id": "a77",
+    "name": "Necati Cumali",
+    "birthYear": 1921,
+    "deathYear": 2001,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a77.jpg"
+  },
+  {
+    "id": "a78",
+    "name": "Suut Kemal Yetkin",
+    "birthYear": 1903,
+    "deathYear": 1980,
+    "genres": [
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a78.jpg"
+  },
+  {
+    "id": "a79",
+    "name": "Aziz Nesin",
+    "birthYear": 1915,
+    "deathYear": 1995,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a79.jpg"
+  },
+  {
+    "id": "a80",
+    "name": "Cahit Sitki Taranci",
+    "birthYear": 1910,
+    "deathYear": 1956,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a80.jpg"
+  },
+  {
+    "id": "a81",
+    "name": "Sait Faik Abasiyanik",
+    "birthYear": 1906,
+    "deathYear": 1954,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a81.jpg"
+  },
+  {
+    "id": "a82",
+    "name": "Oguz Atay",
+    "birthYear": 1934,
+    "deathYear": 1977,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a82.png"
+  },
+  {
+    "id": "a83",
+    "name": "Orhan Pamuk",
+    "birthYear": 1952,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a83.jpg"
+  },
+  {
+    "id": "a84",
+    "name": "Ahmet Umit",
+    "birthYear": 1960,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a84.jpg"
+  },
+  {
+    "id": "a85",
+    "name": "Ayse Kulin",
+    "birthYear": 1941,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a85.jpg"
+  },
+  {
+    "id": "a86",
+    "name": "Zulfu Livaneli",
+    "birthYear": 1946,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a86.jpg"
+  },
+  {
+    "id": "a87",
+    "name": "Attila Ilhan",
+    "birthYear": 1925,
+    "deathYear": 2005,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a87.jpg"
+  },
+  {
+    "id": "a88",
+    "name": "Ihsan Oktay Anar",
+    "birthYear": 1960,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a88.jpg"
+  },
+  {
+    "id": "a89",
+    "name": "Gungor Dilmen",
+    "birthYear": 1930,
+    "deathYear": 2012,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a89.jpg"
+  },
+  {
+    "id": "a90",
+    "name": "Necmettin Halil Onan",
+    "birthYear": 1902,
+    "deathYear": 1968,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a90.jpg"
+  },
+  {
+    "id": "a91",
+    "name": "Cemal Sureya",
+    "birthYear": 1931,
+    "deathYear": 1990,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a91.jpg"
+  },
+  {
+    "id": "a92",
+    "name": "Elif Safak",
+    "birthYear": 1971,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a92.jpg"
+  },
+  {
+    "id": "a93",
+    "name": "Edip Cansever",
+    "birthYear": 1928,
+    "deathYear": 1986,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a93.jpg"
+  },
+  {
+    "id": "a94",
+    "name": "Murathan Mungan",
+    "birthYear": 1955,
+    "deathYear": null,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a94.jpg"
+  },
+  {
+    "id": "a95",
+    "name": "Behcet Necatigil",
+    "birthYear": 1916,
+    "deathYear": 1979,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Turk edebiyatı",
+    "suitability": "uygun",
+    "note": "Turk yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a95.jpg"
+  },
+  {
+    "id": "a96",
+    "name": "Bahtiyar Vahapzade",
+    "birthYear": 1925,
+    "deathYear": 2009,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Azerbaycanli edebiyatı",
+    "suitability": "uygun",
+    "note": "Azerbaycanli yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a96.jpg"
+  },
+  {
+    "id": "a97",
+    "name": "Oljas Suleymenov",
+    "birthYear": 1936,
+    "deathYear": null,
+    "genres": [
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Kazak edebiyatı",
+    "suitability": "uygun",
+    "note": "Kazak yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a97.jpg"
+  },
+  {
+    "id": "a98",
+    "name": "Lev Tolstoy",
+    "birthYear": 1828,
+    "deathYear": 1910,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a98.jpg"
+  },
+  {
+    "id": "a99",
+    "name": "Fyodor Dostoyevski",
+    "birthYear": 1821,
+    "deathYear": 1881,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a99.jpg"
+  },
+  {
+    "id": "a100",
+    "name": "Anton Çehov",
+    "birthYear": 1860,
+    "deathYear": 1904,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a100.jpg"
+  },
+  {
+    "id": "a101",
+    "name": "Nikolay Gogol",
+    "birthYear": 1809,
+    "deathYear": 1852,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a101.jpg"
+  },
+  {
+    "id": "a102",
+    "name": "İvan Turgenyev",
+    "birthYear": 1818,
+    "deathYear": 1883,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a102.jpg"
+  },
+  {
+    "id": "a103",
+    "name": "Maksim Gorki",
+    "birthYear": 1868,
+    "deathYear": 1936,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a103.jpg"
+  },
+  {
+    "id": "a104",
+    "name": "Mihail Bulgakov",
+    "birthYear": 1891,
+    "deathYear": 1940,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a104.png"
+  },
+  {
+    "id": "a105",
+    "name": "Boris Pasternak",
+    "birthYear": 1890,
+    "deathYear": 1960,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a105.jpg"
+  },
+  {
+    "id": "a106",
+    "name": "Alexander Puşkin",
+    "birthYear": 1799,
+    "deathYear": 1837,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a106.jpg"
+  },
+  {
+    "id": "a107",
+    "name": "Mikhail Şolohov",
+    "birthYear": 1905,
+    "deathYear": 1984,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a107.jpg"
+  },
+  {
+    "id": "a108",
+    "name": "Alexandr Soljenitsin",
+    "birthYear": 1918,
+    "deathYear": 2008,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a108.jpg"
+  },
+  {
+    "id": "a109",
+    "name": "Ivan Gonçarov",
+    "birthYear": 1812,
+    "deathYear": 1891,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Rus edebiyatı",
+    "suitability": "uygun",
+    "note": "Rus yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a109.jpg"
+  },
+  {
+    "id": "a110",
+    "name": "Victor Hugo",
+    "birthYear": 1802,
+    "deathYear": 1885,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a110.jpg"
+  },
+  {
+    "id": "a111",
+    "name": "Honoré de Balzac",
+    "birthYear": 1799,
+    "deathYear": 1850,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a111.jpg"
+  },
+  {
+    "id": "a112",
+    "name": "Gustave Flaubert",
+    "birthYear": 1821,
+    "deathYear": 1880,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a112.jpg"
+  },
+  {
+    "id": "a113",
+    "name": "Émile Zola",
+    "birthYear": 1840,
+    "deathYear": 1902,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a113.jpg"
+  },
+  {
+    "id": "a114",
+    "name": "Stendhal",
+    "birthYear": 1783,
+    "deathYear": 1842,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a114.jpg"
+  },
+  {
+    "id": "a115",
+    "name": "Albert Camus",
+    "birthYear": 1913,
+    "deathYear": 1960,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a115.jpg"
+  },
+  {
+    "id": "a116",
+    "name": "Jean-Paul Sartre",
+    "birthYear": 1905,
+    "deathYear": 1980,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a116.jpg"
+  },
+  {
+    "id": "a117",
+    "name": "Marcel Proust",
+    "birthYear": 1871,
+    "deathYear": 1922,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a117.jpg"
+  },
+  {
+    "id": "a118",
+    "name": "Alexandre Dumas",
+    "birthYear": 1802,
+    "deathYear": 1870,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a118.jpg"
+  },
+  {
+    "id": "a119",
+    "name": "Guy de Maupassant",
+    "birthYear": 1850,
+    "deathYear": 1893,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a119.jpg"
+  },
+  {
+    "id": "a120",
+    "name": "Voltaire",
+    "birthYear": 1694,
+    "deathYear": 1778,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a120.jpg"
+  },
+  {
+    "id": "a121",
+    "name": "Molière",
+    "birthYear": 1622,
+    "deathYear": 1673,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a121.jpg"
+  },
+  {
+    "id": "a122",
+    "name": "Anatole France",
+    "birthYear": 1844,
+    "deathYear": 1924,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a122.png"
+  },
+  {
+    "id": "a123",
+    "name": "Antoine de Saint-Exupéry",
+    "birthYear": 1900,
+    "deathYear": 1944,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Fransız edebiyatı",
+    "suitability": "uygun",
+    "note": "Fransız yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a123.jpg"
+  },
+  {
+    "id": "a124",
+    "name": "Charles Dickens",
+    "birthYear": 1812,
+    "deathYear": 1870,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a124.jpg"
+  },
+  {
+    "id": "a125",
+    "name": "Thomas Hardy",
+    "birthYear": 1840,
+    "deathYear": 1928,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a125.jpg"
+  },
+  {
+    "id": "a126",
+    "name": "Jane Austen",
+    "birthYear": 1775,
+    "deathYear": 1817,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a126.jpg"
+  },
+  {
+    "id": "a127",
+    "name": "George Orwell",
+    "birthYear": 1903,
+    "deathYear": 1950,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a127.jpg"
+  },
+  {
+    "id": "a128",
+    "name": "Aldous Huxley",
+    "birthYear": 1894,
+    "deathYear": 1963,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a128.png"
+  },
+  {
+    "id": "a129",
+    "name": "Oscar Wilde",
+    "birthYear": 1854,
+    "deathYear": 1900,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İrlandalı edebiyatı",
+    "suitability": "uygun",
+    "note": "İrlandalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a129.jpg"
+  },
+  {
+    "id": "a130",
+    "name": "James Joyce",
+    "birthYear": 1882,
+    "deathYear": 1941,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İrlandalı edebiyatı",
+    "suitability": "uygun",
+    "note": "İrlandalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a130.jpg"
+  },
+  {
+    "id": "a131",
+    "name": "Virginia Woolf",
+    "birthYear": 1882,
+    "deathYear": 1941,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a131.jpg"
+  },
+  {
+    "id": "a132",
+    "name": "William Golding",
+    "birthYear": 1911,
+    "deathYear": 1993,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a132.jpg"
+  },
+  {
+    "id": "a133",
+    "name": "D.H. Lawrence",
+    "birthYear": 1885,
+    "deathYear": 1930,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a133.jpg"
+  },
+  {
+    "id": "a134",
+    "name": "H.G. Wells",
+    "birthYear": 1866,
+    "deathYear": 1946,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a134.jpg"
+  },
+  {
+    "id": "a135",
+    "name": "Arthur Conan Doyle",
+    "birthYear": 1859,
+    "deathYear": 1930,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a135.png"
+  },
+  {
+    "id": "a136",
+    "name": "William Shakespeare",
+    "birthYear": 1564,
+    "deathYear": 1616,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "İngiliz edebiyatı",
+    "suitability": "uygun",
+    "note": "İngiliz yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a136.jpg"
+  },
+  {
+    "id": "a137",
+    "name": "Ernest Hemingway",
+    "birthYear": 1899,
+    "deathYear": 1961,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a137.jpg"
+  },
+  {
+    "id": "a138",
+    "name": "William Faulkner",
+    "birthYear": 1897,
+    "deathYear": 1962,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a138.jpg"
+  },
+  {
+    "id": "a139",
+    "name": "John Steinbeck",
+    "birthYear": 1902,
+    "deathYear": 1968,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a139.jpg"
+  },
+  {
+    "id": "a140",
+    "name": "F. Scott Fitzgerald",
+    "birthYear": 1896,
+    "deathYear": 1940,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a140.jpg"
+  },
+  {
+    "id": "a141",
+    "name": "Mark Twain",
+    "birthYear": 1835,
+    "deathYear": 1910,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a141.jpg"
+  },
+  {
+    "id": "a142",
+    "name": "Herman Melville",
+    "birthYear": 1819,
+    "deathYear": 1891,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a142.jpg"
+  },
+  {
+    "id": "a143",
+    "name": "Edgar Allan Poe",
+    "birthYear": 1809,
+    "deathYear": 1849,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a143.jpg"
+  },
+  {
+    "id": "a144",
+    "name": "Jack London",
+    "birthYear": 1876,
+    "deathYear": 1916,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a144.jpg"
+  },
+  {
+    "id": "a145",
+    "name": "Henry David Thoreau",
+    "birthYear": 1817,
+    "deathYear": 1862,
+    "genres": [
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a145.jpg"
+  },
+  {
+    "id": "a146",
+    "name": "Ray Bradbury",
+    "birthYear": 1920,
+    "deathYear": 2012,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a146.jpg"
+  },
+  {
+    "id": "a147",
+    "name": "Truman Capote",
+    "birthYear": 1924,
+    "deathYear": 1984,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a147.jpg"
+  },
+  {
+    "id": "a148",
+    "name": "J.D. Salinger",
+    "birthYear": 1919,
+    "deathYear": 2010,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a148.jpg"
+  },
+  {
+    "id": "a149",
+    "name": "Harper Lee",
+    "birthYear": 1926,
+    "deathYear": 2016,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a149.jpg"
+  },
+  {
+    "id": "a150",
+    "name": "Franz Kafka",
+    "birthYear": 1883,
+    "deathYear": 1924,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Avusturya edebiyatı",
+    "suitability": "uygun",
+    "note": "Avusturyalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a150.jpg"
+  },
+  {
+    "id": "a151",
+    "name": "Thomas Mann",
+    "birthYear": 1875,
+    "deathYear": 1955,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Alman edebiyatı",
+    "suitability": "uygun",
+    "note": "Alman yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a151.jpg"
+  },
+  {
+    "id": "a152",
+    "name": "Hermann Hesse",
+    "birthYear": 1877,
+    "deathYear": 1962,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Alman edebiyatı",
+    "suitability": "uygun",
+    "note": "Alman yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a152.jpg"
+  },
+  {
+    "id": "a153",
+    "name": "Johann Wolfgang von Goethe",
+    "birthYear": 1749,
+    "deathYear": 1832,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "Alman edebiyatı",
+    "suitability": "uygun",
+    "note": "Alman yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a153.jpg"
+  },
+  {
+    "id": "a154",
+    "name": "Friedrich Schiller",
+    "birthYear": 1759,
+    "deathYear": 1805,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "Alman edebiyatı",
+    "suitability": "uygun",
+    "note": "Alman yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a154.jpg"
+  },
+  {
+    "id": "a155",
+    "name": "Heinrich Böll",
+    "birthYear": 1917,
+    "deathYear": 1985,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Alman edebiyatı",
+    "suitability": "uygun",
+    "note": "Alman yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a155.jpg"
+  },
+  {
+    "id": "a156",
+    "name": "Stefan Zweig",
+    "birthYear": 1881,
+    "deathYear": 1942,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Avusturya edebiyatı",
+    "suitability": "uygun",
+    "note": "Avusturyalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a156.jpg"
+  },
+  {
+    "id": "a157",
+    "name": "Robert Musil",
+    "birthYear": 1880,
+    "deathYear": 1942,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Avusturya edebiyatı",
+    "suitability": "uygun",
+    "note": "Avusturyalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a157.jpg"
+  },
+  {
+    "id": "a158",
+    "name": "Patrick Süskind",
+    "birthYear": 1949,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Alman edebiyatı",
+    "suitability": "uygun",
+    "note": "Alman yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a158.jpg"
+  },
+  {
+    "id": "a159",
+    "name": "Miguel de Cervantes",
+    "birthYear": 1547,
+    "deathYear": 1616,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İspanyol edebiyatı",
+    "suitability": "uygun",
+    "note": "İspanyol yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a159.jpg"
+  },
+  {
+    "id": "a160",
+    "name": "Gabriel García Márquez",
+    "birthYear": 1927,
+    "deathYear": 2014,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Kolombiyalı edebiyatı",
+    "suitability": "uygun",
+    "note": "Kolombiyalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a160.jpg"
+  },
+  {
+    "id": "a161",
+    "name": "Jorge Luis Borges",
+    "birthYear": 1899,
+    "deathYear": 1986,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Arjantinli edebiyatı",
+    "suitability": "uygun",
+    "note": "Arjantinli yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a161.jpg"
+  },
+  {
+    "id": "a162",
+    "name": "Pablo Neruda",
+    "birthYear": 1904,
+    "deathYear": 1973,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Şilili edebiyatı",
+    "suitability": "uygun",
+    "note": "Şilili yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a162.jpg"
+  },
+  {
+    "id": "a163",
+    "name": "Mario Vargas Llosa",
+    "birthYear": 1936,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Perulu edebiyatı",
+    "suitability": "uygun",
+    "note": "Perulu yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a163.jpg"
+  },
+  {
+    "id": "a164",
+    "name": "Julio Cortázar",
+    "birthYear": 1914,
+    "deathYear": 1984,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Arjantinli edebiyatı",
+    "suitability": "uygun",
+    "note": "Arjantinli yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a164.jpg"
+  },
+  {
+    "id": "a165",
+    "name": "Isabel Allende",
+    "birthYear": 1942,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Şilili edebiyatı",
+    "suitability": "uygun",
+    "note": "Şilili yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a165.jpg"
+  },
+  {
+    "id": "a166",
+    "name": "Federico García Lorca",
+    "birthYear": 1898,
+    "deathYear": 1936,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "İspanyol edebiyatı",
+    "suitability": "uygun",
+    "note": "İspanyol yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a166.jpg"
+  },
+  {
+    "id": "a167",
+    "name": "Carlos Fuentes",
+    "birthYear": 1928,
+    "deathYear": 2012,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Meksikalı edebiyatı",
+    "suitability": "uygun",
+    "note": "Meksikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a167.jpg"
+  },
+  {
+    "id": "a168",
+    "name": "Octavio Paz",
+    "birthYear": 1914,
+    "deathYear": 1998,
+    "genres": [
+      "Deneme"
+    ],
+    "categories": [
+      "Deneme / Düşünür Yazarlar"
+    ],
+    "literaryMovement": "Meksikalı edebiyatı",
+    "suitability": "uygun",
+    "note": "Meksikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a168.jpg"
+  },
+  {
+    "id": "a169",
+    "name": "Ömer Hayyam",
+    "birthYear": 1048,
+    "deathYear": 1131,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Klasik Pers edebiyatı",
+    "suitability": "uygun",
+    "note": "Pers yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a169.jpg"
+  },
+  {
+    "id": "a170",
+    "name": "Hafız-ı Şirazi",
+    "birthYear": 1315,
+    "deathYear": 1390,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Klasik Pers edebiyatı",
+    "suitability": "uygun",
+    "note": "Pers yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a170.jpg"
+  },
+  {
+    "id": "a171",
+    "name": "Firdevsi",
+    "birthYear": 940,
+    "deathYear": 1020,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Klasik Pers edebiyatı",
+    "suitability": "uygun",
+    "note": "Pers yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a171.jpg"
+  },
+  {
+    "id": "a172",
+    "name": "Sadî-i Şirazi",
+    "birthYear": 1210,
+    "deathYear": 1291,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Klasik Pers edebiyatı",
+    "suitability": "uygun",
+    "note": "Pers yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a172.jpg"
+  },
+  {
+    "id": "a173",
+    "name": "Mevlana Celaleddin Rumi",
+    "birthYear": 1207,
+    "deathYear": 1273,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Tasavvuf edebiyatı",
+    "suitability": "uygun",
+    "note": "Türk-Pers yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a173.jpg"
+  },
+  {
+    "id": "a174",
+    "name": "Rabindranath Tagore",
+    "birthYear": 1861,
+    "deathYear": 1941,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Hintli edebiyatı",
+    "suitability": "uygun",
+    "note": "Hintli yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a174.jpg"
+  },
+  {
+    "id": "a175",
+    "name": "Naguib Mahfouz",
+    "birthYear": 1911,
+    "deathYear": 2006,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Mısırlı edebiyatı",
+    "suitability": "uygun",
+    "note": "Mısırlı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a175.jpg"
+  },
+  {
+    "id": "a176",
+    "name": "Halil Cibran",
+    "birthYear": 1883,
+    "deathYear": 1931,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Lübnanlı edebiyatı",
+    "suitability": "uygun",
+    "note": "Lübnanlı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a176.jpg"
+  },
+  {
+    "id": "a177",
+    "name": "Mahmud Derviş",
+    "birthYear": 1941,
+    "deathYear": 2008,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Filistinli edebiyatı",
+    "suitability": "uygun",
+    "note": "Filistinli yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a177.jpg"
+  },
+  {
+    "id": "a178",
+    "name": "İbn Battuta",
+    "birthYear": 1304,
+    "deathYear": 1369,
+    "genres": [
+      "Anı"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Faslı edebiyatı",
+    "suitability": "uygun",
+    "note": "Faslı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a178.jpg"
+  },
+  {
+    "id": "a179",
+    "name": "Anonim",
+    "birthYear": null,
+    "deathYear": null,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Arap edebiyatı",
+    "suitability": "uygun",
+    "note": "Arap yazar, dünya edebiyatı",
+    "photoUrl": null
+  },
+  {
+    "id": "a180",
+    "name": "Nizami Gencevi",
+    "birthYear": 1141,
+    "deathYear": 1209,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "Azerbaycanlı-Pers edebiyatı",
+    "suitability": "uygun",
+    "note": "Azerbaycanlı-Pers yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a180.jpg"
+  },
+  {
+    "id": "a181",
+    "name": "Dante Alighieri",
+    "birthYear": 1265,
+    "deathYear": 1321,
+    "genres": [
+      "Şiir"
+    ],
+    "categories": [
+      "Şairler"
+    ],
+    "literaryMovement": "İtalyan edebiyatı",
+    "suitability": "uygun",
+    "note": "İtalyan yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a181.jpg"
+  },
+  {
+    "id": "a182",
+    "name": "Giovanni Boccaccio",
+    "birthYear": 1313,
+    "deathYear": 1375,
+    "genres": [
+      "Hikâye"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İtalyan edebiyatı",
+    "suitability": "uygun",
+    "note": "İtalyan yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a182.jpg"
+  },
+  {
+    "id": "a183",
+    "name": "Italo Calvino",
+    "birthYear": 1923,
+    "deathYear": 1985,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İtalyan edebiyatı",
+    "suitability": "uygun",
+    "note": "İtalyan yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a183.jpg"
+  },
+  {
+    "id": "a184",
+    "name": "Umberto Eco",
+    "birthYear": 1932,
+    "deathYear": 2016,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İtalyan edebiyatı",
+    "suitability": "uygun",
+    "note": "İtalyan yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a184.jpg"
+  },
+  {
+    "id": "a185",
+    "name": "Luigi Pirandello",
+    "birthYear": 1867,
+    "deathYear": 1936,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "İtalyan edebiyatı",
+    "suitability": "uygun",
+    "note": "İtalyan yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a185.jpg"
+  },
+  {
+    "id": "a186",
+    "name": "Henrik Ibsen",
+    "birthYear": 1828,
+    "deathYear": 1906,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "İskandinav edebiyatı",
+    "suitability": "uygun",
+    "note": "Norveçli yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a186.jpg"
+  },
+  {
+    "id": "a187",
+    "name": "Knut Hamsun",
+    "birthYear": 1859,
+    "deathYear": 1952,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "İskandinav edebiyatı",
+    "suitability": "uygun",
+    "note": "Norveçli yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a187.jpg"
+  },
+  {
+    "id": "a188",
+    "name": "August Strindberg",
+    "birthYear": 1849,
+    "deathYear": 1912,
+    "genres": [
+      "Tiyatro"
+    ],
+    "categories": [
+      "Tiyatro Yazarları"
+    ],
+    "literaryMovement": "İskandinav edebiyatı",
+    "suitability": "uygun",
+    "note": "İsveçli yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a188.jpg"
+  },
+  {
+    "id": "a189",
+    "name": "Yasunari Kawabata",
+    "birthYear": 1899,
+    "deathYear": 1972,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Japon edebiyatı",
+    "suitability": "uygun",
+    "note": "Japon yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a189.jpg"
+  },
+  {
+    "id": "a190",
+    "name": "Yukio Mishima",
+    "birthYear": 1925,
+    "deathYear": 1970,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Japon edebiyatı",
+    "suitability": "uygun",
+    "note": "Japon yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a190.jpg"
+  },
+  {
+    "id": "a191",
+    "name": "Natsume Soseki",
+    "birthYear": 1867,
+    "deathYear": 1916,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Japon edebiyatı",
+    "suitability": "uygun",
+    "note": "Japon yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a191.jpg"
+  },
+  {
+    "id": "a192",
+    "name": "Haruki Murakami",
+    "birthYear": 1949,
+    "deathYear": null,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Japon edebiyatı",
+    "suitability": "uygun",
+    "note": "Japon yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a192.jpg"
+  },
+  {
+    "id": "a193",
+    "name": "Milan Kundera",
+    "birthYear": 1929,
+    "deathYear": 2023,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Çek edebiyatı",
+    "suitability": "uygun",
+    "note": "Çek yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a193.jpg"
+  },
+  {
+    "id": "a194",
+    "name": "Chinua Achebe",
+    "birthYear": 1930,
+    "deathYear": 2013,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Nijeryalı edebiyatı",
+    "suitability": "uygun",
+    "note": "Nijeryalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a194.jpg"
+  },
+  {
+    "id": "a195",
+    "name": "Pearl Buck",
+    "birthYear": 1892,
+    "deathYear": 1973,
+    "genres": [
+      "Roman"
+    ],
+    "categories": [
+      "Roman Yazarları"
+    ],
+    "literaryMovement": "Amerikan edebiyatı",
+    "suitability": "uygun",
+    "note": "Amerikalı yazar, dünya edebiyatı",
+    "photoUrl": "/authors/a195.jpg"
   }
 ]
