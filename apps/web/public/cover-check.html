@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kapak Kontrol Aracı</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 100;
+    background: #1a1a2e; color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .toolbar h1 { font-size: 18px; font-weight: 700; }
+  .toolbar .stats { font-size: 14px; opacity: 0.8; }
+  .toolbar .stats b { color: #ff6b6b; }
+  .toolbar button {
+    padding: 8px 20px; border: none; border-radius: 6px; font-size: 14px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-save { background: #ff6b6b; color: #fff; }
+  .btn-save:hover { background: #ee5a5a; }
+  .btn-save:disabled { background: #666; cursor: not-allowed; }
+  .btn-clear { background: transparent; color: #fff; border: 1px solid #555 !important; }
+  .btn-clear:hover { border-color: #fff !important; }
+  .btn-filter { background: #333; color: #fff; }
+  .btn-filter.active { background: #ff6b6b; }
+
+  .search-box {
+    padding: 8px 14px; border-radius: 6px; border: 1px solid #444;
+    background: #2a2a3e; color: #fff; font-size: 14px; width: 220px;
+  }
+  .search-box::placeholder { color: #888; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px; padding: 24px;
+  }
+
+  .card {
+    background: #fff; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    cursor: pointer; transition: all 0.2s; position: relative;
+    border: 3px solid transparent;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.15); transform: translateY(-2px); }
+  .card.selected { border-color: #ff6b6b; background: #fff5f5; }
+  .card.selected::after {
+    content: ''; position: absolute; top: 8px; right: 8px;
+    width: 28px; height: 28px; background: #ff6b6b; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 16px; font-weight: 700;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M18.3 5.71a1 1 0 00-1.42 0L12 10.59 7.12 5.71a1 1 0 00-1.42 1.42L10.59 12l-4.88 4.88a1 1 0 101.42 1.42L12 13.41l4.88 4.88a1 1 0 001.42-1.42L13.41 12l4.88-4.88a1 1 0 000-1.41z'/%3E%3C/svg%3E");
+    background-size: 18px; background-repeat: no-repeat; background-position: center;
+  }
+
+  .card-img-wrapper {
+    width: 100%; aspect-ratio: 2/3; background: #f0f0f0;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .card-img-wrapper img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .card-img-wrapper .placeholder {
+    font-size: 32px; font-weight: 700; color: #ccc;
+  }
+
+  .card-info { padding: 8px 10px; }
+  .card-info .title { font-size: 12px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-info .author { font-size: 11px; color: #888; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-info .meta { font-size: 10px; color: #bbb; margin-top: 2px; }
+
+  .empty { text-align: center; padding: 60px; color: #999; font-size: 18px; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>Kapak Kontrol</h1>
+  <input class="search-box" type="text" placeholder="Kitap ara..." id="search">
+  <button class="btn-filter active" data-filter="all">Tümü (<span id="count-all">0</span>)</button>
+  <button class="btn-filter" data-filter="selected">Bozuk (<span id="count-selected">0</span>)</button>
+  <div style="flex:1"></div>
+  <span class="stats">Seçili: <b id="selected-count">0</b></span>
+  <button class="btn-clear" id="btn-clear">Temizle</button>
+  <button class="btn-save" id="btn-save" disabled>Kaydet</button>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty" style="display:none">Sonuç bulunamadı</div>
+
+<script>
+let books = [];
+let selected = new Set();
+let filter = 'all';
+let searchTerm = '';
+
+// Load saved selections from localStorage
+function loadSaved() {
+  try {
+    const saved = localStorage.getItem('broken_covers');
+    if (saved) {
+      const arr = JSON.parse(saved);
+      arr.forEach(id => selected.add(id));
+    }
+  } catch {}
+}
+
+// Save to localStorage + file
+function save() {
+  const list = books.filter(b => selected.has(b.id)).map(b => ({
+    id: b.id,
+    fname: b.coverImageUrl ? b.coverImageUrl.split('/').pop() : b.id + '.jpg',
+    title: b.title,
+    author: (b.authors || [])[0] || ''
+  }));
+  localStorage.setItem('broken_covers', JSON.stringify([...selected]));
+
+  // Save as downloadable JSON
+  const blob = new Blob([JSON.stringify(list, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'broken_covers.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function updateCounts() {
+  document.getElementById('count-all').textContent = books.length;
+  document.getElementById('count-selected').textContent = selected.size;
+  document.getElementById('selected-count').textContent = selected.size;
+  document.getElementById('btn-save').disabled = selected.size === 0;
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+
+  let filtered = books;
+  if (filter === 'selected') filtered = filtered.filter(b => selected.has(b.id));
+  if (searchTerm) {
+    const s = searchTerm.toLowerCase();
+    filtered = filtered.filter(b =>
+      b.title.toLowerCase().includes(s) ||
+      (b.authors || []).some(a => a.toLowerCase().includes(s)) ||
+      b.id.includes(s)
+    );
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = filtered.map(b => {
+    const isSelected = selected.has(b.id);
+    const coverUrl = b.coverImageUrl ? b.coverImageUrl + '?v=' + Date.now() : '';
+    const author = (b.authors || [])[0] || '';
+    return `
+      <div class="card ${isSelected ? 'selected' : ''}" data-id="${b.id}">
+        <div class="card-img-wrapper">
+          ${coverUrl
+            ? `<img src="${coverUrl}" alt="${b.title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=placeholder>?</div>'">`
+            : `<div class="placeholder">${b.title.charAt(0)}</div>`
+          }
+        </div>
+        <div class="card-info">
+          <div class="title">${b.title}</div>
+          <div class="author">${author}</div>
+          <div class="meta">${b.id} ${b.coverImageUrl ? '| ' + b.coverImageUrl.split('/').pop() : ''}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  updateCounts();
+}
+
+// Events
+document.getElementById('grid').addEventListener('click', e => {
+  const card = e.target.closest('.card');
+  if (!card) return;
+  const id = card.dataset.id;
+  if (selected.has(id)) selected.delete(id);
+  else selected.add(id);
+  card.classList.toggle('selected');
+  localStorage.setItem('broken_covers', JSON.stringify([...selected]));
+  updateCounts();
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchTerm = e.target.value;
+  render();
+});
+
+document.querySelectorAll('.btn-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filter = btn.dataset.filter;
+    render();
+  });
+});
+
+document.getElementById('btn-save').addEventListener('click', save);
+document.getElementById('btn-clear').addEventListener('click', () => {
+  selected.clear();
+  localStorage.removeItem('broken_covers');
+  render();
+});
+
+// Load data
+fetch('/data/books.json')
+  .then(r => r.ok ? r.json() : fetch('/src/data/books.json').then(r2 => r2.json()))
+  .then(data => {
+    books = Array.isArray(data) ? data : [];
+    loadSaved();
+    render();
+  })
+  .catch(() => {
+    document.getElementById('empty').textContent = 'books.json yüklenemedi';
+    document.getElementById('empty').style.display = 'block';
+  });
+</script>
+</body>
+</html>
