@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yazar Fotoğraf İnceleme</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f1a; color: #e0e0e0; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 100;
+    background: #1a1a2e; padding: 14px 24px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #e74c3c;
+  }
+  .toolbar h1 { font-size: 18px; font-weight: 700; color: #e74c3c; }
+  .toolbar .stats { font-size: 14px; opacity: 0.7; }
+  .toolbar .stats b { color: #e74c3c; }
+  .toolbar button {
+    padding: 8px 20px; border: none; border-radius: 6px; font-size: 13px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-ok { background: #27ae60; color: #fff; }
+  .btn-ok:hover { background: #219a52; }
+  .btn-bad { background: #e74c3c; color: #fff; }
+  .btn-bad:hover { background: #c0392b; }
+  .btn-copy { background: #3498db; color: #fff; }
+  .btn-copy:hover { background: #2980b9; }
+  .btn-filter { background: #333; color: #fff; }
+  .btn-filter.active { background: #e74c3c; }
+  .btn-clear { background: transparent; color: #fff; border: 1px solid #555 !important; }
+  .btn-clear:hover { border-color: #fff !important; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; padding: 24px;
+  }
+
+  .card {
+    background: #1e1e30; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: all 0.2s; border: 3px solid #2a2a40;
+    cursor: pointer; position: relative;
+  }
+  .card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.4); transform: translateY(-2px); }
+  .card.ok { border-color: #27ae60; }
+  .card.bad { border-color: #e74c3c; }
+
+  .card.ok .badge-status,
+  .card.bad .badge-status { display: flex; }
+  .badge-status {
+    display: none; position: absolute; top: 8px; right: 8px;
+    width: 28px; height: 28px; border-radius: 50%;
+    align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: #fff; z-index: 5;
+  }
+  .card.ok .badge-status { background: #27ae60; }
+  .card.bad .badge-status { background: #e74c3c; }
+
+  .badge-id {
+    position: absolute; top: 8px; left: 8px; z-index: 5;
+    background: rgba(0,0,0,0.7); color: #fff; font-size: 11px; font-weight: 600;
+    padding: 3px 8px; border-radius: 4px;
+  }
+
+  .card-img-wrapper {
+    width: 100%; aspect-ratio: 1/1; background: #15152a;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+  .card-img-wrapper .placeholder { font-size: 48px; font-weight: 700; color: #333; }
+
+  .card-info { padding: 10px 12px; }
+  .card-info .name { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+  .card-info .file { font-size: 10px; color: #555; font-family: monospace; }
+
+  .card-actions {
+    display: flex; gap: 6px; padding: 0 12px 10px;
+  }
+  .card-actions button {
+    flex: 1; padding: 6px; border: none; border-radius: 5px;
+    font-size: 11px; font-weight: 600; cursor: pointer; transition: all 0.15s;
+  }
+  .card-actions .btn-a-ok { background: #1a3a2a; color: #27ae60; }
+  .card-actions .btn-a-ok:hover { background: #27ae60; color: #fff; }
+  .card-actions .btn-a-bad { background: #3a1a1a; color: #e74c3c; }
+  .card-actions .btn-a-bad:hover { background: #e74c3c; color: #fff; }
+
+  .empty { text-align: center; padding: 60px; color: #555; font-size: 18px; display: none; }
+
+  .toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #27ae60; color: #fff; padding: 12px 28px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 200;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>Yazar Foto İnceleme</h1>
+  <span class="stats">Toplam: <b id="count-total">0</b></span>
+  <span class="stats">OK: <span style="color:#27ae60;font-weight:700" id="count-ok">0</span></span>
+  <span class="stats">Bozuk: <b id="count-bad">0</b></span>
+  <span class="stats">Bekleyen: <span style="color:#f39c12;font-weight:700" id="count-pending">0</span></span>
+  <div style="flex:1"></div>
+  <button class="btn-filter active" data-filter="all">Tümü</button>
+  <button class="btn-filter" data-filter="ok">OK</button>
+  <button class="btn-filter" data-filter="bad">Bozuk</button>
+  <button class="btn-filter" data-filter="pending">Bekleyen</button>
+  <button class="btn-copy" id="btn-copy-bad">Bozukları Kopyala</button>
+  <button class="btn-clear" id="btn-reset">Sıfırla</button>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">Veri yüklenemedi</div>
+<div class="toast" id="toast"></div>
+
+<script>
+let authors = [];
+let votes = {}; // id → 'ok' | 'bad'
+let filter = 'all';
+
+function loadVotes() {
+  try {
+    const s = localStorage.getItem('author_review_votes');
+    if (s) votes = JSON.parse(s);
+  } catch {}
+}
+
+function saveVotes() {
+  localStorage.setItem('author_review_votes', JSON.stringify(votes));
+}
+
+function showToast(msg, color) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = color || '#27ae60';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function updateCounts() {
+  const okCount = Object.values(votes).filter(v => v === 'ok').length;
+  const badCount = Object.values(votes).filter(v => v === 'bad').length;
+  document.getElementById('count-total').textContent = authors.length;
+  document.getElementById('count-ok').textContent = okCount;
+  document.getElementById('count-bad').textContent = badCount;
+  document.getElementById('count-pending').textContent = authors.length - okCount - badCount;
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  let list = authors;
+
+  if (filter === 'ok') list = list.filter(a => votes[a.id] === 'ok');
+  else if (filter === 'bad') list = list.filter(a => votes[a.id] === 'bad');
+  else if (filter === 'pending') list = list.filter(a => !votes[a.id]);
+
+  if (!list.length) {
+    grid.innerHTML = '';
+    document.getElementById('empty').style.display = 'block';
+    document.getElementById('empty').textContent = 'Bu filtrede sonuç yok';
+    return;
+  }
+  document.getElementById('empty').style.display = 'none';
+
+  grid.innerHTML = list.map(a => {
+    const v = votes[a.id] || '';
+    const photoUrl = a.photoUrl ? a.photoUrl + '?v=' + Date.now() : '';
+    const fileName = a.photoUrl ? a.photoUrl.split('/').pop() : 'yok';
+    return `
+      <div class="card ${v}" data-id="${a.id}">
+        <span class="badge-id">${a.id}</span>
+        <span class="badge-status">${v === 'ok' ? '&#10003;' : v === 'bad' ? '&#10005;' : ''}</span>
+        <div class="card-img-wrapper">
+          ${photoUrl
+            ? `<img src="${photoUrl}" alt="${a.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=placeholder>?</div>'">`
+            : `<div class="placeholder">?</div>`
+          }
+        </div>
+        <div class="card-info">
+          <div class="name">${a.name}</div>
+          <div class="file">${fileName}</div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-a-ok" onclick="event.stopPropagation(); vote('${a.id}','ok')">OK</button>
+          <button class="btn-a-bad" onclick="event.stopPropagation(); vote('${a.id}','bad')">Bozuk</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  updateCounts();
+}
+
+function vote(id, status) {
+  if (votes[id] === status) {
+    delete votes[id]; // toggle off
+  } else {
+    votes[id] = status;
+  }
+  saveVotes();
+  render();
+}
+
+// Toolbar filters
+document.querySelectorAll('.btn-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filter = btn.dataset.filter;
+    render();
+  });
+});
+
+// Copy bad list
+document.getElementById('btn-copy-bad').addEventListener('click', () => {
+  const badList = authors
+    .filter(a => votes[a.id] === 'bad')
+    .map(a => `${a.id}: ${a.name}`)
+    .join('\n');
+  if (!badList) { showToast('Bozuk olarak isaretlenen yok', '#e74c3c'); return; }
+  navigator.clipboard.writeText(badList).then(() => {
+    showToast(`${badList.split('\n').length} bozuk yazar kopyalandi!`, '#3498db');
+  });
+});
+
+// Reset
+document.getElementById('btn-reset').addEventListener('click', () => {
+  if (!confirm('Tum oylar silinsin mi?')) return;
+  votes = {};
+  localStorage.removeItem('author_review_votes');
+  render();
+});
+
+// Load
+fetch('/broken_authors.json')
+  .then(r => r.ok ? r.json() : fetch('../broken_authors.json').then(r2 => r2.json()))
+  .then(list => {
+    authors = list;
+    loadVotes();
+    render();
+  })
+  .catch(() => {
+    document.getElementById('empty').style.display = 'block';
+  });
+</script>
+</body>
+</html>

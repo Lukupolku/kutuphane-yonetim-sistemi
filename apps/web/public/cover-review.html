@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bozuk Kapak İnceleme</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 100;
+    background: #1a1a2e; color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .toolbar h1 { font-size: 18px; font-weight: 700; color: #ff6b6b; }
+  .toolbar .stats { font-size: 14px; opacity: 0.8; }
+  .toolbar button {
+    padding: 8px 20px; border: none; border-radius: 6px; font-size: 14px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-primary { background: #ff6b6b; color: #fff; }
+  .btn-primary:hover { background: #ee5a5a; }
+  .btn-secondary { background: transparent; color: #fff; border: 1px solid #555 !important; }
+  .btn-secondary:hover { border-color: #fff !important; }
+  .btn-ok { background: #51cf66; color: #fff; }
+  .btn-ok:hover { background: #40c057; }
+
+  .upload-area {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 80px 24px; text-align: center;
+  }
+  .upload-area h2 { font-size: 24px; margin-bottom: 8px; }
+  .upload-area p { color: #888; margin-bottom: 24px; }
+  .upload-area label {
+    padding: 14px 32px; background: #ff6b6b; color: #fff; border-radius: 8px;
+    font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .upload-area label:hover { background: #ee5a5a; }
+  .upload-area input[type="file"] { display: none; }
+  .upload-area .or { color: #aaa; margin: 16px 0; }
+  .upload-area .auto-msg { color: #51cf66; font-weight: 600; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px; padding: 24px;
+  }
+
+  .card {
+    background: #fff; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    transition: all 0.2s; position: relative;
+    border: 3px solid #ff6b6b;
+  }
+  .card.ok { border-color: #51cf66; opacity: 0.5; }
+  .card.ok .card-actions .btn-mark-ok { display: none; }
+  .card.ok .card-actions .btn-mark-bad { display: inline-block; }
+  .card:not(.ok) .card-actions .btn-mark-bad { display: none; }
+
+  .card-img-wrapper {
+    width: 100%; aspect-ratio: 2/3; background: #f0f0f0;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; cursor: pointer;
+  }
+  .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+  .card-img-wrapper .placeholder { font-size: 32px; font-weight: 700; color: #ccc; }
+
+  .card-info { padding: 8px 10px; }
+  .card-info .title { font-size: 12px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .card-info .author { font-size: 11px; color: #888; margin-top: 2px; }
+  .card-info .meta { font-size: 10px; color: #bbb; margin-top: 2px; }
+
+  .card-actions { padding: 6px 10px 10px; display: flex; gap: 6px; }
+  .card-actions button {
+    flex: 1; padding: 6px; border: none; border-radius: 4px;
+    font-size: 11px; font-weight: 600; cursor: pointer;
+  }
+  .btn-mark-ok { background: #51cf66; color: #fff; }
+  .btn-mark-bad { background: #ff6b6b; color: #fff; }
+
+  .summary {
+    background: #fff; margin: 24px; padding: 20px; border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .summary h3 { margin-bottom: 8px; }
+  .summary .count { font-size: 28px; font-weight: 700; }
+  .summary .count.bad { color: #ff6b6b; }
+  .summary .count.good { color: #51cf66; }
+
+  .modal {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.85); align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+  .modal.show { display: flex; }
+  .modal img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>Bozuk Kapak İnceleme</h1>
+  <span class="stats" id="stats"></span>
+  <div style="flex:1"></div>
+  <button class="btn-secondary" id="btn-all-ok">Hepsini Onayla</button>
+  <button class="btn-primary" id="btn-save">Sonucu Kaydet</button>
+</div>
+
+<div id="upload-area" class="upload-area">
+  <h2>broken_covers.json Yükle</h2>
+  <p>cover-check.html'den indirdiğin dosyayı yükle veya otomatik yüklenecek</p>
+  <label for="file-input">Dosya Seç</label>
+  <input type="file" id="file-input" accept=".json">
+  <div class="or">veya</div>
+  <p class="auto-msg" id="auto-msg" style="display:none"></p>
+</div>
+
+<div id="content" style="display:none">
+  <div class="summary" style="display:flex; gap: 40px; align-items: center;">
+    <div>
+      <div>Toplam</div>
+      <div class="count" id="total-count">0</div>
+    </div>
+    <div>
+      <div>Hala Bozuk</div>
+      <div class="count bad" id="bad-count">0</div>
+    </div>
+    <div>
+      <div>Onaylanan</div>
+      <div class="count good" id="good-count">0</div>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="modal" id="modal">
+  <img id="modal-img" src="">
+</div>
+
+<script>
+let items = [];
+let okSet = new Set();
+
+function loadFromStorage() {
+  try {
+    const saved = localStorage.getItem('cover_review_ok');
+    if (saved) JSON.parse(saved).forEach(id => okSet.add(id));
+  } catch {}
+}
+
+function saveToStorage() {
+  localStorage.setItem('cover_review_ok', JSON.stringify([...okSet]));
+}
+
+function updateStats() {
+  const bad = items.length - okSet.size;
+  const good = okSet.size;
+  document.getElementById('total-count').textContent = items.length;
+  document.getElementById('bad-count').textContent = bad;
+  document.getElementById('good-count').textContent = good;
+  document.getElementById('stats').innerHTML = `Bozuk: <b style="color:#ff6b6b">${bad}</b> | Onaylanan: <b style="color:#51cf66">${good}</b>`;
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  // Show bad ones first, then ok ones
+  const sorted = [...items].sort((a, b) => {
+    const aOk = okSet.has(a.id) ? 1 : 0;
+    const bOk = okSet.has(b.id) ? 1 : 0;
+    return aOk - bOk;
+  });
+
+  grid.innerHTML = sorted.map(b => {
+    const isOk = okSet.has(b.id);
+    const coverUrl = '/covers/' + b.fname + '?v=' + Date.now();
+    return `
+      <div class="card ${isOk ? 'ok' : ''}" data-id="${b.id}">
+        <div class="card-img-wrapper" data-fname="${b.fname}">
+          <img src="${coverUrl}" alt="${b.title}" loading="lazy"
+               onerror="this.parentElement.innerHTML='<div class=placeholder>?</div>'">
+        </div>
+        <div class="card-info">
+          <div class="title">${b.title}</div>
+          <div class="author">${b.author || ''}</div>
+          <div class="meta">${b.id} | ${b.fname}</div>
+        </div>
+        <div class="card-actions">
+          <button class="btn-mark-ok" data-action="ok">Doğru ✓</button>
+          <button class="btn-mark-bad" data-action="bad">Bozuk ✗</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+  updateStats();
+}
+
+function loadData(data) {
+  items = data;
+  loadFromStorage();
+  document.getElementById('upload-area').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+  render();
+}
+
+// File upload
+document.getElementById('file-input').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try { loadData(JSON.parse(reader.result)); }
+    catch { alert('JSON parse hatası'); }
+  };
+  reader.readAsText(file);
+});
+
+// Auto-load from localStorage (cover-check.html saves here)
+try {
+  const saved = localStorage.getItem('broken_covers');
+  if (saved) {
+    const ids = JSON.parse(saved);
+    if (ids.length > 0) {
+      // Load full book data
+      fetch('/data/books.json')
+        .then(r => r.json())
+        .then(books => {
+          const idSet = new Set(ids);
+          const broken = books.filter(b => idSet.has(b.id)).map(b => ({
+            id: b.id,
+            fname: b.coverImageUrl ? b.coverImageUrl.split('/').pop() : b.id + '.jpg',
+            title: b.title,
+            author: (b.authors || [])[0] || ''
+          }));
+          if (broken.length > 0) {
+            document.getElementById('auto-msg').style.display = 'block';
+            document.getElementById('auto-msg').textContent = `${broken.length} bozuk kapak bulundu (cover-check'ten). Otomatik yükleniyor...`;
+            setTimeout(() => loadData(broken), 1000);
+          }
+        });
+    }
+  }
+} catch {}
+
+// Card actions
+document.getElementById('grid').addEventListener('click', e => {
+  const btn = e.target.closest('[data-action]');
+  if (btn) {
+    const card = btn.closest('.card');
+    const id = card.dataset.id;
+    if (btn.dataset.action === 'ok') {
+      okSet.add(id);
+      card.classList.add('ok');
+    } else {
+      okSet.delete(id);
+      card.classList.remove('ok');
+    }
+    saveToStorage();
+    updateStats();
+    return;
+  }
+
+  // Click on image to enlarge
+  const imgWrapper = e.target.closest('.card-img-wrapper');
+  if (imgWrapper) {
+    const img = imgWrapper.querySelector('img');
+    if (img) {
+      document.getElementById('modal-img').src = img.src;
+      document.getElementById('modal').classList.add('show');
+    }
+  }
+});
+
+// Modal close
+document.getElementById('modal').addEventListener('click', () => {
+  document.getElementById('modal').classList.remove('show');
+});
+
+// All OK
+document.getElementById('btn-all-ok').addEventListener('click', () => {
+  items.forEach(b => okSet.add(b.id));
+  saveToStorage();
+  render();
+});
+
+// Save result
+document.getElementById('btn-save').addEventListener('click', () => {
+  const stillBad = items.filter(b => !okSet.has(b.id));
+  const blob = new Blob([JSON.stringify(stillBad, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'broken_covers.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+</script>
+</body>
+</html>

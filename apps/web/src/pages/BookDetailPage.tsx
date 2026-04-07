@@ -3,12 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, School, BookCopy, BookX, MapPin } from 'lucide-react';
 import { api } from '../services/api';
 import { SchoolHoldingsList } from '../components/SchoolHoldingsList';
-import type { BookWithHoldings, HoldingWithSchool } from '../types';
+import type { BookWithHoldings, HoldingWithSchool, Author } from '../types';
 
 export function BookDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [data, setData] = useState<BookWithHoldings | null>(null);
+  const [authorInfo, setAuthorInfo] = useState<Author | null>(null);
   const [loading, setLoading] = useState(true);
   const [filterProvince, setFilterProvince] = useState('');
   const [filterDistrict, setFilterDistrict] = useState('');
@@ -16,8 +17,12 @@ export function BookDetailPage() {
   useEffect(() => {
     if (!id) return;
     setLoading(true);
-    api.getBookWithHoldings(id).then(result => {
+    api.getBookWithHoldings(id).then(async result => {
       setData(result);
+      if (result) {
+        const author = await api.getAuthorByName(result.book.authors[0]);
+        setAuthorInfo(author);
+      }
       setLoading(false);
     });
   }, [id]);
@@ -96,9 +101,36 @@ export function BookDetailPage() {
       </button>
 
       <div className="book-detail-card">
-        <div className="book-detail-header">
-          <h1 className="book-detail-title">{book.title}</h1>
-          <p className="book-detail-author">{book.authors.join(', ')}</p>
+        <div className="book-detail-header" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+          {book.coverImageUrl ? (
+            <img
+              src={book.coverImageUrl}
+              alt={book.title}
+              style={{ width: 120, borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.15)', flexShrink: 0 }}
+            />
+          ) : (
+            <div style={{ width: 120, height: 170, borderRadius: 8, background: 'linear-gradient(135deg, #8b1a2b, #c0392b)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 36, fontWeight: 700, flexShrink: 0 }}>
+              {book.title.charAt(0)}
+            </div>
+          )}
+          <div>
+            <h1 className="book-detail-title">{book.title}</h1>
+            <p className="book-detail-author">
+              <span
+                style={{ cursor: 'pointer', textDecoration: 'underline', textDecorationColor: 'rgba(139,26,43,0.3)' }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (authorInfo) {
+                    navigate(`/authors/${authorInfo.id}`);
+                  } else {
+                    navigate(`/authors/by-name/${encodeURIComponent(book.authors[0])}`);
+                  }
+                }}
+              >
+                {book.authors.join(', ')}
+              </span>
+            </p>
+          </div>
         </div>
         <div className="book-detail-meta">
           {book.isbn && (

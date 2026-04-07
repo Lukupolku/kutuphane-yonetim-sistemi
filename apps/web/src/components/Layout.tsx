@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Search, GitCompareArrows, ShieldCheck, User, LogOut, X, Menu } from 'lucide-react';
+import { LayoutDashboard, Search, GitCompareArrows, ShieldCheck, User, LogOut, X, Menu, Users } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const roleLabels = {
@@ -25,6 +25,7 @@ export function Layout() {
   const navItems = [
     { path: '/', label: 'Genel Bakış', icon: LayoutDashboard },
     { path: '/search', label: 'Kitap Kataloğu', icon: Search },
+    { path: '/authors', label: 'Yazarlar', icon: Users },
     ...(user?.role !== 'school' ? [{ path: '/compare', label: 'Karşılaştırma', icon: GitCompareArrows }] : []),
   ];
 

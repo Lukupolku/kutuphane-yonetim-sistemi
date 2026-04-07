@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yazar Fotoğraf Kontrol</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; color: #333; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 100;
+    background: #1a1a2e; color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .toolbar h1 { font-size: 18px; font-weight: 700; }
+  .toolbar .stats { font-size: 14px; opacity: 0.8; }
+  .toolbar .stats b { color: #e74c3c; }
+  .toolbar button {
+    padding: 8px 20px; border: none; border-radius: 6px; font-size: 14px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-save { background: #e74c3c; color: #fff; }
+  .btn-save:hover { background: #c0392b; }
+  .btn-save:disabled { background: #666; cursor: not-allowed; }
+  .btn-clear { background: transparent; color: #fff; border: 1px solid #555 !important; }
+  .btn-clear:hover { border-color: #fff !important; }
+  .btn-filter { background: #333; color: #fff; }
+  .btn-filter.active { background: #e74c3c; }
+
+  .search-box {
+    padding: 8px 14px; border-radius: 6px; border: 1px solid #444;
+    background: #2a2a3e; color: #fff; font-size: 14px; width: 220px;
+  }
+  .search-box::placeholder { color: #888; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px; padding: 24px;
+  }
+
+  .card {
+    background: #fff; border-radius: 10px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    cursor: pointer; transition: all 0.2s; position: relative;
+    border: 3px solid transparent;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.15); transform: translateY(-2px); }
+  .card.selected { border-color: #e74c3c; background: #fef5f5; }
+  .card.selected::after {
+    content: ''; position: absolute; top: 8px; right: 8px;
+    width: 28px; height: 28px; background: #e74c3c; border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M18.3 5.71a1 1 0 00-1.42 0L12 10.59 7.12 5.71a1 1 0 00-1.42 1.42L10.59 12l-4.88 4.88a1 1 0 101.42 1.42L12 13.41l4.88 4.88a1 1 0 001.42-1.42L13.41 12l4.88-4.88a1 1 0 000-1.41z'/%3E%3C/svg%3E");
+    background-size: 18px; background-repeat: no-repeat; background-position: center;
+  }
+
+  .card-img-wrapper {
+    width: 100%; aspect-ratio: 1/1; background: #f0f0f0;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .card-img-wrapper img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .card-img-wrapper .placeholder {
+    font-size: 40px; font-weight: 700; color: #ccc;
+  }
+  .card-img-wrapper .no-photo {
+    font-size: 12px; color: #999; text-align: center; padding: 10px;
+  }
+
+  .card-info { padding: 10px 12px; }
+  .card-info .name { font-size: 13px; font-weight: 600; line-height: 1.3; }
+  .card-info .meta { font-size: 11px; color: #888; margin-top: 3px; }
+  .card-info .movement { font-size: 10px; color: #aaa; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card-info .id-tag { font-size: 10px; color: #bbb; margin-top: 2px; }
+
+  .empty { text-align: center; padding: 60px; color: #999; font-size: 18px; }
+
+  .copy-toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #2d3436; color: #fff; padding: 12px 24px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 200;
+  }
+  .copy-toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <h1>Yazar Foto Kontrol</h1>
+  <input class="search-box" type="text" placeholder="Yazar ara..." id="search">
+  <button class="btn-filter active" data-filter="all">Tumü (<span id="count-all">0</span>)</button>
+  <button class="btn-filter" data-filter="selected">Bozuk (<span id="count-selected">0</span>)</button>
+  <button class="btn-filter" data-filter="no-photo">Fotosuz (<span id="count-nophoto">0</span>)</button>
+  <div style="flex:1"></div>
+  <span class="stats">Secili: <b id="selected-count">0</b></span>
+  <button class="btn-clear" id="btn-copy">Listeyi Kopyala</button>
+  <button class="btn-clear" id="btn-clear">Temizle</button>
+  <button class="btn-save" id="btn-save" disabled>Kaydet</button>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty" style="display:none">Sonuç bulunamadı</div>
+<div class="copy-toast" id="toast">Liste panoya kopyalandı!</div>
+
+<script>
+let authors = [];
+let selected = new Set();
+let filter = 'all';
+let searchTerm = '';
+
+function loadSaved() {
+  try {
+    const saved = localStorage.getItem('broken_authors');
+    if (saved) JSON.parse(saved).forEach(id => selected.add(id));
+  } catch {}
+}
+
+function save() {
+  const list = authors.filter(a => selected.has(a.id)).map(a => ({
+    id: a.id,
+    name: a.name,
+    photoUrl: a.photoUrl || null
+  }));
+  localStorage.setItem('broken_authors', JSON.stringify([...selected]));
+  const blob = new Blob([JSON.stringify(list, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'broken_authors.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function copyList() {
+  const list = authors
+    .filter(a => selected.has(a.id))
+    .map(a => `${a.id}: ${a.name}`)
+    .join('\n');
+  navigator.clipboard.writeText(list).then(() => {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  });
+}
+
+function updateCounts() {
+  const noPhoto = authors.filter(a => !a.photoUrl).length;
+  document.getElementById('count-all').textContent = authors.length;
+  document.getElementById('count-selected').textContent = selected.size;
+  document.getElementById('count-nophoto').textContent = noPhoto;
+  document.getElementById('selected-count').textContent = selected.size;
+  document.getElementById('btn-save').disabled = selected.size === 0;
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+
+  let filtered = authors;
+  if (filter === 'selected') filtered = filtered.filter(a => selected.has(a.id));
+  if (filter === 'no-photo') filtered = filtered.filter(a => !a.photoUrl);
+  if (searchTerm) {
+    const s = searchTerm.toLowerCase();
+    filtered = filtered.filter(a =>
+      a.name.toLowerCase().includes(s) ||
+      a.id.includes(s) ||
+      (a.literaryMovement || '').toLowerCase().includes(s) ||
+      (a.genres || []).some(g => g.toLowerCase().includes(s))
+    );
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = filtered.map(a => {
+    const isSelected = selected.has(a.id);
+    const photoUrl = a.photoUrl ? a.photoUrl + '?v=' + Date.now() : '';
+    const years = a.birthYear ? `${a.birthYear}–${a.deathYear || '...'}` : '';
+    return `
+      <div class="card ${isSelected ? 'selected' : ''}" data-id="${a.id}">
+        <div class="card-img-wrapper">
+          ${photoUrl
+            ? `<img src="${photoUrl}" alt="${a.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=placeholder>?</div>'">`
+            : `<div class="no-photo">Fotoğraf yok</div>`
+          }
+        </div>
+        <div class="card-info">
+          <div class="name">${a.name}</div>
+          <div class="meta">${years} ${(a.genres || []).slice(0,2).join(', ')}</div>
+          <div class="movement">${a.literaryMovement || ''}</div>
+          <div class="id-tag">${a.id}${a.photoUrl ? ' | ' + a.photoUrl.split('/').pop() : ''}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  updateCounts();
+}
+
+// Events
+document.getElementById('grid').addEventListener('click', e => {
+  const card = e.target.closest('.card');
+  if (!card) return;
+  const id = card.dataset.id;
+  if (selected.has(id)) selected.delete(id);
+  else selected.add(id);
+  card.classList.toggle('selected');
+  localStorage.setItem('broken_authors', JSON.stringify([...selected]));
+  updateCounts();
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchTerm = e.target.value;
+  render();
+});
+
+document.querySelectorAll('.btn-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filter = btn.dataset.filter;
+    render();
+  });
+});
+
+document.getElementById('btn-save').addEventListener('click', save);
+document.getElementById('btn-copy').addEventListener('click', copyList);
+document.getElementById('btn-clear').addEventListener('click', () => {
+  selected.clear();
+  localStorage.removeItem('broken_authors');
+  render();
+});
+
+// Load data
+fetch('/src/data/authors.json')
+  .then(r => r.ok ? r.json() : fetch('/data/authors.json').then(r2 => r2.json()))
+  .then(data => {
+    authors = Array.isArray(data) ? data : [];
+    loadSaved();
+    render();
+  })
+  .catch(() => {
+    document.getElementById('empty').textContent = 'authors.json yüklenemedi';
+    document.getElementById('empty').style.display = 'block';
+  });
+</script>
+</body>
+</html>
